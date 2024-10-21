@@ -1,0 +1,61 @@
+{
+  "app": {
+    "name": "NDA"
+  },
+  "loading": "Loading...",
+  "appBar": {
+    "lang": "Change language",
+    "chat": "Chat",
+    "notify": "Alerts",
+    "profile": "Profile",
+    "logout": "Logout",
+    "theme": "Theme"
+  },
+  "otp": {
+    "2fa_setup": "Setup Two-Factor Authentication",
+    "token": "Token",
+    "verify_token": "Verify token",
+    "success": "Two-factor authentication has been successfully set up for your account.",
+    "complete": "TOTP Setup Complete",
+    "errors": {
+      "failed": "Failed to setup TOTP",
+      "invalid_token": "Invalid token"
+    },
+    "validation": {
+      "required": "Token is required",
+      "min_length": "Token must be 6 digits"
+    }
+  },
+  "login": {
+    "title": "Sign in",
+    "username": "Username",
+    "password": "Password",
+    "signIn": "Sign In",
+    "otp": "OTP token",
+    "validation": {
+      "username_required": "Username is required",
+      "password_required": "Password is required",
+      "otp_required": "OTP is required. Please enter the OTP.",
+      "error": "An error occurred"
+    }
+  },
+  "pages": {
+    "dashboard": "Home",
+    "system": "System",
+    "users": "Users",
+    "groups": "Groups",
+    "permissions": "Permissions",
+    "settings": "Settings"
+  },
+  "errors": {
+    "401": "Authorization error.",
+    "400": "Connection server error.",
+    "404": "Not found.",
+    "403": "You do not have permission to do this action.",
+    "default": "Undefined error. Check logs."
+  },
+  "confirmWindow": {
+    "ok": "Ok",
+    "cancel": "Cancel"
+  }
+}

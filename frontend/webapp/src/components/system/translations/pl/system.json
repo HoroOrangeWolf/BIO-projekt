@@ -1,0 +1,35 @@
+{
+  "user": {
+    "first_name": "Imię",
+    "last_name": "Nazwisko",
+    "username": "Nazwa użytkownika",
+    "email": "Adres email",
+    "is_active": "Aktywny",
+    "password": "Hasło",
+    "confirm_password": "Potwierdź hasło",
+    "actions": {
+      "edit_groups": "Edytuj grupy",
+      "lock": "Zablokuj/Odblokuj",
+      "edit": "Edytuj",
+      "delete": "Usuń",
+      "add_user": "Dodaj użytkownika",
+      "save": "Zapisz",
+      "cancel": "Anuluj"
+    }
+  },
+  "group": {
+    "name": "Nazwa",
+    "actions": {
+      "add": "Dodaj nową grupę",
+      "permission_edit": "Edytuj uprawnienia",
+      "edit": "Edytuj",
+      "delete": "Usuń",
+      "save": "Zapisz",
+      "cancel": "Anuluj"
+    }
+  },
+  "permission": {
+    "name": "Nazwa",
+    "code_name": "Kod"
+  }
+}

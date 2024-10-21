@@ -1,0 +1,43 @@
+{
+  "app": {
+    "name": "NDA"
+  },
+  "loading": "Ładowanie...",
+  "appBar": {
+    "lang": "Zmień język",
+    "chat": "Czat",
+    "notify": "Powiadomienia",
+    "profile": "Profil",
+    "logout": "Wyloguj",
+    "theme": "Motyw"
+  },
+  "login": {
+    "title": "Logowanie",
+    "username": "Nazwa użytkownika",
+    "password": "Hasło",
+    "signIn": "Zaloguj",
+    "changePassword": "Zmień hasło",
+    "confirmNewPassword": "Potwierdź nowe hasło",
+    "newPassword": "Nowe hasło",
+    "oldPassword": "Stare hasło"
+  },
+  "pages": {
+    "dashboard": "Strona główna",
+    "system": "System",
+    "users": "Użytkownicy",
+    "groups": "Grupy",
+    "permissions": "Uprawnienia",
+    "settings": "Ustawienia"
+  },
+  "errors": {
+    "401": "Brak autoryzacji.",
+    "400": "Nie można nawiązać połączenia z serwerem.",
+    "404": "Nie znaleziono.",
+    "403": "Nie masz uprawnień do tej czynności.",
+    "default": "Nieznany błąd. Sprawdź logi."
+  },
+  "confirmWindow": {
+    "ok": "Ok",
+    "cancel": "Anuluj"
+  }
+}
