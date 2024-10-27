@@ -1,21 +1,37 @@
 import React, { useState } from 'react';
-import { Drawer, List, ListItem, ListItemIcon, ListItemText, Collapse, IconButton } from '@mui/material';
+import {
+  Drawer, List, ListItem, ListItemIcon, ListItemText, Collapse, IconButton, SvgIconTypeMap,
+} from '@mui/material';
 import { Link } from 'react-router-dom';
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-import {menuConfig} from "../../menuConfig.js";
-import {useTranslation} from "react-i18next";
+import { useTranslation } from 'react-i18next';
+import { OverridableComponent } from '@mui/material/OverridableComponent';
+import { menuConfig } from '../../menuConfig.ts';
 
-function Sidebar({ drawerWidth, isSidebarOpen, toggleSidebar }) {
-  const [openSubmenu, setOpenSubmenu] = useState({});
-  const {t} = useTranslation(["core"]);
+type PropsType = {
+    drawerWidth: number;
+    isSidebarOpen: boolean;
+    toggleSidebar: () => any;
+}
 
-  const handleSubmenuClick = (text) => {
-    setOpenSubmenu(prev => ({ ...prev, [text]: !prev[text] }));
+type ItemType = {
+    text: string;
+    path: string;
+    icon: OverridableComponent<SvgIconTypeMap> & { muiName: string; };
+    children?: ItemType[];
+}
+
+const Sidebar = ({ drawerWidth, isSidebarOpen, toggleSidebar }: PropsType) => {
+  const [openSubmenu, setOpenSubmenu] = useState<{[x: string]: string | boolean}>({});
+  const { t } = useTranslation(['core']);
+
+  const handleSubmenuClick = (text: string) => {
+    setOpenSubmenu((prev) => ({ ...prev, [text]: !prev[text] }));
   };
 
-  const renderMenuItem = (item, depth = 0) => {
+  const renderMenuItem = (item: ItemType, depth = 0) => {
     const Icon = item.icon;
 
     if (item.children) {
@@ -26,9 +42,9 @@ function Sidebar({ drawerWidth, isSidebarOpen, toggleSidebar }) {
             <ListItemText primary={t(`pages.${item.text}`)} />
             {openSubmenu[item.text] ? <ExpandLess /> : <ExpandMore />}
           </ListItem>
-          <Collapse in={openSubmenu[item.text]} timeout="auto" unmountOnExit>
+          <Collapse in={openSubmenu[item.text] as boolean} timeout="auto" unmountOnExit>
             <List component="div" disablePadding>
-              {item.children.map(child => renderMenuItem(child, depth + 1))}
+              {item.children.map((child) => renderMenuItem(child, depth + 1))}
             </List>
           </Collapse>
         </React.Fragment>
@@ -76,10 +92,10 @@ function Sidebar({ drawerWidth, isSidebarOpen, toggleSidebar }) {
         <ChevronRightIcon />
       </IconButton>
       <List sx={{ mt: 5 }}>
-        {menuConfig.map(item => renderMenuItem(item))}
+        {menuConfig.map((item) => renderMenuItem(item as ItemType))}
       </List>
     </Drawer>
   );
-}
+};
 
 export default Sidebar;

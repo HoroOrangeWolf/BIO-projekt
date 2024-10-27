@@ -1,40 +1,47 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import * as yup from 'yup';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { TextField, Button, Typography, Container, Box, Paper } from '@mui/material';
-import { login } from "../services/api.js";
-import { setUser } from "../features/auth/authSlice.js";
+import {
+  TextField, Button, Typography, Container, Box, Paper,
+} from '@mui/material';
 import LockPersonIcon from '@mui/icons-material/LockPerson';
-import { useTranslation } from "react-i18next";
-import {loginSchema, otpSchema} from "../validations/authSchemas.js";
+import { useTranslation } from 'react-i18next';
+import { login } from '@main/components/services/api.ts';
+import { setUser } from '@main/components/features/auth/authSlice.ts';
+import { loginSchema, otpSchema } from '@main/components/validations/authSchemas.ts';
 
-function Login() {
+const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [error, setError] = useState('');
   const [otpRequired, setOtpRequired] = useState(false);
-  const { register, handleSubmit, formState: { errors }, setValue } = useForm({
-    resolver: yupResolver(otpRequired ? otpSchema : loginSchema),
+  const {
+    register, handleSubmit, formState: { errors }, setValue,
+  } = useForm<{
+    username?: string;
+    password?: string;
+    otp?: string;
+  }>({
+    resolver: yupResolver(otpRequired ? otpSchema : loginSchema) as any,
   });
-  const { t } = useTranslation(["core"]);
+  const { t } = useTranslation(['core']);
 
-  const onSubmit = async (data) => {
+  const onSubmit = async (data: any) => {
     try {
       const response = await login(data.username, data.password, data.otp);
       dispatch(setUser(response.data));
       navigate('/');
-    } catch (err) {
-      if (err.response?.data?.detail === "OTP required" && !otpRequired) {
+    } catch (err: any) {
+      if (err.response?.data?.detail === 'OTP required' && !otpRequired) {
         setOtpRequired(true);
-        setError(t("login.validation.otp_required"));
+        setError(t('login.validation.otp_required'));
         // Preserve the entered username and password
         setValue('username', data.username);
         setValue('password', data.password);
       } else {
-        setError(err.response?.data?.detail || t("login.validation.error"));
+        setError(err.response?.data?.detail || t('login.validation.error'));
       }
     }
   };
@@ -57,7 +64,7 @@ function Login() {
           }}
         >
           <Typography component="h1" variant="h5">
-            {t("login.title")}
+            {t('login.title')}
           </Typography>
           <LockPersonIcon fontSize="large" color="inherit" />
           <Box component="form" onSubmit={handleSubmit(onSubmit)} noValidate sx={{ mt: 1, width: '100%' }}>
@@ -66,8 +73,7 @@ function Login() {
               required
               fullWidth
               id="username"
-              label={t("login.username")}
-              name="username"
+              label={t('login.username')}
               autoComplete="username"
               autoFocus
               {...register('username')}
@@ -78,8 +84,7 @@ function Login() {
               margin="normal"
               required
               fullWidth
-              name="password"
-              label={t("login.password")}
+              label={t('login.password')}
               type="password"
               id="password"
               autoComplete="current-password"
@@ -92,8 +97,7 @@ function Login() {
                 margin="normal"
                 required
                 fullWidth
-                name="otp"
-                label={t("login.otp")}
+                label={t('login.otp')}
                 type="text"
                 id="otp"
                 {...register('otp')}
@@ -112,13 +116,13 @@ function Login() {
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
             >
-              {t("login.signIn")}
+              {t('login.signIn')}
             </Button>
           </Box>
         </Box>
       </Container>
     </Box>
   );
-}
+};
 
 export default Login;

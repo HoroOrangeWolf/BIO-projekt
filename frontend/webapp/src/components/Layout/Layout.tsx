@@ -1,12 +1,17 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Outlet } from 'react-router-dom';
 import { Box } from '@mui/material';
-import Sidebar from './Sidebar';
-import AppBar from './AppBar';
+import Sidebar from './Sidebar.js';
+import AppBar from './AppBar.js';
 
 const drawerWidth = 240;
 
-function Layout({ toggleColorMode, changeLanguage }) {
+type PropsType = {
+    toggleColorMode: () => void;
+    changeLanguage: () => void;
+}
+
+const Layout = ({ toggleColorMode, changeLanguage }: PropsType) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
 
   const toggleSidebar = () => {
@@ -46,6 +51,6 @@ function Layout({ toggleColorMode, changeLanguage }) {
       </Box>
     </Box>
   );
-}
+};
 
 export default Layout;

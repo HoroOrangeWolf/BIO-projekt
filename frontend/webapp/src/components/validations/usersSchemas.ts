@@ -8,7 +8,7 @@ export const newUserSchema = yup.object().shape({
   last_name: yup.string().required('Last name is required'),
   password: yup.string().min(8, 'Password must be at least 8 characters').required('Password is required'),
   confirmPassword: yup.string()
-    .oneOf([yup.ref('password'), null], 'Passwords must match')
+    .oneOf([yup.ref('password'), undefined], 'Passwords must match')
     .required('Confirm password is required'),
 });
 
@@ -20,4 +20,5 @@ export const editUserSchema = yup.object().shape({
 
 export const editUserGroupsSchema = yup.object().shape({
   groups: yup.array().of(yup.number()).min(1, 'At least one group must be selected'),
+  id: yup.string(),
 });

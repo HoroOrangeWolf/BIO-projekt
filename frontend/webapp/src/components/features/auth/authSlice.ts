@@ -1,6 +1,5 @@
-// authSlice.js
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { getCurrentUser } from "../../services/api.js";
+import { getCurrentUser } from '../../services/api.ts';
 
 export const fetchCurrentUser = createAsyncThunk(
   'auth/fetchCurrentUser',
@@ -9,9 +8,11 @@ export const fetchCurrentUser = createAsyncThunk(
       const response = await getCurrentUser();
       return response.data;
     } catch (error) {
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-expect-error
       return rejectWithValue(error.response?.data);
     }
-  }
+  },
 );
 
 const initialState = {
@@ -55,6 +56,8 @@ export const authSlice = createSlice({
       })
       .addCase(fetchCurrentUser.rejected, (state, action) => {
         state.status = 'failed';
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-expect-error
         state.error = action.payload;
         state.isAuthenticated = false;
         state.user = null;

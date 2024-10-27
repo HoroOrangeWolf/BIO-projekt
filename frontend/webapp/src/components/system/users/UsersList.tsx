@@ -1,30 +1,29 @@
-import React, {useEffect, useMemo, useState} from "react";
+import { useEffect, useMemo, useState } from 'react';
 import {
   Box,
   Button,
   IconButton,
   Tooltip,
 } from '@mui/material';
-import AccessibleIcon from '@mui/icons-material/Accessible';
-import {useTranslation} from "react-i18next";
-import MaterialTable from "../../utils/MaterialTable.jsx";
-import {getUsers, patchUsers, postUsers} from "../../services/api.js";
-import {AddNewUserModal} from "./components/AddNewUserModal.jsx";
-import {EditUserGroups} from "./components/EditUserGroups.jsx";
-import {editUserSchema} from "../../validations/usersSchemas.js";
+import { useTranslation } from 'react-i18next';
 import GroupIcon from '@mui/icons-material/Group';
 import LockIcon from '@mui/icons-material/Lock';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import CheckIcon from '@mui/icons-material/Check';
 import DoDisturbIcon from '@mui/icons-material/DoDisturb';
+import { getUsers, patchUsers, postUsers } from '@main/components/services/api.ts';
+import { editUserSchema } from '@main/components/validations/usersSchemas.ts';
+import MaterialTable from '@main/components/utils/MaterialTable.tsx';
+import { AddNewUserModal } from '@main/components/system/users/components/AddNewUserModal.tsx';
+import { EditUserGroups } from '@main/components/system/users/components/EditUserGroups.tsx';
 
-function UsersList() {
+const UsersList = () => {
   const [users, setUsers] = useState([]);
   const [newUserModal, setNewUserModal] = useState(false);
   const [editGroupsModal, setEditGroupsModal] = useState(false);
-  const [selectedUser, setSelectedUser] = useState();
-  const {t} = useTranslation("system");
+  const [selectedUser, setSelectedUser] = useState<{groups: number[], id: string}>({ groups: [], id: '' });
+  const { t } = useTranslation('system');
   const [pagination, setPagination] = useState({
     pageIndex: 0,
     pageSize: 10,
@@ -33,13 +32,13 @@ function UsersList() {
   const handleNewUserModal = () => setNewUserModal(!newUserModal);
   const handleEditGroupsModal = () => setEditGroupsModal(!editGroupsModal);
 
-  const fetchUsers = async (page, pageSize) => {
+  const fetchUsers = async (page: number, pageSize: number) => {
     try {
       const response = await getUsers(page + 1, pageSize);
       setUsers(response.data.results);
       setTotalRows(response.data.count);
     } catch (error) {
-      console.error("Error fetching users:", error);
+      console.error('Error fetching users:', error);
     }
   };
 
@@ -50,46 +49,48 @@ function UsersList() {
   const columns = useMemo(
     () => [
       {
-        accessorKey: "first_name",
-        header: t("user.first_name"),
+        accessorKey: 'first_name',
+        header: t('user.first_name'),
         size: 150,
       },
       {
-        accessorKey: "last_name",
-        header: t("user.last_name"),
+        accessorKey: 'last_name',
+        header: t('user.last_name'),
         size: 150,
       },
       {
-        accessorKey: "username",
-        header: t("user.username"),
+        accessorKey: 'username',
+        header: t('user.username'),
         enableEditing: false,
       },
       {
-        accessorKey: "email",
-        header: t("user.email")
+        accessorKey: 'email',
+        header: t('user.email'),
       },
       {
-        accessorKey: "is_active",
-        header: t("user.is_active"),
+        accessorKey: 'is_active',
+        header: t('user.is_active'),
         enableEditing: false,
-        Cell: ({cell}) => (
-          cell.getValue() ? <CheckIcon/> : <DoDisturbIcon/>
-        )
-      }
+        // eslint-disable-next-line react/no-unstable-nested-components
+        Cell: ({ cell }: any) => (
+          cell.getValue() ? <CheckIcon /> : <DoDisturbIcon />
+        ),
+      },
     ],
-    []
+    [],
   );
 
-  const handleDeleteUser = () => {
-  }
+  const handleDeleteUser = (row: any) => {
+    console.log(row);
+  };
 
-  const handleCreateNewUser = async (data) => {
+  const handleCreateNewUser = async (data: any) => {
     await postUsers(data);
-  }
+  };
 
-  const handleSaveRowEdits = async ({exitEditingMode, row, values}) => {
+  const handleSaveRowEdits = async ({ exitEditingMode, row, values }: any) => {
     try {
-      await editUserSchema.validate(values, {abortEarly: false});
+      await editUserSchema.validate(values, { abortEarly: false });
       await patchUsers(row.original.id, values);
       exitEditingMode();
     } catch (err) {
@@ -97,21 +98,20 @@ function UsersList() {
     }
   };
 
-  const handleSaveUserGroups = async (data) => {
+  const handleSaveUserGroups = async (data: any) => {
     await patchUsers(data.id, data);
-  }
+  };
 
-  const handleLockUser = async (row) => {
-    await patchUsers(row.original.id, {is_active: !row.original.is_active}).then(() => {
+  const handleLockUser = async (row: any) => {
+    await patchUsers(row.original.id, { is_active: !row.original.is_active }).then(() => {
       fetchUsers(pagination.pageIndex, pagination.pageSize);
-    })
-  }
+    });
+  };
 
-  const handleEditGroup = ({original}) => {
+  const handleEditGroup = ({ original }: any) => {
     setSelectedUser(original);
     handleEditGroupsModal();
-  }
-
+  };
 
   return (
     <>
@@ -123,41 +123,41 @@ function UsersList() {
         rowCount={totalRows}
         onPaginationChange={setPagination}
         pagination={pagination}
-        renderRowActions={({row, table}) => (
-          <Box sx={{display: 'flex', gap: '1rem'}}>
-            <Tooltip arrow placement="top" title={t("user.actions.edit_groups")}>
+        renderRowActions={({ row, table }: any) => (
+          <Box sx={{ display: 'flex', gap: '1rem' }}>
+            <Tooltip arrow placement="top" title={t('user.actions.edit_groups')}>
               <IconButton onClick={() => handleEditGroup(row)}>
-                <GroupIcon/>
+                <GroupIcon />
               </IconButton>
             </Tooltip>
-            <Tooltip arrow placement="top" title={t("user.actions.lock")}>
+            <Tooltip arrow placement="top" title={t('user.actions.lock')}>
               <IconButton onClick={() => handleLockUser(row)}>
-                <LockIcon/>
+                <LockIcon />
               </IconButton>
             </Tooltip>
-            <Tooltip arrow placement="top" title={t("user.actions.edit")}>
+            <Tooltip arrow placement="top" title={t('user.actions.edit')}>
               <IconButton onClick={() => table.setEditingRow(row)}>
-                <EditIcon/>
+                <EditIcon />
               </IconButton>
             </Tooltip>
-            <Tooltip arrow placement="top" title={t("user.actions.delete")}>
+            <Tooltip arrow placement="top" title={t('user.actions.delete')}>
               <IconButton color="error" onClick={() => handleDeleteUser(row)}>
-                <DeleteIcon/>
+                <DeleteIcon />
               </IconButton>
             </Tooltip>
           </Box>
         )}
         renderTopToolbarCustomActions={
-          () => (
-            <Button
-              variant="contained"
-              color="secondary"
-              onClick={handleNewUserModal}
-            >
-              {t("user.actions.add_user")}
-            </Button>
-          )
-        }
+                    () => (
+                      <Button
+                        variant="contained"
+                        color="secondary"
+                        onClick={handleNewUserModal}
+                      >
+                        {t('user.actions.add_user')}
+                      </Button>
+                    )
+                }
       />
       {newUserModal && (
         <AddNewUserModal
@@ -176,6 +176,6 @@ function UsersList() {
       )}
     </>
   );
-}
+};
 
 export default UsersList;

@@ -11,18 +11,32 @@ import {
   FormControlLabel,
   Stack,
 } from '@mui/material';
-import { useTranslation } from "react-i18next";
-import {getAllGroups} from "../../../services/api.js";
-import {editUserGroupsSchema} from "../../../validations/usersSchemas.js";
+import { useTranslation } from 'react-i18next';
+import { getAllGroups } from '../../../services/api.ts';
+import { editUserGroupsSchema } from '../../../validations/usersSchemas.ts';
 
-export const EditUserGroups = ({open, onClose, onSubmit, selectedUser}) => {
-  const { t } = useTranslation("system");
-  const { control, handleSubmit, setValue, formState: { errors } } = useForm({
+type PropsType = {
+  open: boolean;
+  onClose: () => void;
+  onSubmit: (data: any) => void;
+  selectedUser: {
+    id: string,
+    groups: number[];
+  };
+}
+
+export const EditUserGroups = ({
+  open, onClose, onSubmit, selectedUser,
+}: PropsType) => {
+  const { t } = useTranslation('system');
+  const {
+    control, handleSubmit, setValue,
+  } = useForm({
     resolver: yupResolver(editUserGroupsSchema),
     defaultValues: {
       groups: selectedUser.groups,
-      id: selectedUser.id
-    }
+      id: selectedUser.id,
+    },
   });
 
   const [groups, setGroups] = React.useState([]);
@@ -35,43 +49,43 @@ export const EditUserGroups = ({open, onClose, onSubmit, selectedUser}) => {
     getData();
   }, []);
 
-  const onSubmitForm = (data) => {
+  const onSubmitForm = (data: any) => {
     onSubmit(data);
     onClose();
   };
 
   return (
-    <Dialog open={open} fullWidth maxWidth={"md"}>
-      <DialogTitle textAlign="center">{t("user.actions.edit_groups")}</DialogTitle>
+    <Dialog open={open} fullWidth maxWidth="md">
+      <DialogTitle textAlign="center">{t('user.actions.edit_groups')}</DialogTitle>
       <DialogContent>
         <form onSubmit={handleSubmit(onSubmitForm)}>
           <Stack
             sx={{
               width: '100%',
-              minWidth: {xs: '300px', sm: '360px', md: '400px'},
+              minWidth: { xs: '300px', sm: '360px', md: '400px' },
               gap: '1.5rem',
-              mt: "5px"
+              mt: '5px',
             }}
           >
             <Controller
               name="groups"
               control={control}
-              render={({ field }) => (
+              render={({ field }: any) => (
                 <>
-                  {groups.map((group) => (
+                  {groups.map((group: any) => (
                     <FormControlLabel
                       key={group.id}
-                      control={
+                      control={(
                         <Checkbox
                           checked={field.value.includes(group.id)}
                           onChange={(e) => {
                             const newGroups = e.target.checked
                               ? [...field.value, group.id]
-                              : field.value.filter(id => id !== group.id);
+                              : field.value.filter((id: any) => id !== group.id);
                             setValue('groups', newGroups);
                           }}
                         />
-                      }
+                      )}
                       label={group.name}
                     />
                   ))}
@@ -81,14 +95,14 @@ export const EditUserGroups = ({open, onClose, onSubmit, selectedUser}) => {
           </Stack>
         </form>
       </DialogContent>
-      <DialogActions sx={{p: '1.25rem'}}>
-        <Button onClick={onClose}>{t("user.actions.cancel")}</Button>
+      <DialogActions sx={{ p: '1.25rem' }}>
+        <Button onClick={onClose}>{t('user.actions.cancel')}</Button>
         <Button
           color="secondary"
           onClick={handleSubmit(onSubmitForm)}
           variant="contained"
         >
-          {t("user.actions.save")}
+          {t('user.actions.save')}
         </Button>
       </DialogActions>
     </Dialog>

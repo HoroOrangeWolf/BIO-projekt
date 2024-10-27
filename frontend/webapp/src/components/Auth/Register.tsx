@@ -1,30 +1,38 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import * as yup from 'yup';
 import { useNavigate } from 'react-router-dom';
-import {TextField, Button, Typography, Container, Box, Paper} from '@mui/material';
-import {registerUser} from "../services/api.js";
-import {registerSchema} from "../validations/authSchemas.js";
+import {
+  TextField, Button, Typography, Container, Box, Paper,
+} from '@mui/material';
+import { registerUser } from '@main/components/services/api.ts';
+import { registerSchema } from '@main/components/validations/authSchemas.ts';
 
-function Register() {
+const Register = () => {
   const navigate = useNavigate();
-  const [error, setError] = useState('');
-  const { register, handleSubmit, formState: { errors } } = useForm({
+  const [error, setError] = useState<any>('');
+  const { register, handleSubmit, formState: { errors } } = useForm<{
+    email: string;
+    password: string;
+    username: string;
+    confirmPassword: string;
+  }>({
     resolver: yupResolver(registerSchema),
   });
 
-  const onSubmit = async (data) => {
+  const onSubmit = async (data: any) => {
     try {
       await registerUser(data);
       navigate('/login');
     } catch (err) {
-      setError(err.response?.data?.detail || 'An error occurred');
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-expect-error
+      setError(err?.response?.data?.detail || 'An error occurred');
     }
   };
 
   return (
-    <Container component={Paper} maxWidth="xs" sx={{p: 5}}>
+    <Container component={Paper} maxWidth="xs" sx={{ p: 5 }}>
       <Box
         sx={{
           marginTop: 8,
@@ -43,7 +51,6 @@ function Register() {
             fullWidth
             id="username"
             label="Username"
-            name="username"
             autoComplete="username"
             autoFocus
             {...register('username')}
@@ -56,17 +63,15 @@ function Register() {
             fullWidth
             id="email"
             label="Email Address"
-            name="email"
             autoComplete="email"
             {...register('email')}
-            error={!!errors.email}
-            helperText={errors.email?.message}
+            error={!!errors.email as any}
+            helperText={errors.email?.message as any}
           />
           <TextField
             margin="normal"
             required
             fullWidth
-            name="password"
             label="Password"
             type="password"
             id="password"
@@ -92,6 +97,6 @@ function Register() {
       </Box>
     </Container>
   );
-}
+};
 
 export default Register;
