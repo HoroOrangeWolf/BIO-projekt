@@ -31,13 +31,13 @@ export const authSlice = createSlice({
       state.isAuthenticated = true;
       state.user = action.payload;
       state.status = 'succeeded';
-      state.authCheckComplete = true; // Ustawienie flagi po pomyślnym zalogowaniu
+      state.authCheckComplete = true;
     },
     clearUser: (state) => {
       state.isAuthenticated = false;
       state.user = null;
       state.status = 'idle';
-      state.authCheckComplete = true; // Ustawienie flagi po wylogowaniu
+      state.authCheckComplete = true;
     },
     setAuthCheckComplete: (state, action) => {
       state.authCheckComplete = action.payload;
@@ -46,13 +46,15 @@ export const authSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(fetchCurrentUser.pending, (state) => {
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-expect-error
         state.status = 'loading';
       })
       .addCase(fetchCurrentUser.fulfilled, (state, action) => {
         state.status = 'succeeded';
         state.isAuthenticated = true;
         state.user = action.payload;
-        state.authCheckComplete = true; // Ustawienie flagi po pomyślnym pobraniu użytkownika
+        state.authCheckComplete = true;
       })
       .addCase(fetchCurrentUser.rejected, (state, action) => {
         state.status = 'failed';
@@ -61,7 +63,7 @@ export const authSlice = createSlice({
         state.error = action.payload;
         state.isAuthenticated = false;
         state.user = null;
-        state.authCheckComplete = true; // Ustawienie flagi nawet w przypadku błędu
+        state.authCheckComplete = true;
       });
   },
 });

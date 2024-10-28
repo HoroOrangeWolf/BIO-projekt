@@ -11,7 +11,6 @@ const Dashboard = () => (
         alignItems: 'center',
       }}
     >
-      {/* Możesz zastąpić ten Typography komponentem img, jeśli chcesz użyć logo */}
       <Typography component="h1" variant="h2" align="center" color="text.primary" gutterBottom>
         Welcome to Your Dashboard
       </Typography>
