@@ -27,7 +27,9 @@
     "users": "Użytkownicy",
     "groups": "Grupy",
     "permissions": "Uprawnienia",
-    "settings": "Ustawienia"
+    "settings": "Ustawienia",
+    "client": "Klient",
+    "doctor": "Doktor"
   },
   "errors": {
     "401": "Brak autoryzacji.",
