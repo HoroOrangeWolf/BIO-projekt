@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import {
   TextField, Button, Typography, Container, Box, Paper,
+  Link,
 } from '@mui/material';
 import LockPersonIcon from '@mui/icons-material/LockPerson';
 import { useTranslation } from 'react-i18next';
@@ -118,6 +119,27 @@ const Login = () => {
             >
               {t('login.signIn')}
             </Button>
+          </Box>
+          <Box sx={{
+            gap: '5px',
+            display: 'flex',
+            flexDirection: 'row',
+            alignItems: 'center',
+          }}
+          >
+            <Typography align="left">
+              Nie masz jeszcze konta?
+            </Typography>
+            <Link
+              sx={{
+                cursor: 'pointer',
+              }}
+              onClick={() => {
+                navigate('/register');
+              }}
+            >
+              Zarejestruj sie
+            </Link>
           </Box>
         </Box>
       </Container>

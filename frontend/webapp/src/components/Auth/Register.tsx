@@ -32,70 +32,90 @@ const Register = () => {
   };
 
   return (
-    <Container component={Paper} maxWidth="xs" sx={{ p: 5 }}>
-      <Box
-        sx={{
-          marginTop: 8,
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-        }}
-      >
-        <Typography component="h1" variant="h5">
-          Register
-        </Typography>
-        <Box component="form" onSubmit={handleSubmit(onSubmit)} noValidate sx={{ mt: 1 }}>
-          <TextField
-            margin="normal"
-            required
-            fullWidth
-            id="username"
-            label="Username"
-            autoComplete="username"
-            autoFocus
-            {...register('username')}
-            error={!!errors.username}
-            helperText={errors.username?.message}
-          />
-          <TextField
-            margin="normal"
-            required
-            fullWidth
-            id="email"
-            label="Email Address"
-            autoComplete="email"
-            {...register('email')}
-            error={!!errors.email as any}
-            helperText={errors.email?.message as any}
-          />
-          <TextField
-            margin="normal"
-            required
-            fullWidth
-            label="Password"
-            type="password"
-            id="password"
-            autoComplete="new-password"
-            {...register('password')}
-            error={!!errors.password}
-            helperText={errors.password?.message}
-          />
-          {error && (
-            <Typography color="error" align="center">
-              {error}
-            </Typography>
-          )}
-          <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            sx={{ mt: 3, mb: 2 }}
-          >
+    <Box
+      sx={{
+        display: 'flex',
+        flexDirection: 'column',
+        minHeight: '100vh',
+        justifyContent: 'center',
+      }}
+    >
+      <Container component={Paper} maxWidth="xs" sx={{ p: 5 }}>
+        <Box
+          sx={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+          }}
+        >
+          <Typography component="h1" variant="h5">
             Register
-          </Button>
+          </Typography>
+          <Box component="form" onSubmit={handleSubmit(onSubmit)} noValidate sx={{ mt: 1 }}>
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              id="username"
+              label="Nazwa użytkownika"
+              autoComplete="username"
+              autoFocus
+              {...register('username')}
+              error={!!errors.username}
+              helperText={errors.username?.message}
+            />
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              id="email"
+              label="Email Address"
+              autoComplete="email"
+              {...register('email')}
+              error={!!errors.email as any}
+              helperText={errors.email?.message as any}
+            />
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              label="Password"
+              type="password"
+              id="password"
+              autoComplete="new-password"
+              {...register('password')}
+              error={!!errors.password}
+              helperText={errors.password?.message}
+            />
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              label="Confirm password"
+              type="password"
+              id="password"
+              autoComplete="new-password"
+              {...register('confirmPassword')}
+              error={!!errors.password}
+              helperText={errors.password?.message}
+            />
+            {error && (
+              <Typography color="error" align="center">
+                {error}
+              </Typography>
+            )}
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              sx={{ mt: 3, mb: 2 }}
+            >
+              Zarejestruj się
+            </Button>
+          </Box>
         </Box>
-      </Box>
-    </Container>
+      </Container>
+    </Box>
   );
 };
 
