@@ -3,8 +3,8 @@ from django.db import models
 
 
 class AuthUser(AbstractUser):
-    # Możesz dodać dodatkowe pola, jeśli są potrzebne
-    pass
+    pesel = models.CharField(max_length=255)
+
 
 class Visit(models.Model):
     visit_name = models.CharField(max_length=255)
@@ -18,6 +18,7 @@ class Visit(models.Model):
     class Meta:
         verbose_name = "Visit"
         verbose_name_plural = "Visits"
+
 
 class MedicalDocumentation(models.Model):
     file_path = models.FilePathField()

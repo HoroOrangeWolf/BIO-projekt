@@ -16,6 +16,9 @@ const Register = () => {
     password: string;
     username: string;
     confirmPassword: string;
+    first_name: string;
+    last_name: string;
+    pesel: string;
   }>({
     resolver: yupResolver(registerSchema),
   });
@@ -63,6 +66,41 @@ const Register = () => {
               {...register('username')}
               error={!!errors.username}
               helperText={errors.username?.message}
+            />
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              id="firstName"
+              label="First name"
+              autoComplete="firstName"
+              autoFocus
+              {...register('first_name')}
+              error={!!errors.first_name}
+              helperText={errors.first_name?.message}
+            />
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              id="lastName"
+              label="Last name"
+              autoComplete="lastName"
+              autoFocus
+              {...register('last_name')}
+              error={!!errors.last_name}
+              helperText={errors.last_name?.message}
+            />
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              id="pesel"
+              label="Pesel"
+              autoFocus
+              {...register('pesel')}
+              error={!!errors.pesel}
+              helperText={errors.pesel?.message}
             />
             <TextField
               margin="normal"

@@ -17,8 +17,16 @@ export const setupTOTPSchema = yup.object().shape({
 export const registerSchema = yup.object().shape({
   username: yup.string().required('Username is required'),
   email: yup.string().email('Invalid email').required('Email is required'),
-  password: yup.string().min(6, 'Password must be at least 6 characters').required('Password is required'),
+  password: yup.string().min(8, 'Password must be at least 6 characters').required('Password is required'),
+  first_name: yup.string()
+    .required('First name is required'),
+  last_name: yup.string()
+    .required('Last name is required'),
+  pesel: yup.string()
+    .length(11, 'PESEL must be exactly 11 digits')
+    .matches(/^\d+$/, 'PESEL can only contain digits')
+    .required('Pesel is required'),
   confirmPassword: yup.string()
-    .equals([yup.ref('password')], 'Password must match')
-    .required('Confirm password is required'),
+    .required('Confirm password is required')
+    .oneOf([yup.ref('password')], 'Password must match'),
 });
