@@ -22,13 +22,17 @@
     "oldPassword": "Stare hasło"
   },
   "pages": {
+    "history": "Historia",
+    "visits": "Wizyty",
+    "medical_docs": "Dokumentacja medyczna",
+    "calendar": "Kalendarz",
     "dashboard": "Strona główna",
     "system": "System",
     "users": "Użytkownicy",
     "groups": "Grupy",
     "permissions": "Uprawnienia",
     "settings": "Ustawienia",
-    "client": "Klient",
+    "client": "Pacjent",
     "doctor": "Doktor"
   },
   "errors": {
