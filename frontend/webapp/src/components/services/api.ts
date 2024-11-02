@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { VisitType } from '@main/components/services/types.ts';
 
 const api = axios.create({
   baseURL: 'http://localhost:8000/',
@@ -57,5 +58,7 @@ export const patchGroups = async (id: string, data: any) => api.patch(`admin/gro
 export const deleteGroups = async (id: string) => api.delete(`admin/group/${id}/`);
 export const getAllPermissions = async () => api.get('admin/permission/');
 export const getPermissions = async (page: number, pageSize: number) => api.get(`admin/permission/?page=${page}&page_size=${pageSize}`);
+
+export const getUserVisits = async () => api.get<VisitType[]>('client/visits');
 
 export default api;

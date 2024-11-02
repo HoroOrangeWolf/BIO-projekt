@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     'axes',
     "auth_api.apps.AuthApiConfig",
     "administration.apps.AdministrationConfig",
+    'client'
 ]
 
 MIDDLEWARE = [

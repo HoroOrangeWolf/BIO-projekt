@@ -6,7 +6,7 @@ type PropsType = {
     data: any;
     columns: any[];
     isLoading?: boolean;
-    pagination: any;
+    pagination?: any;
     disableAction?: boolean;
     onEditingRowSave?: (row: any) => void;
     manualPagination?: boolean;
