@@ -1,12 +1,14 @@
 # Create your models here.
 from django.db import models
 
+
 class DoctorSpecialization(models.Model):
     specialization_name = models.CharField(max_length=255)
 
     class Meta:
         verbose_name = "DoctorSpecialization"
         verbose_name_plural = "DoctorSpecializations"
+
 
 class DoctorDetails(models.Model):
     doctor_number = models.CharField(max_length=255)
@@ -26,6 +28,7 @@ class Visit(models.Model):
     is_visit_finished = models.BooleanField(default=False)
     description = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
+    doctor = models.ForeignKey(DoctorDetails, on_delete=models.CASCADE, default=None)
     user = models.ForeignKey('auth_api.AuthUser', on_delete=models.CASCADE)
 
     class Meta:
