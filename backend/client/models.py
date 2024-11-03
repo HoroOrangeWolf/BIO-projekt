@@ -12,7 +12,7 @@ class DoctorSpecialization(models.Model):
 
 class DoctorDetails(models.Model):
     doctor_number = models.CharField(max_length=255)
-    user = models.ForeignKey('auth_api.AuthUser', on_delete=models.CASCADE)
+    user = models.ForeignKey('auth_api.AuthUser', on_delete=models.CASCADE, related_name='doctor_details')
     doctor_specializations = models.ManyToManyField(DoctorSpecialization, related_name='specializations')
 
     class Meta:
@@ -23,8 +23,6 @@ class DoctorDetails(models.Model):
 class Visit(models.Model):
     visit_name = models.CharField(max_length=255)
     start_time = models.DateTimeField()
-    expected_end_time = models.DateTimeField()
-    is_approved_by_doctor = models.BooleanField(default=False)
     is_visit_finished = models.BooleanField(default=False)
     description = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)

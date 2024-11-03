@@ -78,4 +78,6 @@ export const updateSpecialization = async (id: number, data: AddSpecializationMo
 
 export const deleteSpecialization = async (id: number) => api.delete(`client/specialization/${id}`);
 
+export const getDoctorsBySpecializations = async (id: number) => api.get<UserModelType[]>(`client/doctor/${id}`);
+
 export default api;

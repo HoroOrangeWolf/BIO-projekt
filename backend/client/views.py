@@ -2,7 +2,9 @@ from rest_framework.exceptions import NotFound
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from .models import Visit, DoctorSpecialization
+from administration.serializers import UserSerializer
+from auth_api.models import AuthUser
+from .models import Visit, DoctorSpecialization, DoctorDetails
 from .serializers import VisitsSerializer, SpecializationSerializer
 
 
@@ -25,6 +27,20 @@ class VisitsView(APIView):
         serialized = VisitsSerializer(user_visits, many=True)
 
         return Response(serialized.data)
+
+
+class DoctorView(APIView):
+    def get(self, request, pk):
+        doctors = DoctorDetails.objects.filter(doctor_specializations__id=pk)
+
+        users = []
+
+        for x in doctors:
+            users.append(x.user)
+
+        serialized = UserSerializer(users, many=True)
+
+        return Response(serialized.data, status=200)
 
 
 class SpecializationView(APIView):

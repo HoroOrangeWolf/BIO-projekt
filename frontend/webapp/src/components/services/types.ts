@@ -35,6 +35,11 @@ export type PaginationType<T> = {
     results: T[];
 }
 
+export type SpecializationType = {
+    id: number;
+    specialization_name: string;
+}
+
 export type UserModelType = {
     id: number;
     username: string;
@@ -48,7 +53,7 @@ export type UserModelType = {
     doctor_details?: {
         id: number;
         doctor_number: string;
-        doctor_specializations: number[]
+        doctor_specializations: SpecializationType[]
     }
 }
 

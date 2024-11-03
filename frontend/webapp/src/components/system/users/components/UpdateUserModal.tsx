@@ -64,7 +64,10 @@ const UpdateUserModal = (props: PropsType) => {
         first_name: props.userToUpdate.first_name,
         last_name: props.userToUpdate.last_name,
         email: props.userToUpdate.email,
-        doctorDetails: props.userToUpdate.doctor_details,
+        doctorDetails: {
+          doctor_number: props.userToUpdate.doctor_details.doctor_number,
+          doctor_specializations: map(props.userToUpdate.doctor_details.doctor_specializations, ({ id }) => id),
+        },
       });
     }
 

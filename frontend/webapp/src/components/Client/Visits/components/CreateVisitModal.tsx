@@ -10,8 +10,10 @@ import {
 } from '@mui/x-date-pickers';
 import { Dayjs } from 'dayjs';
 import CancelIcon from '@mui/icons-material/Cancel';
-import { isEmpty } from 'lodash';
-import { useState } from 'react';
+import { isEmpty, isNil, map } from 'lodash';
+import { useMemo, useState } from 'react';
+import { useAsync } from 'react-async-hook';
+import { getAllSpecializations, getDoctorsBySpecializations } from '@main/components/services/api.ts';
 
 const visitSchema = yup.object().shape({
   visit_name: yup.string().required('Wymagane jest uzupełnienie nazwy wizyty'),
@@ -65,7 +67,8 @@ const CreateVisitModal = (props: PropsType) => {
   });
 
   const hasSelectedSpecializationId = !!form.watch('specializationId');
-  const hasSelectedDoctor = !form.watch('doctor');
+  const specializationId = form.watch('specializationId') as number;
+  const hasSelectedDoctor = !!form.watch('doctor');
   const start_time = form.watch('start_time') as string;
 
   const { handleSubmit, control, formState: { errors } } = form;
@@ -74,6 +77,35 @@ const CreateVisitModal = (props: PropsType) => {
     console.log('Data', data);
     props.onSubmit?.();
   };
+
+  const { result: specializations } = useAsync(async () => (await getAllSpecializations()).data, []);
+  const { result: doctors } = useAsync(async () => {
+    if (isNil(specializationId)) {
+      return [];
+    }
+
+    const response = await getDoctorsBySpecializations(specializationId);
+
+    return response.data;
+  }, [specializationId]);
+
+  const doctorsEntries = useMemo(() => map(doctors, (doctor) => (
+    <MenuItem
+      value={doctor.id}
+      key={doctor.id}
+    >
+      {doctor.full_name}
+    </MenuItem>
+  )), [doctors]);
+
+  const specializationItems = useMemo(() => map(specializations, (specialization) => (
+    <MenuItem
+      key={`key-${specialization.id}`}
+      value={specialization.id}
+    >
+      {specialization.specialization_name}
+    </MenuItem>
+  )), [specializations]);
 
   return (
     <Dialog open fullWidth maxWidth="md">
@@ -124,20 +156,19 @@ const CreateVisitModal = (props: PropsType) => {
             <Controller
               control={control}
               render={({ field }) => (
-                <Select
+                <TextField
                   placeholder="Wybierz Specjalizacje doktora"
                   ref={field.ref}
                   onBlur={field.onBlur}
                   onChange={(e) => field.onChange(e.target.value as string)}
                   label="Specjalizacja doktora"
                   variant="outlined"
+                  select
                   fullWidth
                   error={!!errors.specializationId}
                 >
-                  <MenuItem value="test">
-                    Test
-                  </MenuItem>
-                </Select>
+                  {specializationItems}
+                </TextField>
               )}
               name="specializationId"
             />
@@ -145,7 +176,7 @@ const CreateVisitModal = (props: PropsType) => {
               <Controller
                 control={control}
                 render={({ field }) => (
-                  <Select
+                  <TextField
                     placeholder="Wybierz doktora"
                     label="Doktor"
                     variant="outlined"
@@ -153,35 +184,13 @@ const CreateVisitModal = (props: PropsType) => {
                     error={!!errors.specializationId}
                     ref={field.ref}
                     onBlur={field.onBlur}
+                    select
                     onChange={(e) => field.onChange(e.target.value as string)}
                   >
-                    <MenuItem value="test">
-                      Test
-                    </MenuItem>
-                  </Select>
+                    {doctorsEntries}
+                  </TextField>
                 )}
                 name="doctor"
-              />
-            )}
-            {hasSelectedDoctor && (
-              <Controller
-                control={control}
-                render={({ field }) => (
-                  <Select
-                    label="Doktor"
-                    variant="outlined"
-                    fullWidth
-                    error={!!errors.specializationId}
-                    ref={field.ref}
-                    onBlur={field.onBlur}
-                    onChange={(e) => field.onChange(e.target.value as string)}
-                  >
-                    <MenuItem value="test">
-                      Test
-                    </MenuItem>
-                  </Select>
-                )}
-                name="start_time"
               />
             )}
             {hasSelectedDoctor && (

@@ -6,7 +6,7 @@ from .models import Visit, DoctorSpecialization, DoctorDetails
 class VisitsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Visit
-        fields = ('id', 'visit_name', 'start_time', 'expected_end_time', 'is_approved_by_doctor', 'is_visit_finished',
+        fields = ('id', 'visit_name', 'start_time', 'is_approved_by_doctor', 'is_visit_finished',
                   'description', 'created_at')
 
 
@@ -15,6 +15,7 @@ class DoctorDetailsSerializerPost(serializers.ModelSerializer):
         model = DoctorDetails
         fields = ('id', 'doctor_number', 'user', 'doctor_specializations')
 
+
 class SpecializationSerializer(serializers.ModelSerializer):
     class Meta:
         model = DoctorSpecialization
@@ -22,7 +23,8 @@ class SpecializationSerializer(serializers.ModelSerializer):
 
 
 class DoctorDetailsSerializerGet(serializers.ModelSerializer):
+    doctor_specializations = SpecializationSerializer(many=True, read_only=True)
+
     class Meta:
         model = DoctorDetails
-        doctor_specializations = SpecializationSerializer(many=True, read_only=True)
         fields = ('id', 'doctor_number', 'doctor_specializations')
