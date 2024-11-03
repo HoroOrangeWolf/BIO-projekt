@@ -17,6 +17,7 @@ module.exports = {
     parser: '@typescript-eslint/parser',
     plugins: ['react-refresh', 'react', 'react-hooks'],
     rules: {
+        'max-len': ['error', { code: 160 }],
         'react/jsx-filename-extension': ['off'],
         'react/react-in-jsx-scope': ['off'],
         'import/prefer-default-export': ['off'],

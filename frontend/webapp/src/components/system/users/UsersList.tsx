@@ -15,13 +15,18 @@ import DoDisturbIcon from '@mui/icons-material/DoDisturb';
 import { getUsers, patchUsers, postUsers } from '@main/components/services/api.ts';
 import { editUserSchema } from '@main/components/validations/usersSchemas.ts';
 import MaterialTable from '@main/components/utils/MaterialTable.tsx';
-import { AddNewUserModal } from '@main/components/system/users/components/AddNewUserModal.tsx';
+import { AddNewUserModal, AddUserFormType } from '@main/components/system/users/components/AddNewUserModal.tsx';
 import { EditUserGroups } from '@main/components/system/users/components/EditUserGroups.tsx';
+import { UserModelType } from '@main/components/services/types.ts';
+import ConfirmRemoveUserModal from '@main/components/system/users/components/ConfirmRemoveUserModal.tsx';
+import UpdateUserModal from '@main/components/system/users/components/UpdateUserModal.tsx';
 
 const UsersList = () => {
-  const [users, setUsers] = useState([]);
+  const [users, setUsers] = useState<UserModelType[]>([]);
   const [newUserModal, setNewUserModal] = useState(false);
   const [editGroupsModal, setEditGroupsModal] = useState(false);
+  const [userToEdit, setUserToEdit] = useState<UserModelType>();
+  const [userToRemove, setUserToRemove] = useState<UserModelType>();
   const [selectedUser, setSelectedUser] = useState<{groups: number[], id: string}>({ groups: [], id: '' });
   const { t } = useTranslation('system');
   const [pagination, setPagination] = useState({
@@ -43,7 +48,8 @@ const UsersList = () => {
   };
 
   useEffect(() => {
-    fetchUsers(pagination.pageIndex, pagination.pageSize);
+    fetchUsers(pagination.pageIndex, pagination.pageSize)
+      .catch(console.error);
   }, [pagination.pageIndex, pagination.pageSize]);
 
   const columns = useMemo(
@@ -80,12 +86,16 @@ const UsersList = () => {
     [],
   );
 
-  const handleDeleteUser = (row: any) => {
-    console.log(row);
-  };
+  const handleCreateNewUser = async (data: AddUserFormType) => {
+    const { doctorDetails, ...user } = data;
 
-  const handleCreateNewUser = async (data: any) => {
-    await postUsers(data);
+    await postUsers({
+      user,
+      details: doctorDetails,
+    });
+
+    fetchUsers(pagination.pageIndex, pagination.pageSize)
+      .catch(console.error);
   };
 
   const handleSaveRowEdits = async ({ exitEditingMode, row, values }: any) => {
@@ -123,7 +133,7 @@ const UsersList = () => {
         rowCount={totalRows}
         onPaginationChange={setPagination}
         pagination={pagination}
-        renderRowActions={({ row, table }: any) => (
+        renderRowActions={({ row }: any) => (
           <Box sx={{ display: 'flex', gap: '1rem' }}>
             <Tooltip arrow placement="top" title={t('user.actions.edit_groups')}>
               <IconButton onClick={() => handleEditGroup(row)}>
@@ -136,12 +146,15 @@ const UsersList = () => {
               </IconButton>
             </Tooltip>
             <Tooltip arrow placement="top" title={t('user.actions.edit')}>
-              <IconButton onClick={() => table.setEditingRow(row)}>
+              <IconButton onClick={() => {
+                setUserToEdit(row.original);
+              }}
+              >
                 <EditIcon />
               </IconButton>
             </Tooltip>
             <Tooltip arrow placement="top" title={t('user.actions.delete')}>
-              <IconButton color="error" onClick={() => handleDeleteUser(row)}>
+              <IconButton color="error" onClick={() => setUserToRemove(row.original)}>
                 <DeleteIcon />
               </IconButton>
             </Tooltip>
@@ -165,6 +178,26 @@ const UsersList = () => {
           onClose={handleNewUserModal}
           onSubmit={handleCreateNewUser}
         />
+      )}
+      {userToRemove && (
+      <ConfirmRemoveUserModal
+        userModel={userToRemove}
+        onClose={() => {
+          setUserToRemove(undefined);
+          fetchUsers(pagination.pageIndex, pagination.pageSize)
+            .catch(console.error);
+        }}
+      />
+      )}
+      {userToEdit && (
+      <UpdateUserModal
+        userToUpdate={userToEdit}
+        onClose={() => {
+          setUserToEdit(undefined);
+          fetchUsers(pagination.pageIndex, pagination.pageSize)
+            .catch(console.error);
+        }}
+      />
       )}
       {editGroupsModal && (
         <EditUserGroups

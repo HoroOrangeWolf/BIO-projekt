@@ -4,11 +4,44 @@ from django.db import transaction
 from rest_framework import serializers
 
 from auth_api.models import AuthUser
+from client.models import DoctorDetails
+from client.serializers import DoctorDetailsSerializerGet
+
+
+class PermissionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Permission
+        fields = ["id", "codename", "name"]
+
+
+class GroupSerializer(serializers.ModelSerializer):
+    permissions = PermissionSerializer(many=True, read_only=True)
+
+    class Meta:
+        model = Group
+        fields = ("id", "name", "permissions")
+
+
+class UpdateUserSerializer(serializers.ModelSerializer):
+    full_name = serializers.SerializerMethodField()
+
+    def get_full_name(self, obj):
+        first_name = obj.first_name if obj.first_name else ""
+        last_name = obj.last_name if obj.last_name else ""
+        full_name = f"{first_name} {last_name}"
+        return full_name if first_name != " " else obj.username
+
+    class Meta:
+        model = AuthUser
+        fields = ('id', 'email', 'first_name', 'last_name', 'full_name')
+
 
 
 class UserSerializer(serializers.ModelSerializer):
     full_name = serializers.SerializerMethodField()
     password = serializers.CharField(write_only=True)
+    user_permissions = PermissionSerializer(read_only=True, many=True)
+    groups = GroupSerializer(many=True, read_only=True)
 
     def get_full_name(self, obj):
         first_name = obj.first_name if obj.first_name else ""
@@ -49,14 +82,13 @@ class UserSerializer(serializers.ModelSerializer):
         user = super(UserSerializer, self).update(instance, {**validated_data})
         return user
 
+    def to_representation(self, instance):
+        representation = super().to_representation(instance)
 
-class PermissionSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Permission
-        fields = ["id", "codename", "name"]
+        doctor_details = DoctorDetails.objects.filter(user=instance.id).first()
 
+        if doctor_details:
+            serialized = DoctorDetailsSerializerGet(doctor_details)
+            representation['doctor_details'] = serialized.data
 
-class GroupSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Group
-        fields = "__all__"
+        return representation

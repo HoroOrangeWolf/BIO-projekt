@@ -1,10 +1,14 @@
 from django.contrib.auth.models import Group, Permission
+from django.core.serializers import serialize
 from rest_framework import status
+from rest_framework.exceptions import NotFound
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from administration.serializers import UserSerializer, GroupSerializer, PermissionSerializer
+from administration.serializers import UserSerializer, GroupSerializer, PermissionSerializer, UpdateUserSerializer
 from auth_api.models import AuthUser
+from client.models import DoctorSpecialization, DoctorDetails
+from client.serializers import DoctorDetailsSerializerPost
 from mgr.utils import CustomPagination, IsUserWithSpecialPermission
 
 
@@ -32,12 +36,72 @@ class UserView(APIView):
             serializer = UserSerializer(users, many=True)
             return Response(serializer.data)
 
+    def put(self, request, pk):
+        user = AuthUser.objects.get(id=pk)
+
+        if user is None:
+            raise NotFound("Not found user")
+
+        serializer = UpdateUserSerializer(user, data=request.data['user'])
+
+        if not serializer.is_valid():
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+        user = serializer.save()
+
+        if request.data['details'] is not None:
+            details = DoctorDetails.objects.filter(user=pk).first()
+
+            if details is not None:
+                clone = request.data['details'].copy()
+                clone['user'] = user.id
+                details_serializer = DoctorDetailsSerializerPost(details, data=clone)
+
+                if details_serializer.is_valid():
+                    details_serializer.save()
+                    return Response("Ok", status=200)
+                else:
+                    return Response(details_serializer.errors, status=400)
+
+            clone = request.data['details'].copy()
+            clone['user'] = user.id
+            details_serializer = DoctorDetailsSerializerPost(data=clone)
+
+            if details_serializer.is_valid():
+                details_serializer.save()
+                return Response("Created", status=201)
+            else:
+                return Response(details_serializer.errors, status=400)
+        else:
+            details = DoctorDetails.objects.filter(user=pk).first()
+
+            if details is None:
+                return Response("Created user", status=201)
+            else:
+                details.delete()
+
+        return Response("Created user", status=201)
+
     def post(self, request):
-        serializer = UserSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        serializer = UserSerializer(data=request.data['user'])
+
+        if not serializer.is_valid():
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+        user = serializer.save()
+
+        if request.data['details'] is not None:
+            clone = request.data['details'].copy()
+            clone['user'] = user.id
+            details_serializer = DoctorDetailsSerializerPost(data=clone)
+
+            if details_serializer.is_valid():
+                details_serializer.save()
+                return Response("Created", status=201)
+            else:
+                return Response(details_serializer.errors, status=400)
+
+        return Response("Created user", status=201)
 
     def delete(self, request, pk):
         try:

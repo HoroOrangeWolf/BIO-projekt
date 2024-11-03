@@ -1,5 +1,10 @@
 import axios from 'axios';
-import { AddSpecializationModel, SpecializationModel, VisitType } from '@main/components/services/types.ts';
+import {
+  AddSpecializationModel,
+  AddUserRequest, PaginationType,
+  SpecializationModel, UpdateUserModel, UserModelType,
+  VisitType,
+} from '@main/components/services/types.ts';
 
 const api = axios.create({
   baseURL: 'http://localhost:8000/',
@@ -48,8 +53,8 @@ export const logout = async () => api.post('auth/logout/');
 export const setupTOTP = async () => api.get('auth/setup-totp/');
 export const confirmTOTP = async (token: string) => api.post('auth/setup-totp/', { token });
 export const getCurrentUser = async () => api.get('auth/current-user/');
-export const getUsers = async (page: number, pageSize: number) => api.get(`admin/user/?page_size=${pageSize}?page=${page}`);
-export const postUsers = async (data: any) => api.post('admin/user/', data);
+export const getUsers = async (page: number, pageSize: number) => api.get<PaginationType<UserModelType>>(`admin/user/?page_size=${pageSize}?page=${page}`);
+export const postUsers = async (data: AddUserRequest) => api.post('admin/user/', data);
 export const patchUsers = async (id: string, data: any) => api.patch(`admin/user/${id}/`, data);
 export const getGroups = async (page: number, pageSize: number) => api.get(`admin/group/?page_size=${pageSize}?page=${page}`);
 export const getAllGroups = async () => api.get('admin/group/');
@@ -58,6 +63,10 @@ export const patchGroups = async (id: string, data: any) => api.patch(`admin/gro
 export const deleteGroups = async (id: string) => api.delete(`admin/group/${id}/`);
 export const getAllPermissions = async () => api.get('admin/permission/');
 export const getPermissions = async (page: number, pageSize: number) => api.get(`admin/permission/?page=${page}&page_size=${pageSize}`);
+
+export const updateUser = async (id: number, data: UpdateUserModel) => api.put(`admin/user/${id}/`, data);
+
+export const deleteUser = async (id: number) => api.delete(`admin/user/${id}`);
 
 export const getUserVisits = async () => api.get<VisitType[]>('client/visits');
 
