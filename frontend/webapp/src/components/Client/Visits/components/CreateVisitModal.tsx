@@ -6,10 +6,9 @@ import * as yup from 'yup';
 import { Controller, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import {
-  DateCalendar, LocalizationProvider, PickersDay, PickersDayProps,
+  DateCalendar, PickersDay, PickersDayProps,
 } from '@mui/x-date-pickers';
 import { Dayjs } from 'dayjs';
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import CancelIcon from '@mui/icons-material/Cancel';
 import { isEmpty } from 'lodash';
 import { useState } from 'react';
@@ -190,45 +189,43 @@ const CreateVisitModal = (props: PropsType) => {
                 control={control}
                 render={({ field }) => (
                   <div onBlur={field.onBlur}>
-                    <LocalizationProvider dateAdapter={AdapterDayjs}>
-                      <DateCalendar
-                        slots={{
-                          day: ServerDay,
-                        }}
-                        slotProps={{
-                          day: {
-                            occupiedDays: [1, 10, 25, 20],
-                          } as any,
-                        }}
-                        onChange={(value: Dayjs) => {
-                          const dateFormatted = value.format('YYYY-MM-DD');
+                    <DateCalendar
+                      slots={{
+                        day: ServerDay,
+                      }}
+                      slotProps={{
+                        day: {
+                          occupiedDays: [1, 10, 25, 20],
+                        } as any,
+                      }}
+                      onChange={(value: Dayjs) => {
+                        const dateFormatted = value.format('YYYY-MM-DD');
 
-                          setCurrentCalendarDate(dateFormatted);
-                          field.onChange(dateFormatted);
-                        }}
-                        ref={field.ref}
-                      />
-                      {isEmpty(start_time) || (
-                        <Select
-                          fullWidth
-                          label="Godzina wizyty"
-                          placeholder="Wybierz godzine wizyty"
-                          variant="outlined"
-                          onChange={(event) => {
-                            const time = event.target.value as string;
+                        setCurrentCalendarDate(dateFormatted);
+                        field.onChange(dateFormatted);
+                      }}
+                      ref={field.ref}
+                    />
+                    {isEmpty(start_time) || (
+                    <Select
+                      fullWidth
+                      label="Godzina wizyty"
+                      placeholder="Wybierz godzine wizyty"
+                      variant="outlined"
+                      onChange={(event) => {
+                        const time = event.target.value as string;
 
-                            field.onChange(`${currentCalendarDate}T${time}:00.000Z`);
-                          }}
-                        >
-                          <MenuItem value="11:30">
-                            11:30 AM
-                          </MenuItem>
-                          <MenuItem value="12:30">
-                            12:30 PM
-                          </MenuItem>
-                        </Select>
-                      )}
-                    </LocalizationProvider>
+                        field.onChange(`${currentCalendarDate}T${time}:00.000Z`);
+                      }}
+                    >
+                      <MenuItem value="11:30">
+                        11:30 AM
+                      </MenuItem>
+                      <MenuItem value="12:30">
+                        12:30 PM
+                      </MenuItem>
+                    </Select>
+                    )}
                   </div>
                 )}
                 name="start_time"

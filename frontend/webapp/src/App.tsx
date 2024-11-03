@@ -16,6 +16,8 @@ import PrivateRoute from '@main/components/route/PrivateRoute.tsx';
 import { useSnackbar } from '@main/SnackbarProvider.tsx';
 import { darkTheme, lightTheme } from '@main/theme.ts';
 import { menuConfig } from '@main/menuConfig.ts';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { LocalizationProvider } from '@mui/x-date-pickers';
 
 type ItemsType = {
   path: string;
@@ -79,21 +81,23 @@ const App = () => {
   const theme = mode === 'light' ? lightTheme : darkTheme;
 
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <Router>
-        <Routes>
-          <Route path="/login" element={!isAuthenticated ? <Login /> : <Navigate to="/" />} />
-          <Route path="/register" element={!isAuthenticated ? <Register /> : <Navigate to="/" />} />
-          <Route element={<PrivateRoute />}>
-            <Route path="/setup-totp" element={<SetupTOTP />} />
-            <Route path="/" element={<Layout toggleColorMode={toggleColorMode} changeLanguage={changeLanguage} />}>
-              {renderRoutes(menuConfig as unknown as ItemsType[])}
+    <LocalizationProvider dateAdapter={AdapterDayjs}>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <Router>
+          <Routes>
+            <Route path="/login" element={!isAuthenticated ? <Login /> : <Navigate to="/" />} />
+            <Route path="/register" element={!isAuthenticated ? <Register /> : <Navigate to="/" />} />
+            <Route element={<PrivateRoute />}>
+              <Route path="/setup-totp" element={<SetupTOTP />} />
+              <Route path="/" element={<Layout toggleColorMode={toggleColorMode} changeLanguage={changeLanguage} />}>
+                {renderRoutes(menuConfig as unknown as ItemsType[])}
+              </Route>
             </Route>
-          </Route>
-        </Routes>
-      </Router>
-    </ThemeProvider>
+          </Routes>
+        </Router>
+      </ThemeProvider>
+    </LocalizationProvider>
   );
 };
 
