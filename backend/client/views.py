@@ -3,30 +3,36 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 
 from administration.serializers import UserSerializer
-from auth_api.models import AuthUser
 from .models import Visit, DoctorSpecialization, DoctorDetails
-from .serializers import VisitsSerializer, SpecializationSerializer
+from .serializers import SpecializationSerializer, VisitsNonSensitiveData, AddVisitsSerializer, VisitsSerializer
 
 
 class VisitsView(APIView):
-    def post(self, request):
-        user_id = request.user.id
-        copy_request = request.data.copy()
-        copy_request['user'] = user_id
-        visit_instance = VisitsSerializer(data=copy_request)
-
-        if visit_instance.is_valid():
-            visit_instance.save()
-            return Response("Saved visit", status=200)
-        else:
-            return Response(visit_instance.errors, status=400)
-
     def get(self, request):
         user_visits = Visit.objects.filter(user=request.user.id, is_visit_finished=False).order_by('-start_time')
 
         serialized = VisitsSerializer(user_visits, many=True)
 
         return Response(serialized.data)
+
+
+class DoctorVisits(APIView):
+    def post(self, request, pk):
+        copied = request.data.copy()
+        copied['user'] = request.user.id
+
+        visit_serialized = AddVisitsSerializer(data=copied)
+
+        if visit_serialized.is_valid():
+            visit_serialized.save()
+            return Response('Ok', status=201)
+        else:
+            return Response(visit_serialized.errors, status=400)
+
+    def get(self, request, pk):
+        doctor_visits = Visit.objects.filter(doctor__user__id=pk)
+        serialized_visits = VisitsNonSensitiveData(doctor_visits, many=True)
+        return Response(serialized_visits.data, status=200)
 
 
 class DoctorView(APIView):

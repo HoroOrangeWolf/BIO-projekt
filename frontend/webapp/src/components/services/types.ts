@@ -1,14 +1,3 @@
-export type VisitType = {
-    id: number;
-    visit_name: string;
-    start_time: string;
-    expected_end_time: string;
-    is_approved_by_doctor: boolean;
-    is_visit_finished: boolean;
-    description: string;
-    created_at: string;
-}
-
 export type SpecializationModel = {
     id: number;
     specialization_name: string;
@@ -55,6 +44,27 @@ export type UserModelType = {
         doctor_number: string;
         doctor_specializations: SpecializationType[]
     }
+}
+
+export type NonSensitiveVisitModel = {
+    start_time: string;
+}
+
+export type AddVisitModel = {
+    visit_name: string;
+    start_time: string;
+    description: string;
+    doctor: number;
+}
+
+export type VisitModelType = {
+    id: number;
+    visit_name: string;
+    start_time: string;
+    is_visit_finished: boolean;
+    description: string;
+    created_at: string;
+    doctor: number;
 }
 
 export type UpdateUserModel = {

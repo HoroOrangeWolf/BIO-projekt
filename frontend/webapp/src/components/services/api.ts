@@ -1,9 +1,8 @@
 import axios from 'axios';
 import {
   AddSpecializationModel,
-  AddUserRequest, PaginationType,
-  SpecializationModel, UpdateUserModel, UserModelType,
-  VisitType,
+  AddUserRequest, AddVisitModel, NonSensitiveVisitModel, PaginationType,
+  SpecializationModel, UpdateUserModel, UserModelType, VisitModelType,
 } from '@main/components/services/types.ts';
 
 const api = axios.create({
@@ -68,8 +67,6 @@ export const updateUser = async (id: number, data: UpdateUserModel) => api.put(`
 
 export const deleteUser = async (id: number) => api.delete(`admin/user/${id}`);
 
-export const getUserVisits = async () => api.get<VisitType[]>('client/visits');
-
 export const getAllSpecializations = async () => api.get<SpecializationModel[]>('client/specialization');
 
 export const addSpecialization = async (data: AddSpecializationModel) => api.post('client/specialization/', data);
@@ -79,5 +76,11 @@ export const updateSpecialization = async (id: number, data: AddSpecializationMo
 export const deleteSpecialization = async (id: number) => api.delete(`client/specialization/${id}`);
 
 export const getDoctorsBySpecializations = async (id: number) => api.get<UserModelType[]>(`client/doctor/${id}`);
+
+export const getDoctorNonSensitiveVisits = async (doctorId: number) => api.get<NonSensitiveVisitModel[]>(`client/doctor/${doctorId}/visits`);
+
+export const getUserVisits = async () => api.get<VisitModelType[]>('client/visits');
+
+export const createDoctorVisit = async (data: AddVisitModel) => api.post(`client/doctor/${data.doctor}/visits`, data);
 
 export default api;

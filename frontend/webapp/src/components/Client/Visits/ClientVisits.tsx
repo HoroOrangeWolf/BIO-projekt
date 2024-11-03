@@ -40,12 +40,8 @@ const ClientVisits = () => {
         header: 'Data rozpoczęcia wizyty',
       },
       {
-        accessorKey: 'expected_end_time',
-        header: 'Przewidywany czas zakończenia wizyty',
-      },
-      {
-        accessorKey: 'is_approved_by_doctor',
-        header: 'Czy wizyta jest zatwierdzona',
+        accessorKey: 'doctor.full_name',
+        header: 'Nazwa doktora',
       },
     ],
     [],

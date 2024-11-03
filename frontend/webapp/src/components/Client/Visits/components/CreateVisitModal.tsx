@@ -1,6 +1,6 @@
 import {
   Badge, Box, Button,
-  Dialog, DialogContent, DialogTitle, MenuItem, Select, Stack, TextField,
+  Dialog, DialogContent, DialogTitle, MenuItem, Stack, TextField,
 } from '@mui/material';
 import * as yup from 'yup';
 import { Controller, useForm } from 'react-hook-form';
@@ -13,7 +13,12 @@ import CancelIcon from '@mui/icons-material/Cancel';
 import { isEmpty, isNil, map } from 'lodash';
 import { useMemo, useState } from 'react';
 import { useAsync } from 'react-async-hook';
-import { getAllSpecializations, getDoctorsBySpecializations } from '@main/components/services/api.ts';
+import {
+  createDoctorVisit,
+  getAllSpecializations,
+  getDoctorsBySpecializations,
+  getDoctorNonSensitiveVisits,
+} from '@main/components/services/api.ts';
 
 const visitSchema = yup.object().shape({
   visit_name: yup.string().required('Wymagane jest uzupełnienie nazwy wizyty'),
@@ -54,6 +59,25 @@ const ServerDay = (props: PickersDayProps<Dayjs> & { occupiedDays?: number[] }) 
   );
 };
 
+const generateTimes = (start: string, end: string, interval: number): string[] => {
+  const times: string[] = [];
+  let [startHour, startMinute] = start.split(':').map(Number);
+  const [endHour, endMinute] = end.split(':').map(Number);
+
+  while (startHour < endHour || (startHour === endHour && startMinute <= endMinute)) {
+    const timeString = `${String(startHour).padStart(2, '0')}:${String(startMinute).padStart(2, '0')}`;
+    times.push(timeString);
+
+    startMinute += interval;
+    if (startMinute >= 60) {
+      startMinute -= 60;
+      startHour += 1;
+    }
+  }
+
+  return times;
+};
+
 const CreateVisitModal = (props: PropsType) => {
   const [currentCalendarDate, setCurrentCalendarDate] = useState<string>();
   const form = useForm<VisitFormType>({
@@ -69,12 +93,15 @@ const CreateVisitModal = (props: PropsType) => {
   const hasSelectedSpecializationId = !!form.watch('specializationId');
   const specializationId = form.watch('specializationId') as number;
   const hasSelectedDoctor = !!form.watch('doctor');
+  const doctorId = form.watch('doctor');
   const start_time = form.watch('start_time') as string;
 
   const { handleSubmit, control, formState: { errors } } = form;
 
-  const onSubmitForm = (data: VisitFormType) => {
-    console.log('Data', data);
+  const onSubmitForm = async (data: VisitFormType) => {
+    const response = await createDoctorVisit(data);
+
+    console.log('Response', response);
     props.onSubmit?.();
   };
 
@@ -88,6 +115,28 @@ const CreateVisitModal = (props: PropsType) => {
 
     return response.data;
   }, [specializationId]);
+
+  const times = useMemo(() => generateTimes('8:00', '17:00', 30)
+    .map((time) => (
+      <MenuItem
+        key={time}
+        value={time}
+      >
+        {time}
+      </MenuItem>
+    )), []);
+
+  const { result: doctorVisits = [] } = useAsync(async () => {
+    if (isNil(doctorId)) {
+      return [];
+    }
+
+    const response = await getDoctorNonSensitiveVisits(doctorId);
+
+    return response.data;
+  }, [doctorId]);
+
+  console.log('Visits', doctorVisits);
 
   const doctorsEntries = useMemo(() => map(doctors, (doctor) => (
     <MenuItem
@@ -216,8 +265,16 @@ const CreateVisitModal = (props: PropsType) => {
                       ref={field.ref}
                     />
                     {isEmpty(start_time) || (
-                    <Select
+                    <TextField
                       fullWidth
+                      select
+                      SelectProps={{
+                        MenuProps: {
+                          sx: {
+                            maxHeight: 48 * 6,
+                          },
+                        },
+                      }}
                       label="Godzina wizyty"
                       placeholder="Wybierz godzine wizyty"
                       variant="outlined"
@@ -227,13 +284,8 @@ const CreateVisitModal = (props: PropsType) => {
                         field.onChange(`${currentCalendarDate}T${time}:00.000Z`);
                       }}
                     >
-                      <MenuItem value="11:30">
-                        11:30 AM
-                      </MenuItem>
-                      <MenuItem value="12:30">
-                        12:30 PM
-                      </MenuItem>
-                    </Select>
+                        {times}
+                    </TextField>
                     )}
                   </div>
                 )}
