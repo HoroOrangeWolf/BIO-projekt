@@ -1,12 +1,9 @@
 from django.urls import path, include
-from rest_framework.routers import DefaultRouter
 
-from .views import VisitsView
-
-# router = DefaultRouter()
-#
-# router.register(prefix=r'visits',viewset=VisitsView, basename='')
+from .views import VisitsView, SpecializationView
 
 urlpatterns = [
-    path('visits/', VisitsView.as_view(), name='visits')
+    path('visits/', VisitsView.as_view(), name='visits'),
+    path('specialization/', SpecializationView.as_view(), name='specialization'),
+    path('specialization/<int:pk>', SpecializationView.as_view(), name='specialization')
 ]

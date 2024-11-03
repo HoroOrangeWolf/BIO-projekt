@@ -1,8 +1,9 @@
+from rest_framework.exceptions import NotFound
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from .models import Visit
-from .serializers import VisitsSerializer
+from .models import Visit, DoctorSpecialization
+from .serializers import VisitsSerializer, SpecializationSerializer
 
 
 class VisitsView(APIView):
@@ -20,4 +21,44 @@ class VisitsView(APIView):
 
     def get(self, request):
         user_visits = Visit.objects.filter(user=request.user.id, is_visit_finished=False).order_by('-start_time')
-        return Response(VisitsSerializer(user_visits, many=True).data)
+
+        serialized = VisitsSerializer(user_visits, many=True)
+
+        return Response(serialized.data)
+
+
+class SpecializationView(APIView):
+    def get(self, request):
+        specializations = DoctorSpecialization.objects.all()
+        serialized = SpecializationSerializer(specializations, many=True)
+        return Response(serialized.data)
+
+    def put(self, request, pk):
+        specialization = DoctorSpecialization.objects.get(id=pk)
+
+        serialized = SpecializationSerializer(specialization, data=request.data)
+
+        if serialized.is_valid():
+            serialized.save()
+            return Response("Saved data", status=200)
+        else:
+            return Response(serialized.errors, status=400)
+
+    def delete(self, request, pk):
+        try:
+            specialization = DoctorSpecialization.objects.get(id=pk)
+        except DoctorSpecialization.DoesNotExist:
+            raise NotFound("Not found")
+
+        specialization.delete()
+
+        return Response("Removed", status=200)
+
+    def post(self, request):
+        instance = SpecializationSerializer(data=request.data)
+
+        if instance.is_valid():
+            instance.save()
+            return Response('Saved specialization', status=200)
+        else:
+            return Response(instance.errors, status=400)

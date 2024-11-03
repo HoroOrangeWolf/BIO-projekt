@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { VisitType } from '@main/components/services/types.ts';
+import { AddSpecializationModel, SpecializationModel, VisitType } from '@main/components/services/types.ts';
 
 const api = axios.create({
   baseURL: 'http://localhost:8000/',
@@ -60,5 +60,13 @@ export const getAllPermissions = async () => api.get('admin/permission/');
 export const getPermissions = async (page: number, pageSize: number) => api.get(`admin/permission/?page=${page}&page_size=${pageSize}`);
 
 export const getUserVisits = async () => api.get<VisitType[]>('client/visits');
+
+export const getAllSpecializations = async () => api.get<SpecializationModel[]>('client/specialization');
+
+export const addSpecialization = async (data: AddSpecializationModel) => api.post('client/specialization/', data);
+
+export const updateSpecialization = async (id: number, data: AddSpecializationModel) => api.put(`client/specialization/${id}`, data);
+
+export const deleteSpecialization = async (id: number) => api.delete(`client/specialization/${id}`);
 
 export default api;

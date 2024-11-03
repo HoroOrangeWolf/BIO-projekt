@@ -8,3 +8,12 @@ export type VisitType = {
     description: string;
     created_at: string;
 }
+
+export type SpecializationModel = {
+    id: number;
+    specialization_name: string;
+}
+
+export type AddSpecializationModel = {
+    specialization_name: string;
+}

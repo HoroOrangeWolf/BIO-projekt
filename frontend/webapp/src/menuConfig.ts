@@ -16,6 +16,8 @@ import VisitCalendar from '@main/components/Client/Calendar/VisitCalendar.tsx';
 import FormatListBulletedIcon from '@mui/icons-material/FormatListBulleted';
 import LocalHospitalIcon from '@mui/icons-material/LocalHospital';
 import ArticleIcon from '@mui/icons-material/Article';
+import GradeIcon from '@mui/icons-material/Grade';
+import SpecializationList from '@main/components/system/specialization/SpecializationList.tsx';
 
 export const menuConfig = [
   {
@@ -76,6 +78,12 @@ export const menuConfig = [
     text: 'system',
     icon: AdminPanelSettingsIcon,
     children: [
+      {
+        text: 'specialization',
+        icon: GradeIcon,
+        path: '/system/specialization',
+        component: SpecializationList,
+      },
       {
         text: 'users',
         icon: PeopleIcon,

@@ -7,9 +7,11 @@ import {
 } from '@mui/material';
 import AddCardIcon from '@mui/icons-material/AddCard';
 import { Delete, Edit } from '@mui/icons-material';
+import CreateVisitModal from '@main/components/Client/Visits/components/CreateVisitModal.tsx';
 
 const ClientVisits = () => {
   const [visits, setVisits] = useState<VisitType[]>([]);
+  const [isAddModalOpen, setIsAddModalOpen] = useState<boolean>(false);
 
   const [pagination, setPagination] = useState({
     pageIndex: 0,
@@ -56,6 +58,7 @@ const ClientVisits = () => {
         data={visits}
         // onEditingRowSave={handleSaveRowEdits}
         manualPagination
+        onPaginationChange={setPagination}
         pagination={pagination}
         renderRowActions={({ row, table }: any) => (
           <Box sx={{ display: 'flex', gap: '1rem' }}>
@@ -81,12 +84,18 @@ const ClientVisits = () => {
                     <Button
                       variant="contained"
                       color="secondary"
+                      onClick={() => setIsAddModalOpen(true)}
                     >
                       Dodaj
                     </Button>
                   )
               }
       />
+      {isAddModalOpen && (
+        <CreateVisitModal
+          onCancel={() => setIsAddModalOpen(false)}
+        />
+      )}
       {/* {openGroupModal && ( */}
       {/*  <AddGroupModal */}
       {/*    open={openGroupModal} */}
