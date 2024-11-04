@@ -4,8 +4,7 @@ from django.db import transaction
 from rest_framework import serializers
 
 from auth_api.models import AuthUser
-from client.models import DoctorDetails
-from client.serializers import DoctorDetailsSerializerGet
+
 
 
 class PermissionSerializer(serializers.ModelSerializer):
@@ -36,6 +35,24 @@ class UpdateUserSerializer(serializers.ModelSerializer):
         fields = ('id', 'email', 'first_name', 'last_name', 'full_name')
 
 
+class SimpleUserSerializer(serializers.ModelSerializer):
+    full_name = serializers.SerializerMethodField()
+
+    def get_full_name(self, obj):
+        first_name = obj.first_name if obj.first_name else ""
+        last_name = obj.last_name if obj.last_name else ""
+        full_name = f"{first_name} {last_name}"
+        return full_name if first_name != " " else obj.username
+
+    class Meta:
+        model = AuthUser
+        fields = [
+            "first_name",
+            "last_name",
+            "email",
+            "full_name",
+        ]
+
 
 class UserSerializer(serializers.ModelSerializer):
     full_name = serializers.SerializerMethodField()
@@ -51,17 +68,18 @@ class UserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = AuthUser
-        fields = ["id",
-                  "username",
-                  "first_name",
-                  "last_name",
-                  "email",
-                  "full_name",
-                  "password",
-                  "user_permissions",
-                  "groups",
-                  "is_active",
-                  ]
+        fields = [
+            "id",
+            "username",
+            "first_name",
+            "last_name",
+            "email",
+            "full_name",
+            "password",
+            "user_permissions",
+            "groups",
+            "is_active",
+        ]
 
     @transaction.atomic
     def create(self, validated_data):
@@ -85,9 +103,11 @@ class UserSerializer(serializers.ModelSerializer):
     def to_representation(self, instance):
         representation = super().to_representation(instance)
 
+        from client.models import DoctorDetails
         doctor_details = DoctorDetails.objects.filter(user=instance.id).first()
 
         if doctor_details:
+            from client.serializers import DoctorDetailsSerializerGet
             serialized = DoctorDetailsSerializerGet(doctor_details)
             representation['doctor_details'] = serialized.data
 

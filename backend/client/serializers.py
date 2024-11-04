@@ -1,5 +1,6 @@
 from rest_framework import serializers
 
+from administration.serializers import SimpleUserSerializer
 from .models import Visit, DoctorSpecialization, DoctorDetails
 
 
@@ -46,3 +47,13 @@ class DoctorDetailsSerializerPost(serializers.ModelSerializer):
     class Meta:
         model = DoctorDetails
         fields = ('id', 'doctor_number', 'user', 'doctor_specializations')
+
+
+class VisitsForDoctorSerializer(serializers.ModelSerializer):
+    user = SimpleUserSerializer(read_only=True)
+
+    class Meta:
+        model = Visit
+        fields = [
+            "id", "visit_name", "is_visit_finished", "description", "start_time", "created_at", "user",
+        ]

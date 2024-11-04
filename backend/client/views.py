@@ -1,10 +1,12 @@
+from rest_framework import viewsets
 from rest_framework.exceptions import NotFound
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
 from administration.serializers import UserSerializer
 from .models import Visit, DoctorSpecialization, DoctorDetails
-from .serializers import SpecializationSerializer, VisitsNonSensitiveData, AddVisitsSerializer, VisitsSerializer
+from .serializers import SpecializationSerializer, VisitsNonSensitiveData, AddVisitsSerializer, VisitsSerializer, \
+    VisitsForDoctorSerializer
 
 
 class VisitsView(APIView):
@@ -84,3 +86,19 @@ class SpecializationView(APIView):
             return Response('Saved specialization', status=200)
         else:
             return Response(instance.errors, status=400)
+
+
+class VisitsForDoctor(viewsets.ModelViewSet):
+    queryset = Visit.objects.all()
+    serializer_class = VisitsForDoctorSerializer
+
+    def list(self, request, *args, **kwargs):
+        doctor_id = request.query_params.get('doctor')
+
+        if doctor_id:
+            visits = Visit.objects.filter(doctor_id=doctor_id)
+        else:
+            visits = []
+
+        serializer = self.get_serializer(visits, many=True)
+        return Response(serializer.data, status=200)
