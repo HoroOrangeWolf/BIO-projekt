@@ -34,7 +34,9 @@
     "permissions": "Uprawnienia",
     "settings": "Ustawienia",
     "client": "Pacjent",
-    "doctor": "Doktor"
+    "doctor": "Doktor",
+    "planed_visits": "Zaplanowane wizyty",
+    "documentation": "Dokumentacja"
   },
   "errors": {
     "401": "Brak autoryzacji.",

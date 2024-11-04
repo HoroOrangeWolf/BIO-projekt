@@ -18,6 +18,8 @@ import LocalHospitalIcon from '@mui/icons-material/LocalHospital';
 import ArticleIcon from '@mui/icons-material/Article';
 import GradeIcon from '@mui/icons-material/Grade';
 import SpecializationList from '@main/components/system/specialization/SpecializationList.tsx';
+import FileCopyIcon from '@mui/icons-material/FileCopy';
+import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 
 export const menuConfig = [
   {
@@ -61,15 +63,15 @@ export const menuConfig = [
     icon: PeopleIcon,
     children: [
       {
-        text: 'cos tam',
-        icon: SettingsIcon,
-        path: '/doctor/cos_tam',
+        text: 'planed_visits',
+        icon: CalendarMonthIcon,
+        path: '/doctor/planed_visits',
         component: Dashboard,
       },
       {
-        text: 'cos tam',
-        icon: SettingsIcon,
-        path: '/doctor/cos_tam',
+        text: 'documentation',
+        icon: FileCopyIcon,
+        path: '/doctor/documentation',
         component: Dashboard,
       },
     ],
