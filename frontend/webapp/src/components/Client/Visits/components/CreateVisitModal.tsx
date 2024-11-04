@@ -29,16 +29,16 @@ const visitSchema = yup.object().shape({
 });
 
 type VisitFormType = {
-    visit_name: string;
-    start_time: string;
-    description: string;
-    doctor: number;
-    specializationId?: number;
+  visit_name: string;
+  start_time: string;
+  description: string;
+  doctor: number;
+  specializationId?: number;
 }
 
 type PropsType = {
-    onSubmit?: () => any;
-    onCancel?: () => any;
+  onSubmit?: () => any;
+  onCancel?: () => any;
 }
 
 const ServerDay = (props: PickersDayProps<Dayjs> & { occupiedDays?: number[] }) => {
@@ -136,7 +136,6 @@ const CreateVisitModal = (props: PropsType) => {
     return response.data;
   }, [doctorId]);
 
-  console.log('Visits', doctorVisits);
 
   const doctorsEntries = useMemo(() => map(doctors, (doctor) => (
     <MenuItem
@@ -166,6 +165,7 @@ const CreateVisitModal = (props: PropsType) => {
               width: '100%',
               minWidth: { xs: '300px', sm: '360px', md: '400px' },
               gap: '1.5rem',
+              mt: 1,
             }}
           >
             <Controller
@@ -265,27 +265,27 @@ const CreateVisitModal = (props: PropsType) => {
                       ref={field.ref}
                     />
                     {isEmpty(start_time) || (
-                    <TextField
-                      fullWidth
-                      select
-                      SelectProps={{
-                        MenuProps: {
-                          sx: {
-                            maxHeight: 48 * 6,
+                      <TextField
+                        fullWidth
+                        select
+                        SelectProps={{
+                          MenuProps: {
+                            sx: {
+                              maxHeight: 48 * 6,
+                            },
                           },
-                        },
-                      }}
-                      label="Godzina wizyty"
-                      placeholder="Wybierz godzine wizyty"
-                      variant="outlined"
-                      onChange={(event) => {
-                        const time = event.target.value as string;
+                        }}
+                        label="Godzina wizyty"
+                        placeholder="Wybierz godzine wizyty"
+                        variant="outlined"
+                        onChange={(event) => {
+                          const time = event.target.value as string;
 
-                        field.onChange(`${currentCalendarDate}T${time}:00.000Z`);
-                      }}
-                    >
+                          field.onChange(`${currentCalendarDate}T${time}:00.000Z`);
+                        }}
+                      >
                         {times}
-                    </TextField>
+                      </TextField>
                     )}
                   </div>
                 )}

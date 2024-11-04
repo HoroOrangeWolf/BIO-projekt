@@ -30,7 +30,7 @@ const GroupList = () => {
   const [totalRows, setTotalRows] = useState(0);
   const fetchGroups = async (page: number, pageSize: number) => {
     try {
-      const response = await getGroups(page + 1, pageSize);
+      const response = await getGroups(page, pageSize);
       setGroups(response.data.results);
       setTotalRows(response.data.count);
     } catch (error) {

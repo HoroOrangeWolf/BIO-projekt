@@ -1,11 +1,11 @@
-import { useEffect, useMemo, useState } from 'react';
-import { SpecializationModel } from '@main/components/services/types.ts';
-import { getAllSpecializations, updateSpecialization } from '@main/components/services/api.ts';
+import {useEffect, useMemo, useState} from 'react';
+import {SpecializationModel} from '@main/components/services/types.ts';
+import {getAllSpecializations, updateSpecialization} from '@main/components/services/api.ts';
 import MaterialTable from '@main/components/utils/MaterialTable.tsx';
 import {
   Box, Button, IconButton, Tooltip,
 } from '@mui/material';
-import { Delete, Edit } from '@mui/icons-material';
+import {Delete, Edit} from '@mui/icons-material';
 import AddSpecializationModal, {
   specializationSchema,
 } from '@main/components/system/specialization/components/AddSpecializationModal.tsx';
@@ -85,11 +85,11 @@ const SpecializationList = () => {
         }}
         onPaginationChange={setPagination}
         pagination={pagination}
-        renderRowActions={({ row, table }: any) => (
-          <Box sx={{ display: 'flex', gap: '1rem' }}>
+        renderRowActions={({row, table}: any) => (
+          <Box sx={{display: 'flex', gap: '1rem'}}>
             <Tooltip arrow placement="top" title="Edytuj">
               <IconButton onClick={() => table.setEditingRow(row)}>
-                <Edit />
+                <Edit/>
               </IconButton>
             </Tooltip>
             <Tooltip arrow placement="right" title="Usuń">
@@ -99,22 +99,22 @@ const SpecializationList = () => {
                   setRowToRemove(row.original);
                 }}
               >
-                <Delete />
+                <Delete/>
               </IconButton>
             </Tooltip>
           </Box>
         )}
         renderTopToolbarCustomActions={
-                    () => (
-                      <Button
-                        variant="contained"
-                        color="secondary"
-                        onClick={() => setIsAddModalOpen(true)}
-                      >
-                        Dodaj
-                      </Button>
-                    )
-                }
+          () => (
+            <Button
+              variant="contained"
+              color="secondary"
+              onClick={() => setIsAddModalOpen(true)}
+            >
+              Dodaj
+            </Button>
+          )
+        }
       />
       {isAddModalOpen && (
         <AddSpecializationModal
@@ -127,17 +127,17 @@ const SpecializationList = () => {
         />
       )}
       {
-            rowToRemove && (
-            <ConfirmRemoveSpecializationModal
-              row={rowToRemove}
-              onClose={() => {
-                setRowToRemove(undefined);
-                fetch()
-                  .catch(console.error);
-              }}
-            />
-            )
-        }
+        rowToRemove && (
+          <ConfirmRemoveSpecializationModal
+            row={rowToRemove}
+            onClose={() => {
+              setRowToRemove(undefined);
+              fetch()
+                .catch(console.error);
+            }}
+          />
+        )
+      }
     </>
   );
 };

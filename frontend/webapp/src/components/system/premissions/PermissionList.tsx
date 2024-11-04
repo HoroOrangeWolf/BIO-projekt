@@ -6,16 +6,16 @@ import { getPermissions } from '../../services/api.ts';
 const PermissionList = () => {
   const [permissions, setPermissions] = useState([]);
   const { t } = useTranslation('system');
-  const [pagination] = useState({
+  const [pagination, setPagination] = useState({
     pageIndex: 0,
     pageSize: 10,
   });
-  const [, setTotalRows] = useState(0);
+  const [totalRows, setTotalRows] = useState(0);
   const [loading, setLoading] = useState(true);
 
   const fetchPermission = async (page: number, pageSize: number) => {
     try {
-      const response = await getPermissions(page + 1, pageSize);
+      const response = await getPermissions(page, pageSize);
       setPermissions(response.data.results);
       setTotalRows(response.data.count);
       setLoading(false);
@@ -52,6 +52,9 @@ const PermissionList = () => {
       data={permissions}
       disableAction
       pagination={pagination}
+      onPaginationChange={setPagination}
+      manualPagination
+      rowCount={totalRows}
     />
   );
 };
