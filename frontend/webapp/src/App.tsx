@@ -1,23 +1,24 @@
-import React, { useState, useEffect } from 'react';
+import React, {useState, useEffect} from 'react';
 import {
   BrowserRouter as Router, Routes, Route, Navigate,
 } from 'react-router-dom';
-import { ThemeProvider } from '@mui/material/styles';
+import {ThemeProvider} from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
-import { useDispatch, useSelector } from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import i18n from 'i18next';
 import SetupTOTP from '@main/components/Auth/SetupTOTP.tsx';
 import Login from '@main/components/Auth/Login.tsx';
 import Register from '@main/components/Auth/Register.tsx';
 import Layout from '@main/components/Layout/Layout.tsx';
-import { clearUser, setAuthCheckComplete, setUser } from '@main/components/features/auth/authSlice.ts';
-import { getCurrentUser } from '@main/components/services/api.ts';
+import {clearUser, setAuthCheckComplete, setUser} from '@main/components/features/auth/authSlice.ts';
+import {getCurrentUser} from '@main/components/services/api.ts';
 import PrivateRoute from '@main/components/route/PrivateRoute.tsx';
-import { useSnackbar } from '@main/SnackbarProvider.tsx';
-import { darkTheme, lightTheme } from '@main/theme.ts';
-import { menuConfig } from '@main/menuConfig.ts';
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import { LocalizationProvider } from '@mui/x-date-pickers';
+import {useSnackbar} from '@main/SnackbarProvider.tsx';
+import {darkTheme, lightTheme} from '@main/theme.ts';
+import {menuConfig} from '@main/menuConfig.ts';
+import {AdapterDayjs} from '@mui/x-date-pickers/AdapterDayjs';
+import {LocalizationProvider} from '@mui/x-date-pickers';
+import {ConfirmProvider} from "material-ui-confirm";
 
 type ItemsType = {
   path: string;
@@ -73,7 +74,7 @@ const App = () => {
       <Route
         key={item.path}
         path={item.path}
-        element={<item.component />}
+        element={<item.component/>}
       />
     );
   });
@@ -81,23 +82,25 @@ const App = () => {
   const theme = mode === 'light' ? lightTheme : darkTheme;
 
   return (
-    <LocalizationProvider dateAdapter={AdapterDayjs}>
-      <ThemeProvider theme={theme}>
-        <CssBaseline />
-        <Router>
-          <Routes>
-            <Route path="/login" element={!isAuthenticated ? <Login /> : <Navigate to="/" />} />
-            <Route path="/register" element={!isAuthenticated ? <Register /> : <Navigate to="/" />} />
-            <Route element={<PrivateRoute />}>
-              <Route path="/setup-totp" element={<SetupTOTP />} />
-              <Route path="/" element={<Layout toggleColorMode={toggleColorMode} changeLanguage={changeLanguage} />}>
-                {renderRoutes(menuConfig as unknown as ItemsType[])}
+    <ConfirmProvider>
+      <LocalizationProvider dateAdapter={AdapterDayjs}>
+        <ThemeProvider theme={theme}>
+          <CssBaseline/>
+          <Router>
+            <Routes>
+              <Route path="/login" element={!isAuthenticated ? <Login/> : <Navigate to="/"/>}/>
+              <Route path="/register" element={!isAuthenticated ? <Register/> : <Navigate to="/"/>}/>
+              <Route element={<PrivateRoute/>}>
+                <Route path="/setup-totp" element={<SetupTOTP/>}/>
+                <Route path="/" element={<Layout toggleColorMode={toggleColorMode} changeLanguage={changeLanguage}/>}>
+                  {renderRoutes(menuConfig as unknown as ItemsType[])}
+                </Route>
               </Route>
-            </Route>
-          </Routes>
-        </Router>
-      </ThemeProvider>
-    </LocalizationProvider>
+            </Routes>
+          </Router>
+        </ThemeProvider>
+      </LocalizationProvider>
+    </ConfirmProvider>
   );
 };
 
