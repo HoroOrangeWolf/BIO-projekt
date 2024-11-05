@@ -48,6 +48,7 @@ const AddSpecializationModal = (props: PropsType) => {
               width: '100%',
               minWidth: { xs: '300px', sm: '360px', md: '400px' },
               gap: '1.5rem',
+              mt: 2
             }}
           >
             <Controller
