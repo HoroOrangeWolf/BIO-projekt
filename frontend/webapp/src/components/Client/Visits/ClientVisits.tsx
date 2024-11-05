@@ -9,9 +9,10 @@ import { Delete, Edit } from '@mui/icons-material';
 import CreateVisitModal from '@main/components/Client/Visits/components/CreateVisitModal.tsx';
 import { map } from 'lodash';
 import dayjs from 'dayjs';
+import { VisitModelType } from '@main/components/services/types.ts';
 
 const ClientVisits = () => {
-  const [visits, setVisits] = useState<VisitType[]>([]);
+  const [visits, setVisits] = useState<VisitModelType[]>([]);
   const [isAddModalOpen, setIsAddModalOpen] = useState<boolean>(false);
 
   const [pagination, setPagination] = useState({
@@ -19,18 +20,18 @@ const ClientVisits = () => {
     pageSize: 10,
   });
 
+  const fetch = async () => {
+    const visitsResponse = await getUserVisits();
+
+    const mapVisits = map(visitsResponse.data, (item) => ({
+      ...item,
+      start_time: dayjs(item.start_time).tz('UTC').format('DD/MM/YYYY HH:mm'),
+    }));
+
+    setVisits(mapVisits);
+  };
+
   useEffect(() => {
-    const fetch = async () => {
-      const visitsResponse = await getUserVisits();
-
-      const mapVisits = map(visitsResponse.data, (item) => ({
-        ...item,
-        start_time: dayjs(item.start_time).format('DD/MM/YYYY HH:mm'),
-      }));
-
-      setVisits(mapVisits);
-    };
-
     fetch()
       .catch(console.error);
   }, []);
@@ -96,6 +97,11 @@ const ClientVisits = () => {
       {isAddModalOpen && (
         <CreateVisitModal
           onCancel={() => setIsAddModalOpen(false)}
+          onSubmit={() => {
+            setIsAddModalOpen(false);
+            fetch()
+              .catch(console.error);
+          }}
         />
       )}
       {/* {openGroupModal && ( */}

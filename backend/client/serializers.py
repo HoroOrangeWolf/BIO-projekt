@@ -41,7 +41,8 @@ class VisitsSerializer(serializers.ModelSerializer):
 class VisitsNonSensitiveData(serializers.ModelSerializer):
     class Meta:
         model = Visit
-        fields = ('start_time')
+        # Id jest wymagane
+        fields = ('id', 'start_time')
 
 
 class DoctorDetailsSerializerPost(serializers.ModelSerializer):

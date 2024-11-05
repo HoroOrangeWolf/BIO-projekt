@@ -21,7 +21,9 @@ class VisitsView(APIView):
 class DoctorVisits(APIView):
     def post(self, request, pk):
         copied = request.data.copy()
+        doctor_details = DoctorDetails.objects.filter(user__id=copied['doctor']).first()
         copied['user'] = request.user.id
+        copied['doctor'] = doctor_details.id
 
         visit_serialized = AddVisitsSerializer(data=copied)
 

@@ -11,7 +11,7 @@ import {
 import dayjs, { Dayjs } from 'dayjs';
 import CancelIcon from '@mui/icons-material/Cancel';
 import {
-  isEmpty, isNil, map, toNumber,
+  isEmpty, isNil, map, some, toNumber,
 } from 'lodash';
 import { useMemo, useState } from 'react';
 import { useAsync } from 'react-async-hook';
@@ -21,10 +21,11 @@ import {
   getDoctorsBySpecializations,
   getDoctorNonSensitiveVisits,
 } from '@main/components/services/api.ts';
+import { NonSensitiveVisitModel } from '@main/components/services/types.ts';
 
 const visitSchema = yup.object().shape({
   visit_name: yup.string().required('Wymagane jest uzupełnienie nazwy wizyty'),
-  start_time: yup.string().matches(/^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2})(\.\d+)?([+-]\d{2}:\d{2}|Z)$/, 'Wybrana data jest nie poprawna')
+  start_time: yup.string()
     .required('Wymagane jest pole wyboru czasu'),
   description: yup.string().required('Pole opisu jest wymagane'),
   doctor: yup.number().required('To pole jest wymagane'),
@@ -80,6 +81,25 @@ const generateTimes = (start: string, end: string, interval: number): string[] =
   return times;
 };
 
+const shouldBeDisabled = (takenDates: NonSensitiveVisitModel[], time: string, selectedCalendarDate?: string) => {
+  if (isEmpty(selectedCalendarDate)) {
+    return false;
+  }
+
+  const timeSplit = time.split(':');
+
+  const hour = toNumber(timeSplit[0]);
+  const minute = toNumber(timeSplit[1]);
+
+  const buildedDate = dayjs(selectedCalendarDate)
+    .hour(hour)
+    .minute(minute)
+    .second(0)
+    .format('YYYY-MM-DDTHH:mm:ss');
+
+  return some(takenDates, { start_time: `${buildedDate}Z` });
+};
+
 const CreateVisitModal = (props: PropsType) => {
   const [currentCalendarDate, setCurrentCalendarDate] = useState<string>();
   const form = useForm<VisitFormType>({
@@ -117,16 +137,6 @@ const CreateVisitModal = (props: PropsType) => {
     return response.data;
   }, [specializationId]);
 
-  const times = useMemo(() => generateTimes('8:00', '17:00', 30)
-    .map((time) => (
-      <MenuItem
-        key={time}
-        value={time}
-      >
-        {time}
-      </MenuItem>
-    )), []);
-
   const { result: doctorVisits = [] } = useAsync(async () => {
     if (isNil(doctorId)) {
       return [];
@@ -136,6 +146,19 @@ const CreateVisitModal = (props: PropsType) => {
 
     return response.data;
   }, [doctorId]);
+
+  console.log('ERR', errors);
+
+  const times = useMemo(() => generateTimes('8:00', '17:00', 30)
+    .map((time) => (
+      <MenuItem
+        key={time}
+        disabled={shouldBeDisabled(doctorVisits, time, currentCalendarDate)}
+        value={time}
+      >
+        {time}
+      </MenuItem>
+    )), [doctorVisits, currentCalendarDate]);
 
   const doctorsEntries = useMemo(() => map(doctors, (doctor) => (
     <MenuItem
@@ -286,14 +309,11 @@ const CreateVisitModal = (props: PropsType) => {
                       const hours = toNumber(split[0]);
                       const minutes = toNumber(split[1]);
 
-                      const currentTimeZone = dayjs.tz.guess();
-
                       const dateTimeOfVisit = dayjs(currentCalendarDate)
                         .hour(hours)
                         .minute(minutes)
                         .second(0)
-                        .tz(currentTimeZone)
-                        .toISOString();
+                        .format('YYYY-MM-DDTHH:mm:ss');
 
                       field.onChange(dateTimeOfVisit);
                     }}
