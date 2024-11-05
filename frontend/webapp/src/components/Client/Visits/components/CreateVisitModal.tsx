@@ -8,9 +8,11 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import {
   DateCalendar, PickersDay, PickersDayProps,
 } from '@mui/x-date-pickers';
-import { Dayjs } from 'dayjs';
+import dayjs, { Dayjs } from 'dayjs';
 import CancelIcon from '@mui/icons-material/Cancel';
-import { isEmpty, isNil, map } from 'lodash';
+import {
+  isEmpty, isNil, map, toNumber,
+} from 'lodash';
 import { useMemo, useState } from 'react';
 import { useAsync } from 'react-async-hook';
 import {
@@ -29,16 +31,16 @@ const visitSchema = yup.object().shape({
 });
 
 type VisitFormType = {
-  visit_name: string;
-  start_time: string;
-  description: string;
-  doctor: number;
-  specializationId?: number;
+    visit_name: string;
+    start_time: string;
+    description: string;
+    doctor: number;
+    specializationId?: number;
 }
 
 type PropsType = {
-  onSubmit?: () => any;
-  onCancel?: () => any;
+    onSubmit?: () => any;
+    onCancel?: () => any;
 }
 
 const ServerDay = (props: PickersDayProps<Dayjs> & { occupiedDays?: number[] }) => {
@@ -99,9 +101,8 @@ const CreateVisitModal = (props: PropsType) => {
   const { handleSubmit, control, formState: { errors } } = form;
 
   const onSubmitForm = async (data: VisitFormType) => {
-    const response = await createDoctorVisit(data);
+    await createDoctorVisit(data);
 
-    console.log('Response', response);
     props.onSubmit?.();
   };
 
@@ -135,7 +136,6 @@ const CreateVisitModal = (props: PropsType) => {
 
     return response.data;
   }, [doctorId]);
-
 
   const doctorsEntries = useMemo(() => map(doctors, (doctor) => (
     <MenuItem
@@ -222,75 +222,89 @@ const CreateVisitModal = (props: PropsType) => {
               name="specializationId"
             />
             {hasSelectedSpecializationId && (
-              <Controller
-                control={control}
-                render={({ field }) => (
-                  <TextField
-                    placeholder="Wybierz doktora"
-                    label="Doktor"
-                    variant="outlined"
-                    fullWidth
-                    error={!!errors.specializationId}
-                    ref={field.ref}
-                    onBlur={field.onBlur}
-                    select
-                    onChange={(e) => field.onChange(e.target.value as string)}
-                  >
-                    {doctorsEntries}
-                  </TextField>
-                )}
-                name="doctor"
-              />
+            <Controller
+              control={control}
+              render={({ field }) => (
+                <TextField
+                  placeholder="Wybierz doktora"
+                  label="Doktor"
+                  variant="outlined"
+                  fullWidth
+                  error={!!errors.specializationId}
+                  ref={field.ref}
+                  onBlur={field.onBlur}
+                  select
+                  onChange={(e) => field.onChange(e.target.value as string)}
+                >
+                  {doctorsEntries}
+                </TextField>
+              )}
+              name="doctor"
+            />
             )}
             {hasSelectedDoctor && (
-              <Controller
-                control={control}
-                render={({ field }) => (
-                  <div onBlur={field.onBlur}>
-                    <DateCalendar
-                      slots={{
-                        day: ServerDay,
-                      }}
-                      slotProps={{
-                        day: {
-                          occupiedDays: [1, 10, 25, 20],
-                        } as any,
-                      }}
-                      onChange={(value: Dayjs) => {
-                        const dateFormatted = value.format('YYYY-MM-DD');
+            <Controller
+              control={control}
+              render={({ field }) => (
+                <div onBlur={field.onBlur}>
+                  <DateCalendar
+                    slots={{
+                      day: ServerDay,
+                    }}
+                    slotProps={{
+                      day: {
+                        occupiedDays: [1, 10, 25, 20],
+                      } as any,
+                    }}
+                    onChange={(value: Dayjs) => {
+                      const dateFormatted = value.format('YYYY-MM-DD');
 
-                        setCurrentCalendarDate(dateFormatted);
-                        field.onChange(dateFormatted);
-                      }}
-                      ref={field.ref}
-                    />
-                    {isEmpty(start_time) || (
-                      <TextField
-                        fullWidth
-                        select
-                        SelectProps={{
-                          MenuProps: {
-                            sx: {
-                              maxHeight: 48 * 6,
-                            },
-                          },
-                        }}
-                        label="Godzina wizyty"
-                        placeholder="Wybierz godzine wizyty"
-                        variant="outlined"
-                        onChange={(event) => {
-                          const time = event.target.value as string;
+                      setCurrentCalendarDate(dateFormatted);
+                      field.onChange(dateFormatted);
+                    }}
+                    ref={field.ref}
+                  />
+                  {isEmpty(start_time) || (
+                  <TextField
+                    fullWidth
+                    select
+                    SelectProps={{
+                      MenuProps: {
+                        sx: {
+                          maxHeight: 48 * 6,
+                        },
+                      },
+                    }}
+                    label="Godzina wizyty"
+                    placeholder="Wybierz godzine wizyty"
+                    variant="outlined"
+                    onChange={(event) => {
+                      const time = event.target.value as string;
 
-                          field.onChange(`${currentCalendarDate}T${time}:00.000Z`);
-                        }}
-                      >
-                        {times}
-                      </TextField>
-                    )}
-                  </div>
-                )}
-                name="start_time"
-              />
+                      const split = time.split(':');
+
+                      const hours = toNumber(split[0]);
+                      const minutes = toNumber(split[1]);
+
+                      const currentTimeZone = dayjs.tz.guess();
+
+                      const dateTimeOfVisit = dayjs(currentCalendarDate)
+                        .hour(hours)
+                        .minute(minutes)
+                        .second(0)
+                        .tz(currentTimeZone)
+                        .toISOString();
+
+                      field.onChange(dateTimeOfVisit);
+                    }}
+                  >
+                    {times}
+                  </TextField>
+                  )}
+                </div>
+              )}
+              name="start_time"
+            />
             )}
             <Box
               sx={{

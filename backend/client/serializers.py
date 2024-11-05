@@ -35,6 +35,7 @@ class VisitsSerializer(serializers.ModelSerializer):
             'description',
             'created_at',
             'doctor',
+            'start_time'
         )
 
 class VisitsNonSensitiveData(serializers.ModelSerializer):

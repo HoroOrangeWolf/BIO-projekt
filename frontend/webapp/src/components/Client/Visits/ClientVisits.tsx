@@ -1,6 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
 import { getUserVisits } from '@main/components/services/api.ts';
-import { VisitType } from '@main/components/services/types.ts';
 import MaterialTable from '@main/components/utils/MaterialTable.tsx';
 import {
   Box, Button, IconButton, Tooltip,
@@ -8,6 +7,8 @@ import {
 import AddCardIcon from '@mui/icons-material/AddCard';
 import { Delete, Edit } from '@mui/icons-material';
 import CreateVisitModal from '@main/components/Client/Visits/components/CreateVisitModal.tsx';
+import { map } from 'lodash';
+import dayjs from 'dayjs';
 
 const ClientVisits = () => {
   const [visits, setVisits] = useState<VisitType[]>([]);
@@ -22,7 +23,12 @@ const ClientVisits = () => {
     const fetch = async () => {
       const visitsResponse = await getUserVisits();
 
-      setVisits(visitsResponse.data);
+      const mapVisits = map(visitsResponse.data, (item) => ({
+        ...item,
+        start_time: dayjs(item.start_time).format('DD/MM/YYYY HH:mm'),
+      }));
+
+      setVisits(mapVisits);
     };
 
     fetch()
