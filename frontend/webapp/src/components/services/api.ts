@@ -84,5 +84,6 @@ export const getUserVisits = async () => api.get<VisitModelType[]>('client/visit
 export const createDoctorVisit = async (data: AddVisitModel) => api.post(`client/doctor/${data.doctor}/visits`, data);
 
 export const getDoctorVisits = async (id: number) => api.get(`client/doctor_visits/?doctor=${id}`);
+export const finishVisit = async (id: number, data: any) => api.patch(`client/doctor_visits/${id}/`, data);
 
 export default api;
