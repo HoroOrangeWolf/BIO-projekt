@@ -1,0 +1,4370 @@
+[
+    {
+        "model": "client.Visit",
+        "pk": 1,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 1",
+            "start_time": "2024-11-01T08:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 1 - szczegóły konsultacji.",
+            "created_at": "2024-11-01T07:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 2,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 2",
+            "start_time": "2024-11-01T08:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 2 - szczegóły konsultacji.",
+            "created_at": "2024-11-01T08:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 3,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 3",
+            "start_time": "2024-11-01T09:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 3 - szczegóły konsultacji.",
+            "created_at": "2024-11-01T08:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 4,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 4",
+            "start_time": "2024-11-01T09:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 4 - szczegóły konsultacji.",
+            "created_at": "2024-11-01T09:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 5,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 5",
+            "start_time": "2024-11-01T10:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 5 - szczegóły konsultacji.",
+            "created_at": "2024-11-01T09:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 6,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 6",
+            "start_time": "2024-11-01T10:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 6 - szczegóły konsultacji.",
+            "created_at": "2024-11-01T10:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 7,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 7",
+            "start_time": "2024-11-01T11:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 7 - szczegóły konsultacji.",
+            "created_at": "2024-11-01T10:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 8,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 8",
+            "start_time": "2024-11-01T11:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 8 - szczegóły konsultacji.",
+            "created_at": "2024-11-01T11:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 9,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 9",
+            "start_time": "2024-11-01T12:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 9 - szczegóły konsultacji.",
+            "created_at": "2024-11-01T11:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 10,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 10",
+            "start_time": "2024-11-01T12:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 10 - szczegóły konsultacji.",
+            "created_at": "2024-11-01T12:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 11,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 11",
+            "start_time": "2024-11-01T13:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 11 - szczegóły konsultacji.",
+            "created_at": "2024-11-01T12:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 12,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 12",
+            "start_time": "2024-11-01T13:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 12 - szczegóły konsultacji.",
+            "created_at": "2024-11-01T13:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 13,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 13",
+            "start_time": "2024-11-01T14:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 13 - szczegóły konsultacji.",
+            "created_at": "2024-11-01T13:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 14,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 14",
+            "start_time": "2024-11-01T14:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 14 - szczegóły konsultacji.",
+            "created_at": "2024-11-01T14:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 15,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 15",
+            "start_time": "2024-11-01T15:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 15 - szczegóły konsultacji.",
+            "created_at": "2024-11-01T14:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 16,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 16",
+            "start_time": "2024-11-01T15:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 16 - szczegóły konsultacji.",
+            "created_at": "2024-11-01T15:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 17,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 17",
+            "start_time": "2024-11-04T08:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 17 - szczegóły konsultacji.",
+            "created_at": "2024-11-04T07:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 18,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 18",
+            "start_time": "2024-11-04T08:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 18 - szczegóły konsultacji.",
+            "created_at": "2024-11-04T08:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 19,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 19",
+            "start_time": "2024-11-04T09:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 19 - szczegóły konsultacji.",
+            "created_at": "2024-11-04T08:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 20,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 20",
+            "start_time": "2024-11-04T09:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 20 - szczegóły konsultacji.",
+            "created_at": "2024-11-04T09:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 21,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 21",
+            "start_time": "2024-11-04T10:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 21 - szczegóły konsultacji.",
+            "created_at": "2024-11-04T09:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 22,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 22",
+            "start_time": "2024-11-04T10:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 22 - szczegóły konsultacji.",
+            "created_at": "2024-11-04T10:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 23,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 23",
+            "start_time": "2024-11-04T11:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 23 - szczegóły konsultacji.",
+            "created_at": "2024-11-04T10:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 24,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 24",
+            "start_time": "2024-11-04T11:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 24 - szczegóły konsultacji.",
+            "created_at": "2024-11-04T11:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 25,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 25",
+            "start_time": "2024-11-04T12:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 25 - szczegóły konsultacji.",
+            "created_at": "2024-11-04T11:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 26,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 26",
+            "start_time": "2024-11-04T12:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 26 - szczegóły konsultacji.",
+            "created_at": "2024-11-04T12:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 27,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 27",
+            "start_time": "2024-11-04T13:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 27 - szczegóły konsultacji.",
+            "created_at": "2024-11-04T12:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 28,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 28",
+            "start_time": "2024-11-04T13:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 28 - szczegóły konsultacji.",
+            "created_at": "2024-11-04T13:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 29,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 29",
+            "start_time": "2024-11-04T14:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 29 - szczegóły konsultacji.",
+            "created_at": "2024-11-04T13:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 30,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 30",
+            "start_time": "2024-11-04T14:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 30 - szczegóły konsultacji.",
+            "created_at": "2024-11-04T14:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 31,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 31",
+            "start_time": "2024-11-04T15:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 31 - szczegóły konsultacji.",
+            "created_at": "2024-11-04T14:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 32,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 32",
+            "start_time": "2024-11-04T15:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 32 - szczegóły konsultacji.",
+            "created_at": "2024-11-04T15:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 33,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 33",
+            "start_time": "2024-11-05T08:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 33 - szczegóły konsultacji.",
+            "created_at": "2024-11-05T07:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 34,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 34",
+            "start_time": "2024-11-05T08:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 34 - szczegóły konsultacji.",
+            "created_at": "2024-11-05T08:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 35,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 35",
+            "start_time": "2024-11-05T09:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 35 - szczegóły konsultacji.",
+            "created_at": "2024-11-05T08:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 36,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 36",
+            "start_time": "2024-11-05T09:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 36 - szczegóły konsultacji.",
+            "created_at": "2024-11-05T09:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 37,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 37",
+            "start_time": "2024-11-05T10:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 37 - szczegóły konsultacji.",
+            "created_at": "2024-11-05T09:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 38,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 38",
+            "start_time": "2024-11-05T10:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 38 - szczegóły konsultacji.",
+            "created_at": "2024-11-05T10:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 39,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 39",
+            "start_time": "2024-11-05T11:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 39 - szczegóły konsultacji.",
+            "created_at": "2024-11-05T10:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 40,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 40",
+            "start_time": "2024-11-05T11:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 40 - szczegóły konsultacji.",
+            "created_at": "2024-11-05T11:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 41,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 41",
+            "start_time": "2024-11-05T12:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 41 - szczegóły konsultacji.",
+            "created_at": "2024-11-05T11:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 42,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 42",
+            "start_time": "2024-11-05T12:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 42 - szczegóły konsultacji.",
+            "created_at": "2024-11-05T12:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 43,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 43",
+            "start_time": "2024-11-05T13:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 43 - szczegóły konsultacji.",
+            "created_at": "2024-11-05T12:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 44,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 44",
+            "start_time": "2024-11-05T13:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 44 - szczegóły konsultacji.",
+            "created_at": "2024-11-05T13:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 45,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 45",
+            "start_time": "2024-11-05T14:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 45 - szczegóły konsultacji.",
+            "created_at": "2024-11-05T13:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 46,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 46",
+            "start_time": "2024-11-05T14:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 46 - szczegóły konsultacji.",
+            "created_at": "2024-11-05T14:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 47,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 47",
+            "start_time": "2024-11-05T15:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 47 - szczegóły konsultacji.",
+            "created_at": "2024-11-05T14:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 48,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 48",
+            "start_time": "2024-11-05T15:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 48 - szczegóły konsultacji.",
+            "created_at": "2024-11-05T15:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 49,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 49",
+            "start_time": "2024-11-06T08:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 49 - szczegóły konsultacji.",
+            "created_at": "2024-11-06T07:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 50,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 50",
+            "start_time": "2024-11-06T08:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 50 - szczegóły konsultacji.",
+            "created_at": "2024-11-06T08:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 51,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 51",
+            "start_time": "2024-11-06T09:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 51 - szczegóły konsultacji.",
+            "created_at": "2024-11-06T08:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 52,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 52",
+            "start_time": "2024-11-06T09:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 52 - szczegóły konsultacji.",
+            "created_at": "2024-11-06T09:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 53,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 53",
+            "start_time": "2024-11-06T10:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 53 - szczegóły konsultacji.",
+            "created_at": "2024-11-06T09:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 54,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 54",
+            "start_time": "2024-11-06T10:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 54 - szczegóły konsultacji.",
+            "created_at": "2024-11-06T10:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 55,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 55",
+            "start_time": "2024-11-06T11:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 55 - szczegóły konsultacji.",
+            "created_at": "2024-11-06T10:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 56,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 56",
+            "start_time": "2024-11-06T11:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 56 - szczegóły konsultacji.",
+            "created_at": "2024-11-06T11:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 57,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 57",
+            "start_time": "2024-11-06T12:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 57 - szczegóły konsultacji.",
+            "created_at": "2024-11-06T11:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 58,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 58",
+            "start_time": "2024-11-06T12:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 58 - szczegóły konsultacji.",
+            "created_at": "2024-11-06T12:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 59,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 59",
+            "start_time": "2024-11-06T13:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 59 - szczegóły konsultacji.",
+            "created_at": "2024-11-06T12:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 60,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 60",
+            "start_time": "2024-11-06T13:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 60 - szczegóły konsultacji.",
+            "created_at": "2024-11-06T13:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 61,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 61",
+            "start_time": "2024-11-06T14:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 61 - szczegóły konsultacji.",
+            "created_at": "2024-11-06T13:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 62,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 62",
+            "start_time": "2024-11-06T14:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 62 - szczegóły konsultacji.",
+            "created_at": "2024-11-06T14:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 63,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 63",
+            "start_time": "2024-11-06T15:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 63 - szczegóły konsultacji.",
+            "created_at": "2024-11-06T14:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 64,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 64",
+            "start_time": "2024-11-06T15:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 64 - szczegóły konsultacji.",
+            "created_at": "2024-11-06T15:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 65,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 65",
+            "start_time": "2024-11-07T08:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 65 - szczegóły konsultacji.",
+            "created_at": "2024-11-07T07:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 66,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 66",
+            "start_time": "2024-11-07T08:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 66 - szczegóły konsultacji.",
+            "created_at": "2024-11-07T08:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 67,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 67",
+            "start_time": "2024-11-07T09:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 67 - szczegóły konsultacji.",
+            "created_at": "2024-11-07T08:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 68,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 68",
+            "start_time": "2024-11-07T09:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 68 - szczegóły konsultacji.",
+            "created_at": "2024-11-07T09:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 69,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 69",
+            "start_time": "2024-11-07T10:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 69 - szczegóły konsultacji.",
+            "created_at": "2024-11-07T09:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 70,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 70",
+            "start_time": "2024-11-07T10:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 70 - szczegóły konsultacji.",
+            "created_at": "2024-11-07T10:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 71,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 71",
+            "start_time": "2024-11-07T11:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 71 - szczegóły konsultacji.",
+            "created_at": "2024-11-07T10:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 72,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 72",
+            "start_time": "2024-11-07T11:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 72 - szczegóły konsultacji.",
+            "created_at": "2024-11-07T11:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 73,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 73",
+            "start_time": "2024-11-07T12:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 73 - szczegóły konsultacji.",
+            "created_at": "2024-11-07T11:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 74,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 74",
+            "start_time": "2024-11-07T12:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 74 - szczegóły konsultacji.",
+            "created_at": "2024-11-07T12:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 75,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 75",
+            "start_time": "2024-11-07T13:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 75 - szczegóły konsultacji.",
+            "created_at": "2024-11-07T12:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 76,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 76",
+            "start_time": "2024-11-07T13:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 76 - szczegóły konsultacji.",
+            "created_at": "2024-11-07T13:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 77,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 77",
+            "start_time": "2024-11-07T14:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 77 - szczegóły konsultacji.",
+            "created_at": "2024-11-07T13:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 78,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 78",
+            "start_time": "2024-11-07T14:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 78 - szczegóły konsultacji.",
+            "created_at": "2024-11-07T14:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 79,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 79",
+            "start_time": "2024-11-07T15:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 79 - szczegóły konsultacji.",
+            "created_at": "2024-11-07T14:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 80,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 80",
+            "start_time": "2024-11-07T15:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 80 - szczegóły konsultacji.",
+            "created_at": "2024-11-07T15:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 81,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 81",
+            "start_time": "2024-11-08T08:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 81 - szczegóły konsultacji.",
+            "created_at": "2024-11-08T07:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 82,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 82",
+            "start_time": "2024-11-08T08:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 82 - szczegóły konsultacji.",
+            "created_at": "2024-11-08T08:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 83,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 83",
+            "start_time": "2024-11-08T09:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 83 - szczegóły konsultacji.",
+            "created_at": "2024-11-08T08:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 84,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 84",
+            "start_time": "2024-11-08T09:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 84 - szczegóły konsultacji.",
+            "created_at": "2024-11-08T09:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 85,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 85",
+            "start_time": "2024-11-08T10:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 85 - szczegóły konsultacji.",
+            "created_at": "2024-11-08T09:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 86,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 86",
+            "start_time": "2024-11-08T10:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 86 - szczegóły konsultacji.",
+            "created_at": "2024-11-08T10:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 87,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 87",
+            "start_time": "2024-11-08T11:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 87 - szczegóły konsultacji.",
+            "created_at": "2024-11-08T10:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 88,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 88",
+            "start_time": "2024-11-08T11:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 88 - szczegóły konsultacji.",
+            "created_at": "2024-11-08T11:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 89,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 89",
+            "start_time": "2024-11-08T12:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 89 - szczegóły konsultacji.",
+            "created_at": "2024-11-08T11:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 90,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 90",
+            "start_time": "2024-11-08T12:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 90 - szczegóły konsultacji.",
+            "created_at": "2024-11-08T12:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 91,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 91",
+            "start_time": "2024-11-08T13:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 91 - szczegóły konsultacji.",
+            "created_at": "2024-11-08T12:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 92,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 92",
+            "start_time": "2024-11-08T13:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 92 - szczegóły konsultacji.",
+            "created_at": "2024-11-08T13:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 93,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 93",
+            "start_time": "2024-11-08T14:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 93 - szczegóły konsultacji.",
+            "created_at": "2024-11-08T13:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 94,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 94",
+            "start_time": "2024-11-08T14:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 94 - szczegóły konsultacji.",
+            "created_at": "2024-11-08T14:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 95,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 95",
+            "start_time": "2024-11-08T15:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 95 - szczegóły konsultacji.",
+            "created_at": "2024-11-08T14:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 96,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 96",
+            "start_time": "2024-11-08T15:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 96 - szczegóły konsultacji.",
+            "created_at": "2024-11-08T15:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 97,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 97",
+            "start_time": "2024-11-11T08:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 97 - szczegóły konsultacji.",
+            "created_at": "2024-11-11T07:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 98,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 98",
+            "start_time": "2024-11-11T08:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 98 - szczegóły konsultacji.",
+            "created_at": "2024-11-11T08:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 99,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 99",
+            "start_time": "2024-11-11T09:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 99 - szczegóły konsultacji.",
+            "created_at": "2024-11-11T08:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 100,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 100",
+            "start_time": "2024-11-11T09:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 100 - szczegóły konsultacji.",
+            "created_at": "2024-11-11T09:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 101,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 101",
+            "start_time": "2024-11-11T10:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 101 - szczegóły konsultacji.",
+            "created_at": "2024-11-11T09:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 102,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 102",
+            "start_time": "2024-11-11T10:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 102 - szczegóły konsultacji.",
+            "created_at": "2024-11-11T10:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 103,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 103",
+            "start_time": "2024-11-11T11:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 103 - szczegóły konsultacji.",
+            "created_at": "2024-11-11T10:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 104,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 104",
+            "start_time": "2024-11-11T11:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 104 - szczegóły konsultacji.",
+            "created_at": "2024-11-11T11:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 105,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 105",
+            "start_time": "2024-11-11T12:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 105 - szczegóły konsultacji.",
+            "created_at": "2024-11-11T11:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 106,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 106",
+            "start_time": "2024-11-11T12:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 106 - szczegóły konsultacji.",
+            "created_at": "2024-11-11T12:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 107,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 107",
+            "start_time": "2024-11-11T13:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 107 - szczegóły konsultacji.",
+            "created_at": "2024-11-11T12:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 108,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 108",
+            "start_time": "2024-11-11T13:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 108 - szczegóły konsultacji.",
+            "created_at": "2024-11-11T13:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 109,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 109",
+            "start_time": "2024-11-11T14:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 109 - szczegóły konsultacji.",
+            "created_at": "2024-11-11T13:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 110,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 110",
+            "start_time": "2024-11-11T14:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 110 - szczegóły konsultacji.",
+            "created_at": "2024-11-11T14:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 111,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 111",
+            "start_time": "2024-11-11T15:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 111 - szczegóły konsultacji.",
+            "created_at": "2024-11-11T14:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 112,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 112",
+            "start_time": "2024-11-11T15:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 112 - szczegóły konsultacji.",
+            "created_at": "2024-11-11T15:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 113,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 113",
+            "start_time": "2024-11-12T08:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 113 - szczegóły konsultacji.",
+            "created_at": "2024-11-12T07:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 114,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 114",
+            "start_time": "2024-11-12T08:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 114 - szczegóły konsultacji.",
+            "created_at": "2024-11-12T08:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 115,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 115",
+            "start_time": "2024-11-12T09:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 115 - szczegóły konsultacji.",
+            "created_at": "2024-11-12T08:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 116,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 116",
+            "start_time": "2024-11-12T09:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 116 - szczegóły konsultacji.",
+            "created_at": "2024-11-12T09:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 117,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 117",
+            "start_time": "2024-11-12T10:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 117 - szczegóły konsultacji.",
+            "created_at": "2024-11-12T09:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 118,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 118",
+            "start_time": "2024-11-12T10:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 118 - szczegóły konsultacji.",
+            "created_at": "2024-11-12T10:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 119,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 119",
+            "start_time": "2024-11-12T11:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 119 - szczegóły konsultacji.",
+            "created_at": "2024-11-12T10:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 120,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 120",
+            "start_time": "2024-11-12T11:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 120 - szczegóły konsultacji.",
+            "created_at": "2024-11-12T11:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 121,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 121",
+            "start_time": "2024-11-12T12:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 121 - szczegóły konsultacji.",
+            "created_at": "2024-11-12T11:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 122,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 122",
+            "start_time": "2024-11-12T12:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 122 - szczegóły konsultacji.",
+            "created_at": "2024-11-12T12:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 123,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 123",
+            "start_time": "2024-11-12T13:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 123 - szczegóły konsultacji.",
+            "created_at": "2024-11-12T12:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 124,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 124",
+            "start_time": "2024-11-12T13:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 124 - szczegóły konsultacji.",
+            "created_at": "2024-11-12T13:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 125,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 125",
+            "start_time": "2024-11-12T14:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 125 - szczegóły konsultacji.",
+            "created_at": "2024-11-12T13:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 126,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 126",
+            "start_time": "2024-11-12T14:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 126 - szczegóły konsultacji.",
+            "created_at": "2024-11-12T14:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 127,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 127",
+            "start_time": "2024-11-12T15:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 127 - szczegóły konsultacji.",
+            "created_at": "2024-11-12T14:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 128,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 128",
+            "start_time": "2024-11-12T15:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 128 - szczegóły konsultacji.",
+            "created_at": "2024-11-12T15:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 129,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 129",
+            "start_time": "2024-11-13T08:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 129 - szczegóły konsultacji.",
+            "created_at": "2024-11-13T07:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 130,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 130",
+            "start_time": "2024-11-13T08:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 130 - szczegóły konsultacji.",
+            "created_at": "2024-11-13T08:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 131,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 131",
+            "start_time": "2024-11-13T09:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 131 - szczegóły konsultacji.",
+            "created_at": "2024-11-13T08:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 132,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 132",
+            "start_time": "2024-11-13T09:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 132 - szczegóły konsultacji.",
+            "created_at": "2024-11-13T09:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 133,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 133",
+            "start_time": "2024-11-13T10:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 133 - szczegóły konsultacji.",
+            "created_at": "2024-11-13T09:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 134,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 134",
+            "start_time": "2024-11-13T10:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 134 - szczegóły konsultacji.",
+            "created_at": "2024-11-13T10:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 135,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 135",
+            "start_time": "2024-11-13T11:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 135 - szczegóły konsultacji.",
+            "created_at": "2024-11-13T10:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 136,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 136",
+            "start_time": "2024-11-13T11:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 136 - szczegóły konsultacji.",
+            "created_at": "2024-11-13T11:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 137,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 137",
+            "start_time": "2024-11-13T12:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 137 - szczegóły konsultacji.",
+            "created_at": "2024-11-13T11:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 138,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 138",
+            "start_time": "2024-11-13T12:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 138 - szczegóły konsultacji.",
+            "created_at": "2024-11-13T12:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 139,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 139",
+            "start_time": "2024-11-13T13:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 139 - szczegóły konsultacji.",
+            "created_at": "2024-11-13T12:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 140,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 140",
+            "start_time": "2024-11-13T13:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 140 - szczegóły konsultacji.",
+            "created_at": "2024-11-13T13:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 141,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 141",
+            "start_time": "2024-11-13T14:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 141 - szczegóły konsultacji.",
+            "created_at": "2024-11-13T13:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 142,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 142",
+            "start_time": "2024-11-13T14:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 142 - szczegóły konsultacji.",
+            "created_at": "2024-11-13T14:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 143,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 143",
+            "start_time": "2024-11-13T15:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 143 - szczegóły konsultacji.",
+            "created_at": "2024-11-13T14:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 144,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 144",
+            "start_time": "2024-11-13T15:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 144 - szczegóły konsultacji.",
+            "created_at": "2024-11-13T15:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 145,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 145",
+            "start_time": "2024-11-14T08:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 145 - szczegóły konsultacji.",
+            "created_at": "2024-11-14T07:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 146,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 146",
+            "start_time": "2024-11-14T08:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 146 - szczegóły konsultacji.",
+            "created_at": "2024-11-14T08:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 147,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 147",
+            "start_time": "2024-11-14T09:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 147 - szczegóły konsultacji.",
+            "created_at": "2024-11-14T08:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 148,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 148",
+            "start_time": "2024-11-14T09:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 148 - szczegóły konsultacji.",
+            "created_at": "2024-11-14T09:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 149,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 149",
+            "start_time": "2024-11-14T10:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 149 - szczegóły konsultacji.",
+            "created_at": "2024-11-14T09:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 150,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 150",
+            "start_time": "2024-11-14T10:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 150 - szczegóły konsultacji.",
+            "created_at": "2024-11-14T10:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 151,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 151",
+            "start_time": "2024-11-14T11:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 151 - szczegóły konsultacji.",
+            "created_at": "2024-11-14T10:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 152,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 152",
+            "start_time": "2024-11-14T11:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 152 - szczegóły konsultacji.",
+            "created_at": "2024-11-14T11:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 153,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 153",
+            "start_time": "2024-11-14T12:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 153 - szczegóły konsultacji.",
+            "created_at": "2024-11-14T11:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 154,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 154",
+            "start_time": "2024-11-14T12:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 154 - szczegóły konsultacji.",
+            "created_at": "2024-11-14T12:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 155,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 155",
+            "start_time": "2024-11-14T13:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 155 - szczegóły konsultacji.",
+            "created_at": "2024-11-14T12:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 156,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 156",
+            "start_time": "2024-11-14T13:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 156 - szczegóły konsultacji.",
+            "created_at": "2024-11-14T13:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 157,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 157",
+            "start_time": "2024-11-14T14:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 157 - szczegóły konsultacji.",
+            "created_at": "2024-11-14T13:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 158,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 158",
+            "start_time": "2024-11-14T14:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 158 - szczegóły konsultacji.",
+            "created_at": "2024-11-14T14:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 159,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 159",
+            "start_time": "2024-11-14T15:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 159 - szczegóły konsultacji.",
+            "created_at": "2024-11-14T14:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 160,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 160",
+            "start_time": "2024-11-14T15:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 160 - szczegóły konsultacji.",
+            "created_at": "2024-11-14T15:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 161,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 161",
+            "start_time": "2024-11-15T08:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 161 - szczegóły konsultacji.",
+            "created_at": "2024-11-15T07:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 162,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 162",
+            "start_time": "2024-11-15T08:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 162 - szczegóły konsultacji.",
+            "created_at": "2024-11-15T08:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 163,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 163",
+            "start_time": "2024-11-15T09:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 163 - szczegóły konsultacji.",
+            "created_at": "2024-11-15T08:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 164,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 164",
+            "start_time": "2024-11-15T09:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 164 - szczegóły konsultacji.",
+            "created_at": "2024-11-15T09:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 165,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 165",
+            "start_time": "2024-11-15T10:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 165 - szczegóły konsultacji.",
+            "created_at": "2024-11-15T09:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 166,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 166",
+            "start_time": "2024-11-15T10:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 166 - szczegóły konsultacji.",
+            "created_at": "2024-11-15T10:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 167,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 167",
+            "start_time": "2024-11-15T11:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 167 - szczegóły konsultacji.",
+            "created_at": "2024-11-15T10:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 168,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 168",
+            "start_time": "2024-11-15T11:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 168 - szczegóły konsultacji.",
+            "created_at": "2024-11-15T11:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 169,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 169",
+            "start_time": "2024-11-15T12:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 169 - szczegóły konsultacji.",
+            "created_at": "2024-11-15T11:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 170,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 170",
+            "start_time": "2024-11-15T12:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 170 - szczegóły konsultacji.",
+            "created_at": "2024-11-15T12:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 171,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 171",
+            "start_time": "2024-11-15T13:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 171 - szczegóły konsultacji.",
+            "created_at": "2024-11-15T12:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 172,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 172",
+            "start_time": "2024-11-15T13:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 172 - szczegóły konsultacji.",
+            "created_at": "2024-11-15T13:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 173,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 173",
+            "start_time": "2024-11-15T14:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 173 - szczegóły konsultacji.",
+            "created_at": "2024-11-15T13:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 174,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 174",
+            "start_time": "2024-11-15T14:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 174 - szczegóły konsultacji.",
+            "created_at": "2024-11-15T14:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 175,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 175",
+            "start_time": "2024-11-15T15:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 175 - szczegóły konsultacji.",
+            "created_at": "2024-11-15T14:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 176,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 176",
+            "start_time": "2024-11-15T15:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 176 - szczegóły konsultacji.",
+            "created_at": "2024-11-15T15:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 177,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 177",
+            "start_time": "2024-11-18T08:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 177 - szczegóły konsultacji.",
+            "created_at": "2024-11-18T07:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 178,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 178",
+            "start_time": "2024-11-18T08:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 178 - szczegóły konsultacji.",
+            "created_at": "2024-11-18T08:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 179,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 179",
+            "start_time": "2024-11-18T09:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 179 - szczegóły konsultacji.",
+            "created_at": "2024-11-18T08:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 180,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 180",
+            "start_time": "2024-11-18T09:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 180 - szczegóły konsultacji.",
+            "created_at": "2024-11-18T09:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 181,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 181",
+            "start_time": "2024-11-18T10:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 181 - szczegóły konsultacji.",
+            "created_at": "2024-11-18T09:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 182,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 182",
+            "start_time": "2024-11-18T10:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 182 - szczegóły konsultacji.",
+            "created_at": "2024-11-18T10:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 183,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 183",
+            "start_time": "2024-11-18T11:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 183 - szczegóły konsultacji.",
+            "created_at": "2024-11-18T10:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 184,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 184",
+            "start_time": "2024-11-18T11:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 184 - szczegóły konsultacji.",
+            "created_at": "2024-11-18T11:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 185,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 185",
+            "start_time": "2024-11-18T12:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 185 - szczegóły konsultacji.",
+            "created_at": "2024-11-18T11:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 186,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 186",
+            "start_time": "2024-11-18T12:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 186 - szczegóły konsultacji.",
+            "created_at": "2024-11-18T12:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 187,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 187",
+            "start_time": "2024-11-18T13:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 187 - szczegóły konsultacji.",
+            "created_at": "2024-11-18T12:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 188,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 188",
+            "start_time": "2024-11-18T13:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 188 - szczegóły konsultacji.",
+            "created_at": "2024-11-18T13:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 189,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 189",
+            "start_time": "2024-11-18T14:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 189 - szczegóły konsultacji.",
+            "created_at": "2024-11-18T13:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 190,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 190",
+            "start_time": "2024-11-18T14:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 190 - szczegóły konsultacji.",
+            "created_at": "2024-11-18T14:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 191,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 191",
+            "start_time": "2024-11-18T15:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 191 - szczegóły konsultacji.",
+            "created_at": "2024-11-18T14:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 192,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 192",
+            "start_time": "2024-11-18T15:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 192 - szczegóły konsultacji.",
+            "created_at": "2024-11-18T15:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 193,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 193",
+            "start_time": "2024-11-19T08:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 193 - szczegóły konsultacji.",
+            "created_at": "2024-11-19T07:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 194,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 194",
+            "start_time": "2024-11-19T08:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 194 - szczegóły konsultacji.",
+            "created_at": "2024-11-19T08:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 195,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 195",
+            "start_time": "2024-11-19T09:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 195 - szczegóły konsultacji.",
+            "created_at": "2024-11-19T08:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 196,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 196",
+            "start_time": "2024-11-19T09:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 196 - szczegóły konsultacji.",
+            "created_at": "2024-11-19T09:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 197,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 197",
+            "start_time": "2024-11-19T10:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 197 - szczegóły konsultacji.",
+            "created_at": "2024-11-19T09:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 198,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 198",
+            "start_time": "2024-11-19T10:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 198 - szczegóły konsultacji.",
+            "created_at": "2024-11-19T10:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 199,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 199",
+            "start_time": "2024-11-19T11:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 199 - szczegóły konsultacji.",
+            "created_at": "2024-11-19T10:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 200,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 200",
+            "start_time": "2024-11-19T11:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 200 - szczegóły konsultacji.",
+            "created_at": "2024-11-19T11:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 201,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 201",
+            "start_time": "2024-11-19T12:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 201 - szczegóły konsultacji.",
+            "created_at": "2024-11-19T11:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 202,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 202",
+            "start_time": "2024-11-19T12:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 202 - szczegóły konsultacji.",
+            "created_at": "2024-11-19T12:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 203,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 203",
+            "start_time": "2024-11-19T13:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 203 - szczegóły konsultacji.",
+            "created_at": "2024-11-19T12:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 204,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 204",
+            "start_time": "2024-11-19T13:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 204 - szczegóły konsultacji.",
+            "created_at": "2024-11-19T13:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 205,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 205",
+            "start_time": "2024-11-19T14:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 205 - szczegóły konsultacji.",
+            "created_at": "2024-11-19T13:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 206,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 206",
+            "start_time": "2024-11-19T14:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 206 - szczegóły konsultacji.",
+            "created_at": "2024-11-19T14:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 207,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 207",
+            "start_time": "2024-11-19T15:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 207 - szczegóły konsultacji.",
+            "created_at": "2024-11-19T14:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 208,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 208",
+            "start_time": "2024-11-19T15:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 208 - szczegóły konsultacji.",
+            "created_at": "2024-11-19T15:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 209,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 209",
+            "start_time": "2024-11-20T08:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 209 - szczegóły konsultacji.",
+            "created_at": "2024-11-20T07:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 210,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 210",
+            "start_time": "2024-11-20T08:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 210 - szczegóły konsultacji.",
+            "created_at": "2024-11-20T08:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 211,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 211",
+            "start_time": "2024-11-20T09:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 211 - szczegóły konsultacji.",
+            "created_at": "2024-11-20T08:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 212,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 212",
+            "start_time": "2024-11-20T09:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 212 - szczegóły konsultacji.",
+            "created_at": "2024-11-20T09:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 213,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 213",
+            "start_time": "2024-11-20T10:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 213 - szczegóły konsultacji.",
+            "created_at": "2024-11-20T09:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 214,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 214",
+            "start_time": "2024-11-20T10:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 214 - szczegóły konsultacji.",
+            "created_at": "2024-11-20T10:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 215,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 215",
+            "start_time": "2024-11-20T11:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 215 - szczegóły konsultacji.",
+            "created_at": "2024-11-20T10:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 216,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 216",
+            "start_time": "2024-11-20T11:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 216 - szczegóły konsultacji.",
+            "created_at": "2024-11-20T11:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 217,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 217",
+            "start_time": "2024-11-20T12:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 217 - szczegóły konsultacji.",
+            "created_at": "2024-11-20T11:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 218,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 218",
+            "start_time": "2024-11-20T12:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 218 - szczegóły konsultacji.",
+            "created_at": "2024-11-20T12:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 219,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 219",
+            "start_time": "2024-11-20T13:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 219 - szczegóły konsultacji.",
+            "created_at": "2024-11-20T12:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 220,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 220",
+            "start_time": "2024-11-20T13:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 220 - szczegóły konsultacji.",
+            "created_at": "2024-11-20T13:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 221,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 221",
+            "start_time": "2024-11-20T14:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 221 - szczegóły konsultacji.",
+            "created_at": "2024-11-20T13:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 222,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 222",
+            "start_time": "2024-11-20T14:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 222 - szczegóły konsultacji.",
+            "created_at": "2024-11-20T14:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 223,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 223",
+            "start_time": "2024-11-20T15:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 223 - szczegóły konsultacji.",
+            "created_at": "2024-11-20T14:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 224,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 224",
+            "start_time": "2024-11-20T15:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 224 - szczegóły konsultacji.",
+            "created_at": "2024-11-20T15:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 225,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 225",
+            "start_time": "2024-11-21T08:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 225 - szczegóły konsultacji.",
+            "created_at": "2024-11-21T07:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 226,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 226",
+            "start_time": "2024-11-21T08:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 226 - szczegóły konsultacji.",
+            "created_at": "2024-11-21T08:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 227,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 227",
+            "start_time": "2024-11-21T09:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 227 - szczegóły konsultacji.",
+            "created_at": "2024-11-21T08:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 228,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 228",
+            "start_time": "2024-11-21T09:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 228 - szczegóły konsultacji.",
+            "created_at": "2024-11-21T09:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 229,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 229",
+            "start_time": "2024-11-21T10:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 229 - szczegóły konsultacji.",
+            "created_at": "2024-11-21T09:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 230,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 230",
+            "start_time": "2024-11-21T10:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 230 - szczegóły konsultacji.",
+            "created_at": "2024-11-21T10:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 231,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 231",
+            "start_time": "2024-11-21T11:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 231 - szczegóły konsultacji.",
+            "created_at": "2024-11-21T10:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 232,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 232",
+            "start_time": "2024-11-21T11:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 232 - szczegóły konsultacji.",
+            "created_at": "2024-11-21T11:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 233,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 233",
+            "start_time": "2024-11-21T12:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 233 - szczegóły konsultacji.",
+            "created_at": "2024-11-21T11:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 234,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 234",
+            "start_time": "2024-11-21T12:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 234 - szczegóły konsultacji.",
+            "created_at": "2024-11-21T12:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 235,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 235",
+            "start_time": "2024-11-21T13:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 235 - szczegóły konsultacji.",
+            "created_at": "2024-11-21T12:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 236,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 236",
+            "start_time": "2024-11-21T13:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 236 - szczegóły konsultacji.",
+            "created_at": "2024-11-21T13:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 237,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 237",
+            "start_time": "2024-11-21T14:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 237 - szczegóły konsultacji.",
+            "created_at": "2024-11-21T13:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 238,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 238",
+            "start_time": "2024-11-21T14:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 238 - szczegóły konsultacji.",
+            "created_at": "2024-11-21T14:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 239,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 239",
+            "start_time": "2024-11-21T15:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 239 - szczegóły konsultacji.",
+            "created_at": "2024-11-21T14:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 240,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 240",
+            "start_time": "2024-11-21T15:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 240 - szczegóły konsultacji.",
+            "created_at": "2024-11-21T15:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 241,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 241",
+            "start_time": "2024-11-22T08:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 241 - szczegóły konsultacji.",
+            "created_at": "2024-11-22T07:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 242,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 242",
+            "start_time": "2024-11-22T08:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 242 - szczegóły konsultacji.",
+            "created_at": "2024-11-22T08:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 243,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 243",
+            "start_time": "2024-11-22T09:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 243 - szczegóły konsultacji.",
+            "created_at": "2024-11-22T08:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 244,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 244",
+            "start_time": "2024-11-22T09:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 244 - szczegóły konsultacji.",
+            "created_at": "2024-11-22T09:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 245,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 245",
+            "start_time": "2024-11-22T10:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 245 - szczegóły konsultacji.",
+            "created_at": "2024-11-22T09:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 246,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 246",
+            "start_time": "2024-11-22T10:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 246 - szczegóły konsultacji.",
+            "created_at": "2024-11-22T10:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 247,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 247",
+            "start_time": "2024-11-22T11:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 247 - szczegóły konsultacji.",
+            "created_at": "2024-11-22T10:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 248,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 248",
+            "start_time": "2024-11-22T11:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 248 - szczegóły konsultacji.",
+            "created_at": "2024-11-22T11:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 249,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 249",
+            "start_time": "2024-11-22T12:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 249 - szczegóły konsultacji.",
+            "created_at": "2024-11-22T11:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 250,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 250",
+            "start_time": "2024-11-22T12:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 250 - szczegóły konsultacji.",
+            "created_at": "2024-11-22T12:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 251,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 251",
+            "start_time": "2024-11-22T13:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 251 - szczegóły konsultacji.",
+            "created_at": "2024-11-22T12:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 252,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 252",
+            "start_time": "2024-11-22T13:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 252 - szczegóły konsultacji.",
+            "created_at": "2024-11-22T13:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 253,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 253",
+            "start_time": "2024-11-22T14:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 253 - szczegóły konsultacji.",
+            "created_at": "2024-11-22T13:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 254,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 254",
+            "start_time": "2024-11-22T14:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 254 - szczegóły konsultacji.",
+            "created_at": "2024-11-22T14:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 255,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 255",
+            "start_time": "2024-11-22T15:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 255 - szczegóły konsultacji.",
+            "created_at": "2024-11-22T14:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 256,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 256",
+            "start_time": "2024-11-22T15:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 256 - szczegóły konsultacji.",
+            "created_at": "2024-11-22T15:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 257,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 257",
+            "start_time": "2024-11-25T08:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 257 - szczegóły konsultacji.",
+            "created_at": "2024-11-25T07:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 258,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 258",
+            "start_time": "2024-11-25T08:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 258 - szczegóły konsultacji.",
+            "created_at": "2024-11-25T08:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 259,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 259",
+            "start_time": "2024-11-25T09:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 259 - szczegóły konsultacji.",
+            "created_at": "2024-11-25T08:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 260,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 260",
+            "start_time": "2024-11-25T09:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 260 - szczegóły konsultacji.",
+            "created_at": "2024-11-25T09:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 261,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 261",
+            "start_time": "2024-11-25T10:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 261 - szczegóły konsultacji.",
+            "created_at": "2024-11-25T09:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 262,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 262",
+            "start_time": "2024-11-25T10:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 262 - szczegóły konsultacji.",
+            "created_at": "2024-11-25T10:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 263,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 263",
+            "start_time": "2024-11-25T11:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 263 - szczegóły konsultacji.",
+            "created_at": "2024-11-25T10:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 264,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 264",
+            "start_time": "2024-11-25T11:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 264 - szczegóły konsultacji.",
+            "created_at": "2024-11-25T11:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 265,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 265",
+            "start_time": "2024-11-25T12:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 265 - szczegóły konsultacji.",
+            "created_at": "2024-11-25T11:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 266,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 266",
+            "start_time": "2024-11-25T12:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 266 - szczegóły konsultacji.",
+            "created_at": "2024-11-25T12:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 267,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 267",
+            "start_time": "2024-11-25T13:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 267 - szczegóły konsultacji.",
+            "created_at": "2024-11-25T12:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 268,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 268",
+            "start_time": "2024-11-25T13:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 268 - szczegóły konsultacji.",
+            "created_at": "2024-11-25T13:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 269,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 269",
+            "start_time": "2024-11-25T14:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 269 - szczegóły konsultacji.",
+            "created_at": "2024-11-25T13:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 270,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 270",
+            "start_time": "2024-11-25T14:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 270 - szczegóły konsultacji.",
+            "created_at": "2024-11-25T14:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 271,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 271",
+            "start_time": "2024-11-25T15:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 271 - szczegóły konsultacji.",
+            "created_at": "2024-11-25T14:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 272,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 272",
+            "start_time": "2024-11-25T15:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 272 - szczegóły konsultacji.",
+            "created_at": "2024-11-25T15:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 273,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 273",
+            "start_time": "2024-11-26T08:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 273 - szczegóły konsultacji.",
+            "created_at": "2024-11-26T07:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 274,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 274",
+            "start_time": "2024-11-26T08:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 274 - szczegóły konsultacji.",
+            "created_at": "2024-11-26T08:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 275,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 275",
+            "start_time": "2024-11-26T09:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 275 - szczegóły konsultacji.",
+            "created_at": "2024-11-26T08:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 276,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 276",
+            "start_time": "2024-11-26T09:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 276 - szczegóły konsultacji.",
+            "created_at": "2024-11-26T09:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 277,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 277",
+            "start_time": "2024-11-26T10:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 277 - szczegóły konsultacji.",
+            "created_at": "2024-11-26T09:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 278,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 278",
+            "start_time": "2024-11-26T10:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 278 - szczegóły konsultacji.",
+            "created_at": "2024-11-26T10:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 279,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 279",
+            "start_time": "2024-11-26T11:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 279 - szczegóły konsultacji.",
+            "created_at": "2024-11-26T10:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 280,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 280",
+            "start_time": "2024-11-26T11:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 280 - szczegóły konsultacji.",
+            "created_at": "2024-11-26T11:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 281,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 281",
+            "start_time": "2024-11-26T12:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 281 - szczegóły konsultacji.",
+            "created_at": "2024-11-26T11:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 282,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 282",
+            "start_time": "2024-11-26T12:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 282 - szczegóły konsultacji.",
+            "created_at": "2024-11-26T12:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 283,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 283",
+            "start_time": "2024-11-26T13:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 283 - szczegóły konsultacji.",
+            "created_at": "2024-11-26T12:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 284,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 284",
+            "start_time": "2024-11-26T13:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 284 - szczegóły konsultacji.",
+            "created_at": "2024-11-26T13:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 285,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 285",
+            "start_time": "2024-11-26T14:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 285 - szczegóły konsultacji.",
+            "created_at": "2024-11-26T13:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 286,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 286",
+            "start_time": "2024-11-26T14:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 286 - szczegóły konsultacji.",
+            "created_at": "2024-11-26T14:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 287,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 287",
+            "start_time": "2024-11-26T15:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 287 - szczegóły konsultacji.",
+            "created_at": "2024-11-26T14:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 288,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 288",
+            "start_time": "2024-11-26T15:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 288 - szczegóły konsultacji.",
+            "created_at": "2024-11-26T15:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 289,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 289",
+            "start_time": "2024-11-27T08:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 289 - szczegóły konsultacji.",
+            "created_at": "2024-11-27T07:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 290,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 290",
+            "start_time": "2024-11-27T08:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 290 - szczegóły konsultacji.",
+            "created_at": "2024-11-27T08:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 291,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 291",
+            "start_time": "2024-11-27T09:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 291 - szczegóły konsultacji.",
+            "created_at": "2024-11-27T08:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 292,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 292",
+            "start_time": "2024-11-27T09:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 292 - szczegóły konsultacji.",
+            "created_at": "2024-11-27T09:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 293,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 293",
+            "start_time": "2024-11-27T10:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 293 - szczegóły konsultacji.",
+            "created_at": "2024-11-27T09:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 294,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 294",
+            "start_time": "2024-11-27T10:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 294 - szczegóły konsultacji.",
+            "created_at": "2024-11-27T10:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 295,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 295",
+            "start_time": "2024-11-27T11:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 295 - szczegóły konsultacji.",
+            "created_at": "2024-11-27T10:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 296,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 296",
+            "start_time": "2024-11-27T11:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 296 - szczegóły konsultacji.",
+            "created_at": "2024-11-27T11:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 297,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 297",
+            "start_time": "2024-11-27T12:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 297 - szczegóły konsultacji.",
+            "created_at": "2024-11-27T11:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 298,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 298",
+            "start_time": "2024-11-27T12:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 298 - szczegóły konsultacji.",
+            "created_at": "2024-11-27T12:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 299,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 299",
+            "start_time": "2024-11-27T13:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 299 - szczegóły konsultacji.",
+            "created_at": "2024-11-27T12:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 300,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 300",
+            "start_time": "2024-11-27T13:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 300 - szczegóły konsultacji.",
+            "created_at": "2024-11-27T13:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 301,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 301",
+            "start_time": "2024-11-27T14:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 301 - szczegóły konsultacji.",
+            "created_at": "2024-11-27T13:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 302,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 302",
+            "start_time": "2024-11-27T14:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 302 - szczegóły konsultacji.",
+            "created_at": "2024-11-27T14:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 303,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 303",
+            "start_time": "2024-11-27T15:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 303 - szczegóły konsultacji.",
+            "created_at": "2024-11-27T14:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 304,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 304",
+            "start_time": "2024-11-27T15:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 304 - szczegóły konsultacji.",
+            "created_at": "2024-11-27T15:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 305,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 305",
+            "start_time": "2024-11-28T08:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 305 - szczegóły konsultacji.",
+            "created_at": "2024-11-28T07:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 306,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 306",
+            "start_time": "2024-11-28T08:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 306 - szczegóły konsultacji.",
+            "created_at": "2024-11-28T08:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 307,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 307",
+            "start_time": "2024-11-28T09:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 307 - szczegóły konsultacji.",
+            "created_at": "2024-11-28T08:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 308,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 308",
+            "start_time": "2024-11-28T09:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 308 - szczegóły konsultacji.",
+            "created_at": "2024-11-28T09:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 309,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 309",
+            "start_time": "2024-11-28T10:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 309 - szczegóły konsultacji.",
+            "created_at": "2024-11-28T09:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 310,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 310",
+            "start_time": "2024-11-28T10:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 310 - szczegóły konsultacji.",
+            "created_at": "2024-11-28T10:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 311,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 311",
+            "start_time": "2024-11-28T11:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 311 - szczegóły konsultacji.",
+            "created_at": "2024-11-28T10:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 312,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 312",
+            "start_time": "2024-11-28T11:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 312 - szczegóły konsultacji.",
+            "created_at": "2024-11-28T11:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 313,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 313",
+            "start_time": "2024-11-28T12:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 313 - szczegóły konsultacji.",
+            "created_at": "2024-11-28T11:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 314,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 314",
+            "start_time": "2024-11-28T12:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 314 - szczegóły konsultacji.",
+            "created_at": "2024-11-28T12:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 315,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 315",
+            "start_time": "2024-11-28T13:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 315 - szczegóły konsultacji.",
+            "created_at": "2024-11-28T12:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 316,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 316",
+            "start_time": "2024-11-28T13:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 316 - szczegóły konsultacji.",
+            "created_at": "2024-11-28T13:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 317,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 317",
+            "start_time": "2024-11-28T14:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 317 - szczegóły konsultacji.",
+            "created_at": "2024-11-28T13:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 318,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 318",
+            "start_time": "2024-11-28T14:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 318 - szczegóły konsultacji.",
+            "created_at": "2024-11-28T14:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 319,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 319",
+            "start_time": "2024-11-28T15:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 319 - szczegóły konsultacji.",
+            "created_at": "2024-11-28T14:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 320,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 320",
+            "start_time": "2024-11-28T15:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 320 - szczegóły konsultacji.",
+            "created_at": "2024-11-28T15:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 321,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 321",
+            "start_time": "2024-11-29T08:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 321 - szczegóły konsultacji.",
+            "created_at": "2024-11-29T07:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 322,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 322",
+            "start_time": "2024-11-29T08:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 322 - szczegóły konsultacji.",
+            "created_at": "2024-11-29T08:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 323,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 323",
+            "start_time": "2024-11-29T09:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 323 - szczegóły konsultacji.",
+            "created_at": "2024-11-29T08:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 324,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 324",
+            "start_time": "2024-11-29T09:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 324 - szczegóły konsultacji.",
+            "created_at": "2024-11-29T09:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 325,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 325",
+            "start_time": "2024-11-29T10:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 325 - szczegóły konsultacji.",
+            "created_at": "2024-11-29T09:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 326,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 326",
+            "start_time": "2024-11-29T10:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 326 - szczegóły konsultacji.",
+            "created_at": "2024-11-29T10:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 327,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 327",
+            "start_time": "2024-11-29T11:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 327 - szczegóły konsultacji.",
+            "created_at": "2024-11-29T10:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 328,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 328",
+            "start_time": "2024-11-29T11:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 328 - szczegóły konsultacji.",
+            "created_at": "2024-11-29T11:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 329,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 329",
+            "start_time": "2024-11-29T12:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 329 - szczegóły konsultacji.",
+            "created_at": "2024-11-29T11:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 330,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 330",
+            "start_time": "2024-11-29T12:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 330 - szczegóły konsultacji.",
+            "created_at": "2024-11-29T12:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 331,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 331",
+            "start_time": "2024-11-29T13:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 331 - szczegóły konsultacji.",
+            "created_at": "2024-11-29T12:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 332,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 332",
+            "start_time": "2024-11-29T13:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 332 - szczegóły konsultacji.",
+            "created_at": "2024-11-29T13:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 333,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 333",
+            "start_time": "2024-11-29T14:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 333 - szczegóły konsultacji.",
+            "created_at": "2024-11-29T13:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 334,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 334",
+            "start_time": "2024-11-29T14:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 334 - szczegóły konsultacji.",
+            "created_at": "2024-11-29T14:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 335,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 335",
+            "start_time": "2024-11-29T15:00:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 335 - szczegóły konsultacji.",
+            "created_at": "2024-11-29T14:50:00",
+            "doctor": 1,
+            "user": 1
+        }
+    },
+    {
+        "model": "client.Visit",
+        "pk": 336,
+        "fields": {
+            "visit_name": "Konsultacja specjalistyczna 336",
+            "start_time": "2024-11-29T15:30:00",
+            "is_visit_finished": false,
+            "description": "Opis wizyty nr 336 - szczegóły konsultacji.",
+            "created_at": "2024-11-29T15:20:00",
+            "doctor": 1,
+            "user": 1
+        }
+    }
+]
