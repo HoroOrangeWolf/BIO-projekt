@@ -20,6 +20,7 @@ class VisitsView(APIView):
 
 class DoctorVisits(APIView):
     def post(self, request, pk):
+        # TODO: Dodać walidacje czy czasy się pokrywają
         copied = request.data.copy()
         doctor_details = DoctorDetails.objects.filter(user__id=copied['doctor']).first()
         copied['user'] = request.user.id

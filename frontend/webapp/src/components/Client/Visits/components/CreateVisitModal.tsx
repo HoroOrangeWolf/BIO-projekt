@@ -11,7 +11,7 @@ import {
 import dayjs, { Dayjs } from 'dayjs';
 import CancelIcon from '@mui/icons-material/Cancel';
 import {
-  isEmpty, isNil, map, some, toNumber,
+  isEmpty, isNil, map, reduce, some, toNumber,
 } from 'lodash';
 import { useMemo, useState } from 'react';
 import { useAsync } from 'react-async-hook';
@@ -22,6 +22,8 @@ import {
   getDoctorNonSensitiveVisits,
 } from '@main/components/services/api.ts';
 import { NonSensitiveVisitModel } from '@main/components/services/types.ts';
+import Snackbar from '@mui/material/Snackbar';
+import Alert from '@mui/material/Alert';
 
 const visitSchema = yup.object().shape({
   visit_name: yup.string().required('Wymagane jest uzupełnienie nazwy wizyty'),
@@ -44,12 +46,22 @@ type PropsType = {
     onCancel?: () => any;
 }
 
-const ServerDay = (props: PickersDayProps<Dayjs> & { occupiedDays?: number[] }) => {
+const VALIDATION_FORMAT = 'DD-MM-YYYY';
+
+const ISO_DATE_FORMAT = 'YYYY-MM-DD';
+
+const MAX_VISIT_PER_DAY = 8;
+
+const ServerDay = (props: PickersDayProps<Dayjs> & { occupiedDays?: {
+  [x: string]: number
+  } }) => {
   const {
-    occupiedDays = [], day, outsideCurrentMonth, ...other
+    occupiedDays = {}, day, outsideCurrentMonth, ...other
   } = props;
 
-  const isSelected = !props.outsideCurrentMonth && occupiedDays.indexOf(props.day.date()) >= 0;
+  const formatted = props.day.format(VALIDATION_FORMAT);
+
+  const isSelected = (occupiedDays[formatted] ?? 0) >= MAX_VISIT_PER_DAY;
 
   return (
     <Badge
@@ -102,6 +114,7 @@ const shouldBeDisabled = (takenDates: NonSensitiveVisitModel[], time: string, se
 
 const CreateVisitModal = (props: PropsType) => {
   const [currentCalendarDate, setCurrentCalendarDate] = useState<string>();
+  const [isToastOpen, setIsToastOpen] = useState(false);
   const form = useForm<VisitFormType>({
     resolver: yupResolver(visitSchema),
     defaultValues: {
@@ -147,9 +160,19 @@ const CreateVisitModal = (props: PropsType) => {
     return response.data;
   }, [doctorId]);
 
-  console.log('ERR', errors);
+  const groupedVisits = useMemo(() => reduce(doctorVisits, (acc, curr) => {
+    const groupedDate = dayjs(curr.start_time)
+      .format(VALIDATION_FORMAT);
 
-  const times = useMemo(() => generateTimes('8:00', '17:00', 30)
+    const number = acc[groupedDate] as number ?? 0;
+
+    return ({
+      ...acc,
+      [groupedDate]: number + 1,
+    });
+  }, {} as {[x: string]: number}), [doctorVisits]);
+
+  const times = useMemo(() => generateTimes('MAX_VISIT_PER_DAY:00', '17:00', 30)
     .map((time) => (
       <MenuItem
         key={time}
@@ -276,15 +299,23 @@ const CreateVisitModal = (props: PropsType) => {
                     }}
                     slotProps={{
                       day: {
-                        occupiedDays: [1, 10, 25, 20],
+                        occupiedDays: groupedVisits,
                       } as any,
                     }}
                     onChange={(value: Dayjs) => {
-                      const dateFormatted = value.format('YYYY-MM-DD');
+                      const forValidation = value.format(VALIDATION_FORMAT);
+
+                      if ((groupedVisits[forValidation] ?? 0) >= MAX_VISIT_PER_DAY) {
+                        setIsToastOpen(true);
+                        return;
+                      }
+
+                      const dateFormatted = value.format(ISO_DATE_FORMAT);
 
                       setCurrentCalendarDate(dateFormatted);
                       field.onChange(dateFormatted);
                     }}
+                    value={isNil(currentCalendarDate) ? dayjs(currentCalendarDate) : null}
                     ref={field.ref}
                   />
                   {isEmpty(start_time) || (
@@ -345,6 +376,16 @@ const CreateVisitModal = (props: PropsType) => {
             </Box>
           </Stack>
         </form>
+        <Snackbar open={isToastOpen} autoHideDuration={6000} onClose={() => setIsToastOpen(false)}>
+          <Alert
+            onClose={() => setIsToastOpen(false)}
+            severity="error"
+            variant="filled"
+            sx={{ width: '100%' }}
+          >
+            Wszystkie terminy w ten dzień są już zajęte
+          </Alert>
+        </Snackbar>
       </DialogContent>
     </Dialog>
   );
