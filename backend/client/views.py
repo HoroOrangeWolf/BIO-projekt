@@ -91,6 +91,19 @@ class SpecializationView(APIView):
             return Response(instance.errors, status=400)
 
 
+class VisitsForUser(APIView):
+    def get(self, request, pk):
+        param = request.GET.get('isVisitFinished', 'False')
+
+        param_lowercase = param.lower()
+
+        is_visit_finished = param_lowercase == 'true'
+
+        visits = Visit.objects.filter(user__id=pk, is_visit_finished=is_visit_finished)
+        serialized = VisitsSerializer(visits, many=True)
+        return Response(serialized.data, status=200)
+
+
 class VisitsForDoctor(viewsets.ModelViewSet):
     queryset = Visit.objects.all()
     serializer_class = VisitsForDoctorSerializer

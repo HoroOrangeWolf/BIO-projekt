@@ -1,20 +1,20 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import dayGridPlugin from '@fullcalendar/daygrid';
-import {finishVisit, getDoctorVisits} from '@main/components/services/api.ts';
+import { finishVisit, getDoctorVisits } from '@main/components/services/api.ts';
 import FullCalendar from '@fullcalendar/react';
-import {useSelector} from 'react-redux';
+import { useSelector } from 'react-redux';
 import {
   Button, CircularProgress, Dialog, DialogActions, DialogContent, Typography,
 } from '@mui/material';
 import DialogTitle from '@mui/material/DialogTitle';
-import {useAsync} from "react-async-hook";
+import { useAsync } from 'react-async-hook';
 
 type VisitEvent = {
   id: number;
   title: string;
   start: Date;
   description: string;
-  is_visit_finished: Boolean,
+  is_visit_finished: boolean,
   user: {
     first_name: string;
     last_name: string;
@@ -27,10 +27,10 @@ type VisitEvent = {
 const DoctorCalendar = () => {
   const doctor_id = useSelector((state: any) => state.auth.user.id);
   const [open, setOpen] = useState(false);
-  const [selected, setSelected] = useState<VisitEvent | {}>({});
+  const [selected, setSelected] = useState<VisitEvent | any>({});
   const [reloadKey, setReloadKey] = useState(0);
 
-  const {result: events = [], loading = true} = useAsync(async () => {
+  const { result: events = [], loading = true } = useAsync(async () => {
     const response = await getDoctorVisits(doctor_id);
     const now = new Date();
 
@@ -39,13 +39,15 @@ const DoctorCalendar = () => {
       const end = new Date(start.getTime() + 30 * 60 * 1000);
       const isActive = now >= start && now <= end;
 
+      const colorWhenVisitFinished = visit.is_visit_finished ? 'red' : '';
+
       return {
         id: visit.id,
         title: visit.visit_name,
         start,
         description: visit.description,
         user: visit.user,
-        backgroundColor: isActive ? 'green' : visit.is_visit_finished ? 'red' : '',
+        backgroundColor: isActive ? 'green' : colorWhenVisitFinished,
       };
     });
   }, [doctor_id, reloadKey]);
@@ -65,7 +67,7 @@ const DoctorCalendar = () => {
       is_visit_finished: true,
     };
     if (selected?.id) {
-      await finishVisit(selected.id, data).then(() => setReloadKey(prev => prev + 1));
+      await finishVisit(selected.id, data).then(() => setReloadKey((prev) => prev + 1));
       handleCloseDialog();
     }
   };
@@ -74,8 +76,11 @@ const DoctorCalendar = () => {
     <div>
       <Typography variant="h4">Twoja lista wizyt</Typography>
       {loading ? (
-        <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center', height: '400px'}}>
-          <CircularProgress/>
+        <div style={{
+          display: 'flex', alignItems: 'center', justifyContent: 'center', height: '400px',
+        }}
+        >
+          <CircularProgress />
         </div>
       ) : (
         <FullCalendar
@@ -104,14 +109,14 @@ const DoctorCalendar = () => {
       )}
       {open && (
         <Dialog open={open} onClose={handleCloseDialog} fullWidth maxWidth="md">
-          <DialogTitle sx={{m: 0, p: 2}}>
+          <DialogTitle sx={{ m: 0, p: 2 }}>
             <Typography variant="h4">{selected?.extendedProps.user.full_name}</Typography>
           </DialogTitle>
-          <DialogContent sx={{m: 1}}>
+          <DialogContent sx={{ m: 1 }}>
             <Typography variant="subtitle1">{selected?.extendedProps.title}</Typography>
             <Typography variant="subtitle2">{selected?.extendedProps.description}</Typography>
           </DialogContent>
-          <DialogActions sx={{m: 1}}>
+          <DialogActions sx={{ m: 1 }}>
             <Button variant="contained" color="error" onClick={finish}>Zakończ wizytę</Button>
             <Button variant="contained" color="primary">Sprawdź dokumentację</Button>
             <Button variant="contained" color="success">Umów kolejną wizytę</Button>
