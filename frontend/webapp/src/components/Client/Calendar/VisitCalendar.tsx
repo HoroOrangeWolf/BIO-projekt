@@ -10,7 +10,7 @@ import {
 } from '@mui/material';
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
-import { VisitModelType } from '@main/components/services/types.ts';
+import { UserVisitFullModelType, VisitModelType } from '@main/components/services/types.ts';
 
 type VisitEvent = {
     id: number;
@@ -37,7 +37,7 @@ const VisitCalendar = () => {
     const response = await getAllUserVisits(user_id, false);
     const now = new Date();
 
-    return response.data.map((visit: VisitModelType) => {
+    return response.data.map((visit: UserVisitFullModelType) => {
       const start = new Date(visit.start_time);
       const end = new Date(start.getTime() + 30 * 60 * 1000);
       const isActive = now >= start && now <= end;
@@ -49,6 +49,7 @@ const VisitCalendar = () => {
         title: visit.visit_name,
         start,
         description: visit.description,
+        user: visit.doctor,
         backgroundColor: isActive ? 'green' : colorWhenVisitFinished,
       };
     });
@@ -103,7 +104,7 @@ const VisitCalendar = () => {
                   minute: '2-digit',
                 })}
               </Typography>
-              <Typography variant="body1">{eventInfo.event.extendedProps.user.full_name}</Typography>
+              <Typography variant="body1">{eventInfo.event.extendedProps.user.user.full_name}</Typography>
               <Typography variant="body2">{eventInfo.event.title}</Typography>
             </div>
           )}
@@ -112,13 +113,16 @@ const VisitCalendar = () => {
       {open && (
         <Dialog open={open} onClose={handleCloseDialog} fullWidth maxWidth="md">
           <DialogTitle sx={{ m: 0, p: 2 }}>
-            <Typography variant="h4">{selected?.extendedProps.user.full_name}</Typography>
+            <Typography variant="h4">{selected?.extendedProps.user.user.full_name}</Typography>
           </DialogTitle>
           <DialogContent sx={{ m: 1 }}>
             <Typography variant="subtitle1">{selected?.extendedProps.title}</Typography>
             <Typography variant="subtitle2">{selected?.extendedProps.description}</Typography>
           </DialogContent>
           <DialogActions sx={{ m: 1 }}>
+            {
+                  // TODO: Podłączyć event bazujące na userze
+              }
             <Button variant="contained" color="error" onClick={finish}>Zakończ wizytę</Button>
             <Button variant="contained" color="primary">Sprawdź dokumentację</Button>
             <Button variant="contained" color="success">Umów kolejną wizytę</Button>

@@ -6,7 +6,7 @@ from rest_framework.views import APIView
 from administration.serializers import UserSerializer
 from .models import Visit, DoctorSpecialization, DoctorDetails
 from .serializers import SpecializationSerializer, VisitsNonSensitiveData, AddVisitsSerializer, VisitsSerializer, \
-    VisitsForDoctorSerializer
+    VisitsForDoctorSerializer, VisitsForUserSerializer
 
 
 class VisitsView(APIView):
@@ -100,7 +100,7 @@ class VisitsForUser(APIView):
         is_visit_finished = param_lowercase == 'true'
 
         visits = Visit.objects.filter(user__id=pk, is_visit_finished=is_visit_finished)
-        serialized = VisitsSerializer(visits, many=True)
+        serialized = VisitsForUserSerializer(visits, many=True)
         return Response(serialized.data, status=200)
 
 

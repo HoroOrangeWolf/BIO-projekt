@@ -76,6 +76,20 @@ class DoctorDetailsSerializerPost(serializers.ModelSerializer):
         fields = ('id', 'doctor_number', 'user', 'doctor_specializations')
 
 
+class DoctorFullModelGet(serializers.ModelSerializer):
+    user = SimpleUserSerializer(read_only=True)
+
+    class Meta:
+            model = DoctorDetails
+            fields = ('id', 'user', 'doctor_number')
+
+class VisitsForUserSerializer(serializers.ModelSerializer):
+    doctor = DoctorFullModelGet(read_only=True)
+
+    class Meta:
+        model = Visit
+        fields = ("id", "visit_name", "is_visit_finished", "description", "start_time", "created_at", "doctor")
+
 class VisitsForDoctorSerializer(serializers.ModelSerializer):
     user = SimpleUserSerializer(read_only=True)
 

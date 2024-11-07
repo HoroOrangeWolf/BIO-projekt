@@ -67,6 +67,25 @@ export type VisitModelType = {
     doctor: number;
 }
 
+export type UserVisitFullModelType = {
+    id: number;
+    visit_name: string;
+    start_time: string;
+    is_visit_finished: boolean;
+    description: string;
+    created_at: string;
+    doctor: {
+        id: number;
+        doctor_number: string;
+        user: {
+            first_name: string;
+            last_name: string;
+            email: string;
+            full_name: string;
+        }
+    };
+}
+
 export type UpdateUserModel = {
     user: {
         email: string;

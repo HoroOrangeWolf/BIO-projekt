@@ -2,7 +2,7 @@ import axios from 'axios';
 import {
   AddSpecializationModel,
   AddUserRequest, AddVisitModel, NonSensitiveVisitModel, PaginationType,
-  SpecializationModel, UpdateUserModel, UserModelType, VisitModelType,
+  SpecializationModel, UpdateUserModel, UserModelType, UserVisitFullModelType, VisitModelType,
 } from '@main/components/services/types.ts';
 
 const api = axios.create({
@@ -86,7 +86,7 @@ export const createDoctorVisit = async (data: AddVisitModel) => api.post(`client
 export const getDoctorVisits = async (id: number) => api.get(`client/doctor_visits/?doctor=${id}`);
 export const finishVisit = async (id: number, data: any) => api.patch(`client/doctor_visits/${id}/`, data);
 
-export const getAllUserVisits = async (id: number, isVisitFinished: boolean) => api.get<VisitModelType[]>(`client/user/${id}/visits`, {
+export const getAllUserVisits = async (id: number, isVisitFinished: boolean) => api.get<UserVisitFullModelType[]>(`client/user/${id}/visits`, {
   params: {
     isVisitFinished,
   },
