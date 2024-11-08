@@ -34,7 +34,7 @@ const VisitCalendar = () => {
   const [reloadKey, setReloadKey] = useState(0);
 
   const { result: events = [], loading = true } = useAsync(async () => {
-    const response = await getAllUserVisits(user_id, false);
+    const response = await getAllUserVisits(false);
     const now = new Date();
 
     return response.data.map((visit: UserVisitFullModelType) => {
@@ -121,7 +121,7 @@ const VisitCalendar = () => {
           </DialogContent>
           <DialogActions sx={{ m: 1 }}>
             {
-                  // TODO: Podłączyć event bazujące na userze
+                  // TODO: Podłączyć event bazujące na userze + zobaczyć z tworzeniem wizyt w innych miesiącach, zablokować tworzenie wizyt w przeszłości
               }
             <Button variant="contained" color="error" onClick={finish}>Zakończ wizytę</Button>
             <Button variant="contained" color="primary">Sprawdź dokumentację</Button>

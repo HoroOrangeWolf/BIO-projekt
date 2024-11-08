@@ -79,14 +79,14 @@ export const getDoctorsBySpecializations = async (id: number) => api.get<UserMod
 
 export const getDoctorNonSensitiveVisits = async (doctorId: number) => api.get<NonSensitiveVisitModel[]>(`client/doctor/${doctorId}/visits`);
 
-export const getUserVisits = async () => api.get<VisitModelType[]>('client/visits');
-
 export const createDoctorVisit = async (data: AddVisitModel) => api.post(`client/doctor/${data.doctor}/visits`, data);
+
+export const deleteUserVisit = async (id: number) => api.delete(`client/user/visits/${id}`);
 
 export const getDoctorVisits = async (id: number) => api.get(`client/doctor_visits/?doctor=${id}`);
 export const finishVisit = async (id: number, data: any) => api.patch(`client/doctor_visits/${id}/`, data);
 
-export const getAllUserVisits = async (id: number, isVisitFinished: boolean) => api.get<UserVisitFullModelType[]>(`client/user/${id}/visits`, {
+export const getAllUserVisits = async (isVisitFinished: boolean) => api.get<UserVisitFullModelType[]>('client/user/visits', {
   params: {
     isVisitFinished,
   },

@@ -92,14 +92,32 @@ class SpecializationView(APIView):
 
 
 class VisitsForUser(APIView):
-    def get(self, request, pk):
+    def delete(self, request, pk):
+        visit = Visit.objects.get(id=pk)
+
+        if visit is None:
+            return Response("Not found", status=400)
+
+        user_id = request.user.id
+
+        if not visit.user.id == user_id:
+            return Response("Nie masz dostępu do tej wizyty", status=403)
+
+        if visit.is_visit_finished:
+            return Response("Nie można usunąć zakończonej wizyty", status=400)
+
+        visit.delete()
+
+        return Response("Usunięto", status=200)
+
+    def get(self, request):
         param = request.GET.get('isVisitFinished', 'False')
 
         param_lowercase = param.lower()
 
         is_visit_finished = param_lowercase == 'true'
 
-        visits = Visit.objects.filter(user__id=pk, is_visit_finished=is_visit_finished)
+        visits = Visit.objects.filter(user__id=request.user.id, is_visit_finished=is_visit_finished).order_by('-start_time')
         serialized = VisitsForUserSerializer(visits, many=True)
         return Response(serialized.data, status=200)
 
