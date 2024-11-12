@@ -20,7 +20,7 @@ const ConfirmRemoveSpecializationModal = (props: PropsType) => {
       <DialogTitle>
         Usuń specializacje
       </DialogTitle>
-      <DialogContent>
+      <DialogContent dividers>
         Czy chcesz usunąć specializacje:
         {' '}
         {props.row.specialization_name}

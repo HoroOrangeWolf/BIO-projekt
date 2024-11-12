@@ -36,7 +36,7 @@ const Layout = ({ toggleColorMode, changeLanguage }: PropsType) => {
         component="main"
         sx={{
           flexGrow: 1,
-          p: 3,
+          p: 1,
           width: { sm: `calc(100% - ${isSidebarOpen ? drawerWidth : 0}px)` },
           marginLeft: { sm: isSidebarOpen ? `${drawerWidth}px` : 0 },
           mt: '64px',

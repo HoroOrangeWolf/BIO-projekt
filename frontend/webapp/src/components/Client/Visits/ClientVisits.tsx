@@ -1,15 +1,15 @@
-import { useEffect, useMemo, useState } from 'react';
-import { getUserVisits } from '@main/components/services/api.ts';
+import {useEffect, useMemo, useState} from 'react';
+import {getUserVisits} from '@main/components/services/api.ts';
 import MaterialTable from '@main/components/utils/MaterialTable.tsx';
 import {
   Box, Button, IconButton, Tooltip,
 } from '@mui/material';
 import AddCardIcon from '@mui/icons-material/AddCard';
-import { Delete, Edit } from '@mui/icons-material';
+import {Delete, Edit} from '@mui/icons-material';
 import CreateVisitModal from '@main/components/Client/Visits/components/CreateVisitModal.tsx';
-import { map } from 'lodash';
+import {map} from 'lodash';
 import dayjs from 'dayjs';
-import { VisitModelType } from '@main/components/services/types.ts';
+import {VisitModelType} from '@main/components/services/types.ts';
 
 const ClientVisits = () => {
   const [visits, setVisits] = useState<VisitModelType[]>([]);
@@ -55,7 +55,7 @@ const ClientVisits = () => {
   );
 
   return (
-    <>
+    <Box sx={{display: 'flex', flexDirection: 'column', height: '100%'}}>
       <MaterialTable
         columns={columns}
         data={visits}
@@ -63,36 +63,36 @@ const ClientVisits = () => {
         manualPagination
         onPaginationChange={setPagination}
         pagination={pagination}
-        renderRowActions={({ row, table }: any) => (
-          <Box sx={{ display: 'flex', gap: '1rem' }}>
+        renderRowActions={({row, table}: any) => (
+          <Box sx={{display: 'flex', gap: '1rem'}}>
             <Tooltip arrow placement="left" title="Dodaj">
               <IconButton>
-                <AddCardIcon />
+                <AddCardIcon/>
               </IconButton>
             </Tooltip>
             <Tooltip arrow placement="top" title="Edytuj">
               <IconButton onClick={() => table.setEditingRow(row)}>
-                <Edit />
+                <Edit/>
               </IconButton>
             </Tooltip>
             <Tooltip arrow placement="right" title="Usuń">
               <IconButton color="error">
-                <Delete />
+                <Delete/>
               </IconButton>
             </Tooltip>
           </Box>
         )}
         renderTopToolbarCustomActions={
-                  () => (
-                    <Button
-                      variant="contained"
-                      color="secondary"
-                      onClick={() => setIsAddModalOpen(true)}
-                    >
-                      Dodaj
-                    </Button>
-                  )
-              }
+          () => (
+            <Button
+              variant="contained"
+              color="secondary"
+              onClick={() => setIsAddModalOpen(true)}
+            >
+              Dodaj
+            </Button>
+          )
+        }
       />
       {isAddModalOpen && (
         <CreateVisitModal
@@ -119,7 +119,7 @@ const ClientVisits = () => {
       {/*    onSubmit={handleSavePermissions} */}
       {/*  /> */}
       {/* )} */}
-    </>
+    </Box>
   );
 };
 

@@ -41,7 +41,7 @@ const AddSpecializationModal = (props: PropsType) => {
       <DialogTitle textAlign="center">
         Dodaj specializacje
       </DialogTitle>
-      <DialogContent>
+      <DialogContent dividers>
         <form onSubmit={form.handleSubmit(handleSubmit)}>
           <Stack
             sx={{

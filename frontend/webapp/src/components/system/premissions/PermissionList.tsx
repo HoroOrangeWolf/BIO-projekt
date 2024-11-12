@@ -1,11 +1,12 @@
-import { useEffect, useMemo, useState } from 'react';
-import { useTranslation } from 'react-i18next';
+import {useEffect, useMemo, useState} from 'react';
+import {useTranslation} from 'react-i18next';
 import MaterialTable from '../../utils/MaterialTable.tsx';
-import { getPermissions } from '../../services/api.ts';
+import {getPermissions} from '../../services/api.ts';
+import {Box} from "@mui/material";
 
 const PermissionList = () => {
   const [permissions, setPermissions] = useState([]);
-  const { t } = useTranslation('system');
+  const {t} = useTranslation('system');
   const [pagination, setPagination] = useState({
     pageIndex: 0,
     pageSize: 10,
@@ -46,16 +47,18 @@ const PermissionList = () => {
   );
 
   return (
-    <MaterialTable
-      isLoading={loading}
-      columns={columns}
-      data={permissions}
-      disableAction
-      pagination={pagination}
-      onPaginationChange={setPagination}
-      manualPagination
-      rowCount={totalRows}
-    />
+    <Box sx={{display: 'flex', flexDirection: 'column', height: '100%'}}>
+      <MaterialTable
+        isLoading={loading}
+        columns={columns}
+        data={permissions}
+        disableAction
+        pagination={pagination}
+        onPaginationChange={setPagination}
+        manualPagination
+        rowCount={totalRows}
+      />
+    </Box>
   );
 };
 

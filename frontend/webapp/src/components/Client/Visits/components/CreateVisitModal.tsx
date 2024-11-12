@@ -204,7 +204,7 @@ const CreateVisitModal = (props: PropsType) => {
   return (
     <Dialog open fullWidth maxWidth="md">
       <DialogTitle>Stwórz wizyte</DialogTitle>
-      <DialogContent>
+      <DialogContent dividers>
         <form onSubmit={handleSubmit(onSubmitForm)}>
           <Stack
             sx={{
@@ -364,12 +364,13 @@ const CreateVisitModal = (props: PropsType) => {
                 justifyContent: 'end',
               }}
             >
-              <Button onClick={() => props.onCancel?.()}>
+              <Button onClick={() => props.onCancel?.()} color="inherit">
                 Zamknij
               </Button>
               <Button
                 variant="contained"
                 type="submit"
+                color="success"
               >
                 Dodaj
               </Button>

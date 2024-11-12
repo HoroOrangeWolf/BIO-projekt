@@ -53,7 +53,7 @@ const SpecializationList = () => {
   );
 
   return (
-    <>
+    <Box sx={{display: 'flex', flexDirection: 'column', height: '100%'}}>
       <MaterialTable
         columns={columns}
         data={specializations}
@@ -138,7 +138,7 @@ const SpecializationList = () => {
           />
         )
       }
-    </>
+    </Box>
   );
 };
 

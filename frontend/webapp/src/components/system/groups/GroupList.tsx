@@ -77,7 +77,7 @@ const GroupList = () => {
   };
 
   return (
-    <>
+    <Box sx={{display: 'flex', flexDirection: 'column', height: '100%'}}>
       <MaterialTable
         columns={columns}
         data={groups}
@@ -132,7 +132,7 @@ const GroupList = () => {
           onSubmit={handleSavePermissions}
         />
       )}
-    </>
+    </Box>
   );
 };
 

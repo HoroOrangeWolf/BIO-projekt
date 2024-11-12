@@ -124,7 +124,7 @@ const UsersList = () => {
   };
 
   return (
-    <>
+    <Box sx={{display: 'flex', flexDirection: 'column', height: '100%'}}>
       <MaterialTable
         columns={columns}
         data={users}
@@ -207,7 +207,7 @@ const UsersList = () => {
           selectedUser={selectedUser}
         />
       )}
-    </>
+    </Box>
   );
 };
 
