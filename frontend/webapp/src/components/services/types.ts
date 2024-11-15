@@ -77,6 +77,7 @@ export type UserVisitFullModelType = {
     doctor: {
         id: number;
         doctor_number: string;
+        doctor_specializations: SpecializationType[];
         user: {
             first_name: string;
             last_name: string;

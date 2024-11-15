@@ -2,11 +2,11 @@ import { useEffect, useMemo, useState } from 'react';
 import { getAllUserVisits } from '@main/components/services/api.ts';
 import MaterialTable from '@main/components/utils/MaterialTable.tsx';
 import {
-  Box, Button, IconButton, Tooltip
+  Box, Button, IconButton, Tooltip,
 } from '@mui/material';
 import { Delete, Edit } from '@mui/icons-material';
 import CreateVisitModal from '@main/components/Client/Visits/components/CreateVisitModal.tsx';
-import {map} from 'lodash';
+import { map } from 'lodash';
 import dayjs from 'dayjs';
 import { UserVisitFullModelType } from '@main/components/services/types.ts';
 import ConfirmRemoveVisit from '@main/components/Client/Visits/components/ConfirmRemoveVisit.tsx';
@@ -15,6 +15,7 @@ const ClientVisits = () => {
   const [visits, setVisits] = useState<UserVisitFullModelType[]>([]);
   const [isAddModalOpen, setIsAddModalOpen] = useState<boolean>(false);
   const [visitToRemove, setVisitToRemove] = useState<UserVisitFullModelType>();
+  const [visitToEdit, setVisitToEdit] = useState<UserVisitFullModelType>();
 
   const [pagination, setPagination] = useState({
     pageIndex: 0,
@@ -56,19 +57,22 @@ const ClientVisits = () => {
   );
 
   return (
-    <Box sx={{display: 'flex', flexDirection: 'column', height: '100%'}}>
+    <Box sx={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
       <MaterialTable
         columns={columns}
         data={visits}
-                // onEditingRowSave={handleSaveRowEdits}
         manualPagination
         onPaginationChange={setPagination}
         pagination={pagination}
-        renderRowActions={({ row, table }: any) => (
+        renderRowActions={({ row }: any) => (
           <Box sx={{ display: 'flex', gap: '1rem' }}>
             <Tooltip arrow placement="top" title="Edytuj">
-              <IconButton onClick={() => table.setEditingRow(row)}>
-                <Edit/>
+              <IconButton onClick={() => {
+                setVisitToEdit(row.original);
+                setIsAddModalOpen(true);
+              }}
+              >
+                <Edit />
               </IconButton>
             </Tooltip>
             <Tooltip arrow placement="right" title="Usuń">
@@ -90,9 +94,10 @@ const ClientVisits = () => {
                     )
                 }
       />
-      {isAddModalOpen && (
+      {(isAddModalOpen) && (
         <CreateVisitModal
           onCancel={() => setIsAddModalOpen(false)}
+          updateVisit={visitToEdit}
           onSubmit={() => {
             setIsAddModalOpen(false);
             fetch()

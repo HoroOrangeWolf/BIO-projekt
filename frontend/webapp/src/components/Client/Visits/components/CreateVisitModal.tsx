@@ -21,7 +21,7 @@ import {
   getDoctorsBySpecializations,
   getDoctorNonSensitiveVisits,
 } from '@main/components/services/api.ts';
-import { NonSensitiveVisitModel } from '@main/components/services/types.ts';
+import { NonSensitiveVisitModel, UserVisitFullModelType } from '@main/components/services/types.ts';
 import Snackbar from '@mui/material/Snackbar';
 import Alert from '@mui/material/Alert';
 
@@ -44,6 +44,7 @@ type VisitFormType = {
 type PropsType = {
     onSubmit?: () => any;
     onCancel?: () => any;
+    updateVisit?: UserVisitFullModelType;
 }
 
 const VALIDATION_FORMAT = 'DD-MM-YYYY';
@@ -113,15 +114,17 @@ const shouldBeDisabled = (takenDates: NonSensitiveVisitModel[], time: string, se
 };
 
 const CreateVisitModal = (props: PropsType) => {
-  const [currentCalendarDate, setCurrentCalendarDate] = useState<string>();
+  const [currentCalendarDate, setCurrentCalendarDate] = useState<string | undefined>(
+    props.updateVisit?.start_time ? dayjs(props.updateVisit?.start_time).tz('UTC').format(VALIDATION_FORMAT) : undefined,
+  );
   const [isToastOpen, setIsToastOpen] = useState(false);
   const form = useForm<VisitFormType>({
     resolver: yupResolver(visitSchema),
     defaultValues: {
-      visit_name: '',
-      start_time: '',
-      description: '',
-      doctor: undefined,
+      visit_name: props.updateVisit?.visit_name ?? '',
+      start_time: props.updateVisit?.start_time ?? '',
+      description: props.updateVisit?.description ?? '',
+      doctor: props.updateVisit?.doctor?.id,
     },
   });
 
@@ -172,7 +175,7 @@ const CreateVisitModal = (props: PropsType) => {
     });
   }, {} as {[x: string]: number}), [doctorVisits]);
 
-  const times = useMemo(() => generateTimes('MAX_VISIT_PER_DAY:00', '17:00', 30)
+  const times = useMemo(() => generateTimes('09:00', '17:00', 30)
     .map((time) => (
       <MenuItem
         key={time}
@@ -220,6 +223,7 @@ const CreateVisitModal = (props: PropsType) => {
               render={({ field }) => (
                 <TextField
                   ref={field.ref}
+                  value={field.value}
                   onBlur={field.onBlur}
                   onChange={(e) => field.onChange(e.currentTarget.value)}
                   label="Nazwa wizyty"
@@ -237,6 +241,7 @@ const CreateVisitModal = (props: PropsType) => {
               render={({ field }) => (
                 <TextField
                   ref={field.ref}
+                  value={field.value}
                   onBlur={field.onBlur}
                   onChange={(e) => field.onChange(e.currentTarget.value)}
                   label="Opis wizyty"
@@ -254,6 +259,7 @@ const CreateVisitModal = (props: PropsType) => {
                 <TextField
                   placeholder="Wybierz Specjalizacje doktora"
                   ref={field.ref}
+                  value={field.value}
                   onBlur={field.onBlur}
                   onChange={(e) => field.onChange(e.target.value as string)}
                   label="Specjalizacja doktora"
@@ -267,13 +273,14 @@ const CreateVisitModal = (props: PropsType) => {
               )}
               name="specializationId"
             />
-            {hasSelectedSpecializationId && (
+            { (hasSelectedSpecializationId || doctorId) && (
             <Controller
               control={control}
               render={({ field }) => (
                 <TextField
                   placeholder="Wybierz doktora"
                   label="Doktor"
+                  value={field.value}
                   variant="outlined"
                   fullWidth
                   error={!!errors.specializationId}
@@ -332,6 +339,7 @@ const CreateVisitModal = (props: PropsType) => {
                     label="Godzina wizyty"
                     placeholder="Wybierz godzine wizyty"
                     variant="outlined"
+                    value={field.value}
                     onChange={(event) => {
                       const time = event.target.value as string;
 

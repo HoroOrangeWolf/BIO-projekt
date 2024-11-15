@@ -78,10 +78,11 @@ class DoctorDetailsSerializerPost(serializers.ModelSerializer):
 
 class DoctorFullModelGet(serializers.ModelSerializer):
     user = SimpleUserSerializer(read_only=True)
+    doctor_specializations = SpecializationSerializer(read_only=True, many=True)
 
     class Meta:
             model = DoctorDetails
-            fields = ('id', 'user', 'doctor_number')
+            fields = ('id', 'user', 'doctor_number', 'doctor_specializations')
 
 class VisitsForUserSerializer(serializers.ModelSerializer):
     doctor = DoctorFullModelGet(read_only=True)
