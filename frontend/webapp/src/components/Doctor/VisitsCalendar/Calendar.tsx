@@ -25,7 +25,7 @@ type VisitEvent = {
 };
 
 const DoctorCalendar = () => {
-  const doctor_id = useSelector((state: any) => state.auth.user.id);
+  const doctor_id = useSelector((state: any) => state.auth.user.doctor);
   const [open, setOpen] = useState(false);
   const [selected, setSelected] = useState<VisitEvent | any>({});
   const [reloadKey, setReloadKey] = useState(0);

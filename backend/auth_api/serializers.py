@@ -5,6 +5,8 @@ from django.core.validators import RegexValidator
 from rest_framework import serializers
 from django.contrib.auth import get_user_model
 
+from client.models import DoctorDetails
+
 User = get_user_model()
 
 
@@ -25,10 +27,16 @@ class GroupSerializer(serializers.ModelSerializer):
 class UserSerializer(serializers.ModelSerializer):
     groups = GroupSerializer(many=True, read_only=True)
     user_permissions = PermissionSerializer(many=True, read_only=True)
+    doctor = serializers.SerializerMethodField()
+
+    def get_doctor(self, obj):
+        doctor_details = DoctorDetails.objects.get(user=obj.id)
+
+        return doctor_details.id
 
     class Meta:
         model = User
-        fields = ('id', 'username', 'email', 'first_name', 'last_name', 'groups', 'user_permissions')
+        fields = ('id', 'username', 'email', 'first_name', 'last_name', 'groups', 'user_permissions', 'doctor')
 
 
 class RegisterSerializer(serializers.ModelSerializer):
