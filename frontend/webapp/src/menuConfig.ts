@@ -20,7 +20,7 @@ import GradeIcon from '@mui/icons-material/Grade';
 import SpecializationList from '@main/components/system/specialization/SpecializationList.tsx';
 import FileCopyIcon from '@mui/icons-material/FileCopy';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
-import DoctorCalendar from "@main/components/Doctor/VisitsCalendar/Calendar.tsx";
+import DoctorCalendar from '@main/components/Doctor/VisitsCalendar/Calendar.tsx';
 
 export const menuConfig = [
   {
@@ -48,7 +48,7 @@ export const menuConfig = [
       {
         text: 'medical_docs',
         icon: SettingsIcon,
-        path: '/client/history',
+        path: '/client/documentation',
         component: ClientDocumentation,
       },
       {

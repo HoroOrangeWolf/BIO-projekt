@@ -4,7 +4,7 @@ from django.db.models import Q
 from rest_framework import serializers
 
 from administration.serializers import SimpleUserSerializer
-from .models import Visit, DoctorSpecialization, DoctorDetails
+from .models import Visit, DoctorSpecialization, DoctorDetails, MedicalDocumentation
 
 
 class AddVisitsSerializer(serializers.ModelSerializer):
@@ -81,8 +81,9 @@ class DoctorFullModelGet(serializers.ModelSerializer):
     doctor_specializations = SpecializationSerializer(read_only=True, many=True)
 
     class Meta:
-            model = DoctorDetails
-            fields = ('id', 'user', 'doctor_number', 'doctor_specializations')
+        model = DoctorDetails
+        fields = ('id', 'user', 'doctor_number', 'doctor_specializations')
+
 
 class VisitsForUserSerializer(serializers.ModelSerializer):
     doctor = DoctorFullModelGet(read_only=True)
@@ -90,6 +91,7 @@ class VisitsForUserSerializer(serializers.ModelSerializer):
     class Meta:
         model = Visit
         fields = ("id", "visit_name", "is_visit_finished", "description", "start_time", "created_at", "doctor")
+
 
 class VisitsForDoctorSerializer(serializers.ModelSerializer):
     user = SimpleUserSerializer(read_only=True)
@@ -99,3 +101,16 @@ class VisitsForDoctorSerializer(serializers.ModelSerializer):
         fields = [
             "id", "visit_name", "is_visit_finished", "description", "start_time", "created_at", "user",
         ]
+
+
+class VisitReadDocumentationSerializer(serializers.ModelSerializer):
+    visit = VisitsSerializer(read_only=True)
+
+    class Meta:
+        model = MedicalDocumentation
+        fields = (
+            "id",
+            "file_name",
+            "file_description",
+            "visit"
+        )

@@ -4,9 +4,9 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 
 from administration.serializers import UserSerializer
-from .models import Visit, DoctorSpecialization, DoctorDetails
+from .models import Visit, DoctorSpecialization, DoctorDetails, MedicalDocumentation
 from .serializers import SpecializationSerializer, VisitsNonSensitiveData, AddVisitsSerializer, VisitsSerializer, \
-    VisitsForDoctorSerializer, VisitsForUserSerializer
+    VisitsForDoctorSerializer, VisitsForUserSerializer, VisitReadDocumentationSerializer
 
 
 class VisitsView(APIView):
@@ -117,8 +117,20 @@ class VisitsForUser(APIView):
 
         is_visit_finished = param_lowercase == 'true'
 
-        visits = Visit.objects.filter(user__id=request.user.id, is_visit_finished=is_visit_finished).order_by('-start_time')
+        visits = Visit.objects.filter(user__id=request.user.id, is_visit_finished=is_visit_finished).order_by(
+            '-start_time')
         serialized = VisitsForUserSerializer(visits, many=True)
+        return Response(serialized.data, status=200)
+
+
+class VisitDocumentation(APIView):
+    def get(self, request):
+        user_id = request.user.id
+
+        documentation = MedicalDocumentation.objects.filter(visit__user__id=user_id)
+
+        serialized = VisitReadDocumentationSerializer(documentation, many=True)
+
         return Response(serialized.data, status=200)
 
 

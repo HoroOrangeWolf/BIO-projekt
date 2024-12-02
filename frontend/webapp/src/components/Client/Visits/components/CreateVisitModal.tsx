@@ -339,7 +339,6 @@ const CreateVisitModal = (props: PropsType) => {
                     label="Godzina wizyty"
                     placeholder="Wybierz godzine wizyty"
                     variant="outlined"
-                    value={field.value}
                     onChange={(event) => {
                       const time = event.target.value as string;
 
