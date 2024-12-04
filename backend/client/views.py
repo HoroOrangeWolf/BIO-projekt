@@ -1,12 +1,21 @@
+import mimetypes
+import os
+
+from django.http import Http404, FileResponse, HttpResponse
+from django.utils.encoding import smart_str
 from rest_framework import viewsets
 from rest_framework.exceptions import NotFound
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
 from administration.serializers import UserSerializer
 from .models import Visit, DoctorSpecialization, DoctorDetails, MedicalDocumentation
 from .serializers import SpecializationSerializer, VisitsNonSensitiveData, AddVisitsSerializer, VisitsSerializer, \
-    VisitsForDoctorSerializer, VisitsForUserSerializer, VisitReadDocumentationSerializer
+    VisitsForDoctorSerializer, VisitsForUserSerializer, VisitReadDocumentationSerializer, \
+    VisitWriteDocumentationSerializer
+from rest_framework.parsers import MultiPartParser, FormParser
+from rest_framework.generics import get_object_or_404
 
 
 class VisitsView(APIView):
@@ -124,6 +133,8 @@ class VisitsForUser(APIView):
 
 
 class VisitDocumentation(APIView):
+    parser_classes = (MultiPartParser, FormParser)
+
     def get(self, request):
         user_id = request.user.id
 
@@ -132,6 +143,56 @@ class VisitDocumentation(APIView):
         serialized = VisitReadDocumentationSerializer(documentation, many=True)
 
         return Response(serialized.data, status=200)
+
+    def post(self, request, pk):
+        user_id = request.user.id
+        visit = get_object_or_404(Visit, pk=pk, user__id=user_id)
+
+        serializer = VisitWriteDocumentationSerializer(data=request.data, context={'visit': visit})
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=201)
+        else:
+            return Response(serializer.errors, status=400)
+
+
+class DownloadDocumentation(APIView):
+    def get(self, request, pk, doc_id):
+        user_id = request.user.id
+        try:
+            documentation = MedicalDocumentation.objects.get(
+                id=doc_id,
+                visit__id=pk,
+                visit__user__id=user_id
+            )
+            if not documentation.file:
+                raise Http404("File not found.")
+
+            file_path = documentation.file.path
+
+            original_file_name = os.path.basename(documentation.file.name)
+
+            if documentation.file_name:
+
+                name, ext = os.path.splitext(documentation.file_name)
+                if not ext:
+                    _, original_ext = os.path.splitext(original_file_name)
+                    file_name = documentation.file_name + original_ext
+                else:
+                    file_name = documentation.file_name
+            else:
+                file_name = original_file_name
+
+            mime_type, _ = mimetypes.guess_type(file_path)
+            if mime_type is None:
+                mime_type = 'application/octet-stream'
+
+            with open(file_path, 'rb') as f:
+                response = HttpResponse(f.read(), content_type=mime_type)
+                response['Content-Disposition'] = f'attachment; filename="{smart_str(file_name)}"'
+                return response
+        except MedicalDocumentation.DoesNotExist:
+            raise Http404("Dokumentacja nie została znaleziona.")
 
 
 class VisitsForDoctor(viewsets.ModelViewSet):

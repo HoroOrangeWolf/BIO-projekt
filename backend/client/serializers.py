@@ -103,6 +103,19 @@ class VisitsForDoctorSerializer(serializers.ModelSerializer):
         ]
 
 
+class VisitWriteDocumentationSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = MedicalDocumentation
+        fields = ['file', 'file_name', 'file_description']
+        extra_kwargs = {
+            'file': {'required': True}
+        }
+
+    def create(self, validated_data):
+        visit = self.context['visit']
+        return MedicalDocumentation.objects.create(visit=visit, **validated_data)
+
+
 class VisitReadDocumentationSerializer(serializers.ModelSerializer):
     visit = VisitsSerializer(read_only=True)
 
