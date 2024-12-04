@@ -4,9 +4,14 @@ import {
   AddUserRequest, AddVisitModel, DocumentationType, NonSensitiveVisitModel, PaginationType,
   SpecializationModel, UpdateUserModel, UserModelType, UserVisitFullModelType,
 } from '@main/components/services/types.ts';
+import {
+  AddDocumentationFormType,
+} from '@main/components/Client/Documentation/AddDocumentationModal.tsx';
+
+export const BASE_URL = 'http://localhost:8000/';
 
 const api = axios.create({
-  baseURL: 'http://localhost:8000/',
+  baseURL: BASE_URL,
   withCredentials: true,
 });
 
@@ -93,5 +98,18 @@ export const getAllUserVisits = async (isVisitFinished: boolean) => api.get<User
     isVisitFinished,
   },
 });
+
+export const addDocumentation = async (model: AddDocumentationFormType) => {
+  const form = new FormData();
+  form.append('file_name', model.file_name);
+  form.append('file_description', model.file_description);
+  form.append('file', model.file as File);
+
+  return api.post(`client/user/visits/${model.visit_id}/documentation`, form, {
+    headers: {
+      'Content-Type': 'multipart/form-data',
+    },
+  });
+};
 
 export default api;

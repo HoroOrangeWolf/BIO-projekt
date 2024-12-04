@@ -1,13 +1,15 @@
-import { useEffect, useMemo, useState } from 'react';
-import { DocumentationType } from '@main/components/services/types.ts';
+import { useMemo, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { getUserMedicalDocumentation } from '@main/components/services/api.ts';
+import { BASE_URL, getUserMedicalDocumentation } from '@main/components/services/api.ts';
 import { isNil, toNumber } from 'lodash';
 import { Box, Button } from '@mui/material';
 import MaterialTable from '@main/components/utils/MaterialTable.tsx';
+import AddDocumentationModal from '@main/components/Client/Documentation/AddDocumentationModal.tsx';
+import DownloadIcon from '@mui/icons-material/Download';
+import { useAsync } from 'react-async-hook';
 
 const ClientDocumentation = () => {
-  const [documentations, setDocumentation] = useState<DocumentationType[]>([]);
+  const [isAddDocumentationOpen, setIsAddDocumentationOpen] = useState(false);
   const [pagination, setPagination] = useState({
     pageIndex: 0,
     pageSize: 10,
@@ -15,15 +17,10 @@ const ClientDocumentation = () => {
 
   const [searchParams] = useSearchParams();
 
-  const fetch = async () => {
-    const visitsResponse = await getUserMedicalDocumentation();
+  const { result: documentations = [], execute: reloadDocumentation } = useAsync(async () => {
+    const result = await getUserMedicalDocumentation();
 
-    setDocumentation(visitsResponse.data);
-  };
-
-  useEffect(() => {
-    fetch()
-      .catch(console.error);
+    return result.data;
   }, []);
 
   const filteredDocs = useMemo(() => {
@@ -62,16 +59,38 @@ const ClientDocumentation = () => {
         columns={columns}
         data={filteredDocs}
         manualPagination
-        renderRowActions={() => (
+        renderTopToolbarCustomActions={
+            () => (
+              <Button
+                variant="contained"
+                color="secondary"
+                onClick={() => setIsAddDocumentationOpen(true)}
+              >
+                Dodaj dokumentacje
+              </Button>
+            )
+        }
+        renderRowActions={({ row }) => (
           <Button
-            variant="contained"
+            href={`${BASE_URL}client/user/visits/${row.original.visit.id}/documentation/${row.original.id}/download`}
           >
-            Pobierz dokumentacje
+            <DownloadIcon />
           </Button>
         )}
         onPaginationChange={setPagination}
         pagination={pagination}
       />
+      {isAddDocumentationOpen && (
+      <AddDocumentationModal
+        onCancel={(reload) => {
+          setIsAddDocumentationOpen(false);
+
+          if (reload) {
+            reloadDocumentation();
+          }
+        }}
+      />
+      )}
     </Box>
   );
 };
