@@ -116,7 +116,6 @@ export type AddUserRequest = {
 
 export type DocumentationType = {
     id: number;
-    file_path: string;
     file_name: string;
     file_description: string;
     visit: VisitModelType;

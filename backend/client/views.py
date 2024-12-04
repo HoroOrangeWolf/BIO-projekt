@@ -13,7 +13,7 @@ from administration.serializers import UserSerializer
 from .models import Visit, DoctorSpecialization, DoctorDetails, MedicalDocumentation
 from .serializers import SpecializationSerializer, VisitsNonSensitiveData, AddVisitsSerializer, VisitsSerializer, \
     VisitsForDoctorSerializer, VisitsForUserSerializer, VisitReadDocumentationSerializer, \
-    VisitWriteDocumentationSerializer
+    VisitWriteDocumentationSerializer, MedicalDocumentationUpdateSerializer
 from rest_framework.parsers import MultiPartParser, FormParser
 from rest_framework.generics import get_object_or_404
 
@@ -143,6 +143,27 @@ class VisitDocumentation(APIView):
         serialized = VisitReadDocumentationSerializer(documentation, many=True)
 
         return Response(serialized.data, status=200)
+
+
+    def patch(self, request, pk, doc_id):
+        user_id = request.user.id
+        documentation = get_object_or_404(
+            MedicalDocumentation,
+            id=doc_id,
+            visit__id=pk,
+            visit__user__id=user_id
+        )
+
+        serializer = MedicalDocumentationUpdateSerializer(
+            documentation,
+            data=request.data,
+            partial=True
+        )
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=200)
+        else:
+            return Response(serializer.errors, status=400)
 
     def post(self, request, pk):
         user_id = request.user.id

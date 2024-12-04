@@ -4,12 +4,15 @@ import { BASE_URL, getUserMedicalDocumentation } from '@main/components/services
 import { isNil, toNumber } from 'lodash';
 import { Box, Button } from '@mui/material';
 import MaterialTable from '@main/components/utils/MaterialTable.tsx';
-import AddDocumentationModal from '@main/components/Client/Documentation/AddDocumentationModal.tsx';
+import DocumentationModal from '@main/components/Client/Documentation/DocumentationModal.tsx';
 import DownloadIcon from '@mui/icons-material/Download';
+import EditIcon from '@mui/icons-material/Edit';
 import { useAsync } from 'react-async-hook';
+import { DocumentationType } from '@main/components/services/types.ts';
 
 const ClientDocumentation = () => {
   const [isAddDocumentationOpen, setIsAddDocumentationOpen] = useState(false);
+  const [editDocumentation, setEditDocumentation] = useState<DocumentationType>();
   const [pagination, setPagination] = useState({
     pageIndex: 0,
     pageSize: 10,
@@ -71,19 +74,31 @@ const ClientDocumentation = () => {
             )
         }
         renderRowActions={({ row }) => (
-          <Button
-            href={`${BASE_URL}client/user/visits/${row.original.visit.id}/documentation/${row.original.id}/download`}
-          >
-            <DownloadIcon />
-          </Button>
+          <>
+            <Button
+              onClick={() => {
+                setIsAddDocumentationOpen(true);
+                setEditDocumentation(row.original);
+              }}
+            >
+              <EditIcon />
+            </Button>
+            <Button
+              href={`${BASE_URL}client/user/visits/${row.original.visit.id}/documentation/${row.original.id}/download`}
+            >
+              <DownloadIcon />
+            </Button>
+          </>
         )}
         onPaginationChange={setPagination}
         pagination={pagination}
       />
       {isAddDocumentationOpen && (
-      <AddDocumentationModal
+      <DocumentationModal
+        toEdit={editDocumentation}
         onCancel={(reload) => {
           setIsAddDocumentationOpen(false);
+          setEditDocumentation(undefined);
 
           if (reload) {
             reloadDocumentation();

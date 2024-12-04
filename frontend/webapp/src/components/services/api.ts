@@ -6,7 +6,7 @@ import {
 } from '@main/components/services/types.ts';
 import {
   AddDocumentationFormType,
-} from '@main/components/Client/Documentation/AddDocumentationModal.tsx';
+} from '@main/components/Client/Documentation/DocumentationModal.tsx';
 
 export const BASE_URL = 'http://localhost:8000/';
 
@@ -106,6 +106,18 @@ export const addDocumentation = async (model: AddDocumentationFormType) => {
   form.append('file', model.file as File);
 
   return api.post(`client/user/visits/${model.visit_id}/documentation`, form, {
+    headers: {
+      'Content-Type': 'multipart/form-data',
+    },
+  });
+};
+
+export const updateDocumentation = async (documentationId: number, model: AddDocumentationFormType) => {
+  const form = new FormData();
+  form.append('file_name', model.file_name);
+  form.append('file_description', model.file_description);
+
+  return api.patch(`client/user/visits/${model.visit_id}/documentation/${documentationId}`, form, {
     headers: {
       'Content-Type': 'multipart/form-data',
     },

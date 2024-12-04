@@ -3,16 +3,19 @@ import {
 } from '@mui/material';
 import { Controller, useForm } from 'react-hook-form';
 import {
+  isNil,
   map,
 } from 'lodash';
 import { useAsync } from 'react-async-hook';
-import { addDocumentation, getAllUserVisits } from '@main/components/services/api.ts';
+import { addDocumentation, getAllUserVisits, updateDocumentation } from '@main/components/services/api.ts';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useMemo } from 'react';
+import { DocumentationType } from '@main/components/services/types.ts';
 
 type PropsType = {
     onCancel?: (reload: boolean) => any;
+    toEdit?: DocumentationType
 };
 
 export type AddDocumentationFormType = {
@@ -28,7 +31,7 @@ const documentationSchema = yup.object().shape({
   visit_id: yup.number().required('Wizyta jest wymagana'),
 });
 
-const AddDocumentationModal = (props: PropsType) => {
+const DocumentationModal = (props: PropsType) => {
   const { result } = useAsync(async () => {
     const finishedVisits = await getAllUserVisits(true);
     const unfinishedVisits = await getAllUserVisits(false);
@@ -41,9 +44,9 @@ const AddDocumentationModal = (props: PropsType) => {
 
   const form = useForm<AddDocumentationFormType>({
     defaultValues: {
-      file_name: '',
-      file_description: '',
-      visit_id: 0,
+      file_name: props.toEdit?.file_name ?? '',
+      file_description: props.toEdit?.file_description ?? '',
+      visit_id: props.toEdit?.visit?.id,
     },
     resolver: yupResolver(documentationSchema),
   });
@@ -62,7 +65,12 @@ const AddDocumentationModal = (props: PropsType) => {
   const formFile = form.watch('file');
 
   const onSubmitForm = async (formData: AddDocumentationFormType) => {
-    await addDocumentation(formData);
+    if (isNil(props.toEdit)) {
+      await addDocumentation(formData);
+    } else {
+      await updateDocumentation(props.toEdit.id, formData);
+    }
+
     props.onCancel?.(true);
   };
 
@@ -139,9 +147,10 @@ const AddDocumentationModal = (props: PropsType) => {
               render={({ field }) => (
                 <Button
                   variant="contained"
+                  disabled={!!props.toEdit}
                   component="label"
                 >
-                  Dodaj dokumentacje
+                  {props.toEdit ? 'Dokumentacja została już dodana' : 'Dodaj dokumentacje'}
                   {' '}
                   {formFile?.name}
                   <input
@@ -180,4 +189,4 @@ const AddDocumentationModal = (props: PropsType) => {
   );
 };
 
-export default AddDocumentationModal;
+export default DocumentationModal;

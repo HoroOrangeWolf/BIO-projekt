@@ -13,6 +13,7 @@ urlpatterns = [
     path('user/visits/documentation', VisitDocumentation.as_view(), name='documentation'),
     path('user/visits/<int:pk>', VisitsForUser.as_view(), name='user'),
     path('user/visits/<int:pk>/documentation', VisitDocumentation.as_view(), name='documentation'),
+    path('user/visits/<int:pk>/documentation/<int:doc_id>', VisitDocumentation.as_view(), name='documentation'),
     path('user/visits/<int:pk>/documentation/<int:doc_id>/download', DownloadDocumentation.as_view(), name='documentation'),
     path('doctor/<int:pk>', DoctorView.as_view(), name='doctor'),
     path('doctor/<int:pk>/visits', DoctorVisits.as_view(), name='doctor'),

@@ -127,3 +127,13 @@ class VisitReadDocumentationSerializer(serializers.ModelSerializer):
             "file_description",
             "visit"
         )
+
+class MedicalDocumentationUpdateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = MedicalDocumentation
+        fields = ['file_name', 'file_description', 'visit']
+        extra_kwargs = {
+            'file_name': {'required': False},
+            'file_description': {'required': False},
+            'visit': {'required': False},
+        }
