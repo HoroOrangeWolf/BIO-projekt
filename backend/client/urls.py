@@ -2,7 +2,7 @@ from django.urls import path, include
 from rest_framework import routers
 
 from .views import VisitsView, SpecializationView, DoctorView, DoctorVisits, VisitsForDoctor, VisitsForUser, \
-    VisitDocumentation, DownloadDocumentation, MedicalDocumentationByDoctorView, DoctorCurrentVisit
+    VisitDocumentation, DownloadDocumentation, MedicalDocumentationByDoctorView, DoctorCurrentVisit, PatientView
 
 router = routers.DefaultRouter()
 router.register(r'doctor_visits', VisitsForDoctor, basename='doctor_visits')
@@ -18,6 +18,7 @@ urlpatterns = [
     path('user/visits/<int:pk>/documentation/<int:doc_id>/download', DownloadDocumentation.as_view(),
          name='documentation'),
     path('doctor/<int:pk>', DoctorView.as_view(), name='doctor'),
+    path('doctor/patients', PatientView.as_view(), name='patient'),
     path('doctor/visits', DoctorCurrentVisit.as_view(), name='doctor'),
     path('doctor/<int:pk>/visits', DoctorVisits.as_view(), name='doctor'),
     path('specialization/', SpecializationView.as_view(), name='specialization'),

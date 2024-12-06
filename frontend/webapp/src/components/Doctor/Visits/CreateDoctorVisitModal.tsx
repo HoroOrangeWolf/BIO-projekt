@@ -1,51 +1,45 @@
-import {
-  Badge, Box, Button,
-  Dialog, DialogContent, DialogTitle, MenuItem, Stack, TextField,
-} from '@mui/material';
-import * as yup from 'yup';
+import { useMemo, useState } from 'react';
+import dayjs, { Dayjs } from 'dayjs';
 import { Controller, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import {
-  DateCalendar, PickersDay, PickersDayProps,
-} from '@mui/x-date-pickers';
-import dayjs, { Dayjs } from 'dayjs';
-import CancelIcon from '@mui/icons-material/Cancel';
-import {
-  isEmpty, isNil, map, reduce, some, toNumber,
-} from 'lodash';
-import { useMemo, useState } from 'react';
-import { useAsync } from 'react-async-hook';
-import {
-  createDoctorVisit,
-  getAllSpecializations,
-  getDoctorsBySpecializations,
+  createPatientVisit,
+  getAllPatients,
   getDoctorNonSensitiveVisits,
 } from '@main/components/services/api.ts';
-import { NonSensitiveVisitModel, UserVisitFullModelType } from '@main/components/services/types.ts';
+import { useAsync } from 'react-async-hook';
+import {
+  isEmpty, isNil, map, reduce, toNumber,
+} from 'lodash';
+import {
+  Box, Button, Dialog, DialogContent, DialogTitle, MenuItem, Stack, TextField,
+} from '@mui/material';
+import { DateCalendar } from '@mui/x-date-pickers';
 import Snackbar from '@mui/material/Snackbar';
 import Alert from '@mui/material/Alert';
+import {
+  generateTimes,
+  ServerDay,
+  shouldBeDisabled,
+} from '@main/components/Client/Visits/components/CreateVisitModal.tsx';
+import { useSelector } from 'react-redux';
+import * as yup from 'yup';
+import { UserVisitFullModelType } from '@main/components/services/types.ts';
+
+type VisitFormType = {
+    visit_name: string;
+    start_time: string;
+    description: string;
+    patient: number;
+}
 
 const visitSchema = yup.object().shape({
   visit_name: yup.string().required('Wymagane jest uzupełnienie nazwy wizyty'),
   start_time: yup.string()
     .required('Wymagane jest pole wyboru czasu'),
   description: yup.string().required('Pole opisu jest wymagane'),
-  doctor: yup.number().required('To pole jest wymagane'),
+  patient: yup.number().required('To pole jest wymagane'),
 });
-
-type VisitFormType = {
-    visit_name: string;
-    start_time: string;
-    description: string;
-    doctor: number;
-    specializationId?: number;
-}
-
-type PropsType = {
-    onSubmit?: () => any;
-    onCancel?: () => any;
-    updateVisit?: UserVisitFullModelType;
-}
 
 const VALIDATION_FORMAT = 'DD-MM-YYYY';
 
@@ -53,115 +47,49 @@ const ISO_DATE_FORMAT = 'YYYY-MM-DD';
 
 const MAX_VISIT_PER_DAY = 8;
 
-export const ServerDay = (props: PickersDayProps<Dayjs> & { occupiedDays?: {
-  [x: string]: number
-  } }) => {
-  const {
-    occupiedDays = {}, day, outsideCurrentMonth, ...other
-  } = props;
+type PropsType = {
+  onSubmit?: () => any;
+  onCancel?: () => any;
+  updateVisit?: UserVisitFullModelType;
+}
 
-  const formatted = props.day.format(VALIDATION_FORMAT);
-
-  const isSelected = (occupiedDays[formatted] ?? 0) >= MAX_VISIT_PER_DAY;
-
-  return (
-    <Badge
-      key={props.day.toString()}
-      overlap="circular"
-      badgeContent={isSelected && <CancelIcon />}
-    >
-      <PickersDay {...other} outsideCurrentMonth={outsideCurrentMonth} day={day} />
-    </Badge>
-  );
-};
-
-export const generateTimes = (start: string, end: string, interval: number): string[] => {
-  const times: string[] = [];
-  let [startHour, startMinute] = start.split(':').map(Number);
-  const [endHour, endMinute] = end.split(':').map(Number);
-
-  while (startHour < endHour || (startHour === endHour && startMinute <= endMinute)) {
-    const timeString = `${String(startHour).padStart(2, '0')}:${String(startMinute).padStart(2, '0')}`;
-    times.push(timeString);
-
-    startMinute += interval;
-    if (startMinute >= 60) {
-      startMinute -= 60;
-      startHour += 1;
-    }
-  }
-
-  return times;
-};
-
-export const shouldBeDisabled = (takenDates: NonSensitiveVisitModel[], time: string, selectedCalendarDate?: string) => {
-  if (isEmpty(selectedCalendarDate)) {
-    return false;
-  }
-
-  const timeSplit = time.split(':');
-
-  const hour = toNumber(timeSplit[0]);
-  const minute = toNumber(timeSplit[1]);
-
-  const buildedDate = dayjs(selectedCalendarDate)
-    .hour(hour)
-    .minute(minute)
-    .second(0)
-    .format('YYYY-MM-DDTHH:mm:ss');
-
-  return some(takenDates, { start_time: `${buildedDate}Z` });
-};
-
-const CreateVisitModal = (props: PropsType) => {
+const CreateDoctorVisitModal = (props: PropsType) => {
   const [currentCalendarDate, setCurrentCalendarDate] = useState<string | undefined>(
     props.updateVisit?.start_time ? dayjs(props.updateVisit?.start_time).tz('UTC').format(VALIDATION_FORMAT) : undefined,
   );
   const [isToastOpen, setIsToastOpen] = useState(false);
+  const user_id = useSelector((state: any) => state.auth.user.id) as number;
   const form = useForm<VisitFormType>({
     resolver: yupResolver(visitSchema),
     defaultValues: {
       visit_name: props.updateVisit?.visit_name ?? '',
       start_time: props.updateVisit?.start_time ?? '',
       description: props.updateVisit?.description ?? '',
-      doctor: props.updateVisit?.doctor?.id,
+      patient: props.updateVisit?.user?.id,
     },
   });
 
-  const hasSelectedSpecializationId = !!form.watch('specializationId');
-  const specializationId = form.watch('specializationId') as number;
-  const hasSelectedDoctor = !!form.watch('doctor');
-  const doctorId = form.watch('doctor');
   const start_time = form.watch('start_time') as string;
 
   const { handleSubmit, control, formState: { errors } } = form;
 
   const onSubmitForm = async (data: VisitFormType) => {
-    await createDoctorVisit(data);
+    await createPatientVisit(data);
 
     props.onSubmit?.();
   };
 
-  const { result: specializations } = useAsync(async () => (await getAllSpecializations()).data, []);
-  const { result: doctors } = useAsync(async () => {
-    if (isNil(specializationId)) {
-      return [];
-    }
+  const { result: patients } = useAsync(async () => {
+    const patientsResponse = await getAllPatients();
 
-    const response = await getDoctorsBySpecializations(specializationId);
-
-    return response.data;
-  }, [specializationId]);
+    return map(patientsResponse.data, (patient) => ({ value: patient.id, label: patient.full_name }));
+  }, []);
 
   const { result: doctorVisits = [] } = useAsync(async () => {
-    if (isNil(doctorId)) {
-      return [];
-    }
-
-    const response = await getDoctorNonSensitiveVisits(doctorId);
+    const response = await getDoctorNonSensitiveVisits(user_id);
 
     return response.data;
-  }, [doctorId]);
+  }, [user_id]);
 
   const groupedVisits = useMemo(() => reduce(doctorVisits, (acc, curr) => {
     const groupedDate = dayjs(curr.start_time)
@@ -186,23 +114,14 @@ const CreateVisitModal = (props: PropsType) => {
       </MenuItem>
     )), [doctorVisits, currentCalendarDate]);
 
-  const doctorsEntries = useMemo(() => map(doctors, (doctor) => (
+  const patientEntries = useMemo(() => map(patients, (patient) => (
     <MenuItem
-      value={doctor.id}
-      key={doctor.id}
+      value={patient.value}
+      key={patient.value}
     >
-      {doctor.full_name}
+      {patient.label}
     </MenuItem>
-  )), [doctors]);
-
-  const specializationItems = useMemo(() => map(specializations, (specialization) => (
-    <MenuItem
-      key={`key-${specialization.id}`}
-      value={specialization.id}
-    >
-      {specialization.specialization_name}
-    </MenuItem>
-  )), [specializations]);
+  )), [patients]);
 
   return (
     <Dialog open fullWidth maxWidth="md">
@@ -257,45 +176,22 @@ const CreateVisitModal = (props: PropsType) => {
               control={control}
               render={({ field }) => (
                 <TextField
-                  placeholder="Wybierz Specjalizacje doktora"
-                  ref={field.ref}
-                  value={field.value}
-                  onBlur={field.onBlur}
-                  onChange={(e) => field.onChange(e.target.value as string)}
-                  label="Specjalizacja doktora"
-                  variant="outlined"
-                  select
-                  fullWidth
-                  error={!!errors.specializationId}
-                >
-                  {specializationItems}
-                </TextField>
-              )}
-              name="specializationId"
-            />
-            { (hasSelectedSpecializationId || doctorId) && (
-            <Controller
-              control={control}
-              render={({ field }) => (
-                <TextField
-                  placeholder="Wybierz doktora"
-                  label="Doktor"
+                  placeholder="Wybierz pacjenta"
+                  label="Pacjent"
                   value={field.value}
                   variant="outlined"
                   fullWidth
-                  error={!!errors.specializationId}
+                  error={!!errors.patient}
                   ref={field.ref}
                   onBlur={field.onBlur}
                   select
                   onChange={(e) => field.onChange(e.target.value as string)}
                 >
-                  {doctorsEntries}
+                  {patientEntries}
                 </TextField>
               )}
-              name="doctor"
+              name="patient"
             />
-            )}
-            {hasSelectedDoctor && (
             <Controller
               control={control}
               render={({ field }) => (
@@ -363,7 +259,6 @@ const CreateVisitModal = (props: PropsType) => {
               )}
               name="start_time"
             />
-            )}
             <Box
               sx={{
                 display: 'flex',
@@ -399,4 +294,4 @@ const CreateVisitModal = (props: PropsType) => {
   );
 };
 
-export default CreateVisitModal;
+export default CreateDoctorVisitModal;

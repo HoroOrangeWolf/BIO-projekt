@@ -49,6 +49,7 @@ class DoctorDetailsSerializerGet(serializers.ModelSerializer):
 
 class VisitsSerializer(serializers.ModelSerializer):
     doctor = DoctorDetailsSerializerGet(read_only=True)
+    user = SimpleUserSerializer(read_only=True)
 
     class Meta:
         model = Visit
@@ -59,6 +60,7 @@ class VisitsSerializer(serializers.ModelSerializer):
             'description',
             'created_at',
             'doctor',
+            'user',
             'start_time'
         )
 
@@ -87,10 +89,11 @@ class DoctorFullModelGet(serializers.ModelSerializer):
 
 class VisitsForUserSerializer(serializers.ModelSerializer):
     doctor = DoctorFullModelGet(read_only=True)
+    user = SimpleUserSerializer(read_only=True)
 
     class Meta:
         model = Visit
-        fields = ("id", "visit_name", "is_visit_finished", "description", "start_time", "created_at", "doctor")
+        fields = ("id", "visit_name", "is_visit_finished", "description", "start_time", "created_at", "doctor", "user")
 
 
 class VisitsForDoctorSerializer(serializers.ModelSerializer):
@@ -127,6 +130,7 @@ class VisitReadDocumentationSerializer(serializers.ModelSerializer):
             "file_description",
             "visit"
         )
+
 
 class MedicalDocumentationUpdateSerializer(serializers.ModelSerializer):
     class Meta:

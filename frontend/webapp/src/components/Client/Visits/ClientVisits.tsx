@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
-import { getAllUserVisits } from '@main/components/services/api.ts';
+import { getAllUserVisits, getDoctorAllVisits } from '@main/components/services/api.ts';
 import MaterialTable from '@main/components/utils/MaterialTable.tsx';
 import {
   Box, Button, IconButton, Tooltip,
@@ -10,8 +10,13 @@ import { map } from 'lodash';
 import dayjs from 'dayjs';
 import { UserVisitFullModelType } from '@main/components/services/types.ts';
 import ConfirmRemoveVisit from '@main/components/Client/Visits/components/ConfirmRemoveVisit.tsx';
+import CreateDoctorVisitModal from '@main/components/Doctor/Visits/CreateDoctorVisitModal.tsx';
 
-const ClientVisits = () => {
+type PropsType = {
+    isDoctor?: boolean;
+}
+
+const ClientVisits = ({ isDoctor = false }: PropsType) => {
   const [visits, setVisits] = useState<UserVisitFullModelType[]>([]);
   const [isAddModalOpen, setIsAddModalOpen] = useState<boolean>(false);
   const [visitToRemove, setVisitToRemove] = useState<UserVisitFullModelType>();
@@ -23,7 +28,7 @@ const ClientVisits = () => {
   });
 
   const fetch = async () => {
-    const visitsResponse = await getAllUserVisits(false);
+    const visitsResponse = isDoctor ? await getDoctorAllVisits() : await getAllUserVisits(false);
 
     const mapVisits = map(visitsResponse.data, (item) => ({
       ...item,
@@ -36,24 +41,47 @@ const ClientVisits = () => {
   useEffect(() => {
     fetch()
       .catch(console.error);
-  }, []);
+  }, [isDoctor]);
 
   const columns = useMemo(
-    () => [
-      {
-        accessorKey: 'visit_name',
-        header: 'Nazwa Wizyty',
-      },
-      {
-        accessorKey: 'start_time',
-        header: 'Data rozpoczęcia wizyty',
-      },
-      {
-        accessorKey: 'doctor.user.full_name',
-        header: 'Nazwa doktora',
-      },
-    ],
-    [],
+    () => {
+      if (isDoctor) {
+        return (
+          [
+            {
+              accessorKey: 'visit_name',
+              header: 'Nazwa Wizyty',
+            },
+            {
+              accessorKey: 'start_time',
+              header: 'Data rozpoczęcia wizyty',
+            },
+            {
+              accessorKey: 'user.full_name',
+              header: 'Imie i Nazwisko pacjenta',
+            },
+          ]
+        );
+      }
+
+      return (
+        [
+          {
+            accessorKey: 'visit_name',
+            header: 'Nazwa Wizyty',
+          },
+          {
+            accessorKey: 'start_time',
+            header: 'Data rozpoczęcia wizyty',
+          },
+          {
+            accessorKey: 'doctor.user.full_name',
+            header: 'Nazwa doktora',
+          },
+        ]
+      );
+    },
+    [isDoctor],
   );
 
   return (
@@ -94,8 +122,19 @@ const ClientVisits = () => {
                     )
                 }
       />
-      {(isAddModalOpen) && (
+      {(isAddModalOpen && !isDoctor) && (
         <CreateVisitModal
+          onCancel={() => setIsAddModalOpen(false)}
+          updateVisit={visitToEdit}
+          onSubmit={() => {
+            setIsAddModalOpen(false);
+            fetch()
+              .catch(console.error);
+          }}
+        />
+      )}
+      {(isAddModalOpen && isDoctor) && (
+        <CreateDoctorVisitModal
           onCancel={() => setIsAddModalOpen(false)}
           updateVisit={visitToEdit}
           onSubmit={() => {

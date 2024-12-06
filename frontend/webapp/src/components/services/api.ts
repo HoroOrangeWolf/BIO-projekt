@@ -1,8 +1,9 @@
 import axios from 'axios';
 import {
+  AddPatientVisitModel,
   AddSpecializationModel,
   AddUserRequest, AddVisitModel, DocumentationType, NonSensitiveVisitModel, PaginationType,
-  SpecializationModel, UpdateUserModel, UserModelType, UserVisitFullModelType,
+  SpecializationModel, UpdateUserModel, UserModelType, UserSimpleModelType, UserVisitFullModelType,
 } from '@main/components/services/types.ts';
 import {
   AddDocumentationFormType,
@@ -86,6 +87,8 @@ export const getDoctorNonSensitiveVisits = async (doctorId: number) => api.get<N
 
 export const createDoctorVisit = async (data: AddVisitModel) => api.post(`client/doctor/${data.doctor}/visits`, data);
 
+export const createPatientVisit = async (data: AddPatientVisitModel) => api.post('client/doctor/visits', data);
+
 export const deleteUserVisit = async (id: number) => api.delete(`client/user/visits/${id}`);
 
 export const getDoctorVisits = async (id: number) => api.get(`client/doctor_visits/?doctor=${id}`);
@@ -94,6 +97,8 @@ export const finishVisit = async (id: number, data: any) => api.patch(`client/do
 export const getUserMedicalDocumentation = async () => api.get<DocumentationType[]>('client/user/visits/documentation');
 
 export const getDoctorAllVisits = async () => api.get<UserVisitFullModelType[]>('client/doctor/visits');
+
+export const getAllPatients = async () => api.get<UserSimpleModelType[]>('client/doctor/patients');
 
 export const getAllUserVisits = async (isVisitFinished: boolean) => api.get<UserVisitFullModelType[]>('client/user/visits', {
   params: {

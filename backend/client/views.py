@@ -9,7 +9,8 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from administration.serializers import UserSerializer
+from administration.serializers import UserSerializer, SimpleUserSerializer
+from auth_api.models import AuthUser
 from .models import Visit, DoctorSpecialization, DoctorDetails, MedicalDocumentation
 from .serializers import SpecializationSerializer, VisitsNonSensitiveData, AddVisitsSerializer, VisitsSerializer, \
     VisitsForDoctorSerializer, VisitsForUserSerializer, VisitReadDocumentationSerializer, \
@@ -27,7 +28,30 @@ class VisitsView(APIView):
         return Response(serialized.data)
 
 
+class PatientView(APIView):
+    def get(self, request):
+        users = AuthUser.objects.all()
+
+        serialized = SimpleUserSerializer(users, many=True)
+
+        return Response(serialized.data, status=200)
+
 class DoctorCurrentVisit(APIView):
+    def post(self, request):
+        # TODO: Dodać walidacje czy czasy się pokrywają
+        copied = request.data.copy()
+        doctor_details = DoctorDetails.objects.filter(user__id=request.user.id).first()
+        copied['user'] = copied['patient']
+        copied['doctor'] = doctor_details.id
+
+        visit_serialized = AddVisitsSerializer(data=copied)
+
+        if visit_serialized.is_valid():
+            visit_serialized.save()
+            return Response('Ok', status=201)
+        else:
+            return Response(visit_serialized.errors, status=400)
+
     def get(self, request):
         doctor_visits = Visit.objects.filter(doctor__user__id=request.user.id)
         serialized_visits = VisitsSerializer(doctor_visits, many=True)

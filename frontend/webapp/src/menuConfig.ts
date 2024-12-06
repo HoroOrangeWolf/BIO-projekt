@@ -22,6 +22,7 @@ import FileCopyIcon from '@mui/icons-material/FileCopy';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import DoctorCalendar from '@main/components/Doctor/VisitsCalendar/Calendar.tsx';
 import DoctorDocumentation from '@main/components/Doctor/Documentation/DoctorDocumentation.tsx';
+import DoctorVisits from '@main/components/Doctor/Visits/DoctorVisits.tsx';
 
 export const menuConfig = [
   {
@@ -69,6 +70,12 @@ export const menuConfig = [
         icon: CalendarMonthIcon,
         path: '/doctor/planed_visits',
         component: DoctorCalendar,
+      },
+      {
+        text: 'visits',
+        icon: LocalHospitalIcon,
+        path: '/doctor/visits',
+        component: DoctorVisits,
       },
       {
         text: 'documentation',

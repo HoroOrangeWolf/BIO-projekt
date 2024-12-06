@@ -57,6 +57,13 @@ export type AddVisitModel = {
     doctor: number;
 }
 
+export type AddPatientVisitModel = {
+    visit_name: string;
+    start_time: string;
+    description: string;
+    patient: number;
+}
+
 export type VisitModelType = {
     id: number;
     visit_name: string;
@@ -67,6 +74,13 @@ export type VisitModelType = {
     doctor: number;
 }
 
+export type UserSimpleModelType = {
+    id: number;
+    fist_name: string;
+    email: string;
+    full_name: string;
+}
+
 export type UserVisitFullModelType = {
     id: number;
     visit_name: string;
@@ -74,16 +88,12 @@ export type UserVisitFullModelType = {
     is_visit_finished: boolean;
     description: string;
     created_at: string;
+    user: UserSimpleModelType
     doctor: {
         id: number;
         doctor_number: string;
         doctor_specializations: SpecializationType[];
-        user: {
-            first_name: string;
-            last_name: string;
-            email: string;
-            full_name: string;
-        }
+        user: UserSimpleModelType
     };
 }
 

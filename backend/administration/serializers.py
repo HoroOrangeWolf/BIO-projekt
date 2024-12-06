@@ -6,7 +6,6 @@ from rest_framework import serializers
 from auth_api.models import AuthUser
 
 
-
 class PermissionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Permission
@@ -47,6 +46,7 @@ class SimpleUserSerializer(serializers.ModelSerializer):
     class Meta:
         model = AuthUser
         fields = [
+            "id",
             "first_name",
             "last_name",
             "email",
