@@ -49,8 +49,6 @@ type PropsType = {
 
 const VALIDATION_FORMAT = 'DD-MM-YYYY';
 
-const ISO_DATE_FORMAT = 'YYYY-MM-DD';
-
 const EDIT_FORM_DATE_TYPE = 'DD/MM/YYYY HH:mm';
 
 const MAX_VISIT_PER_DAY = 8;
