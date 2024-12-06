@@ -218,7 +218,7 @@ const CreateDoctorVisitModal = (props: PropsType) => {
                       setCurrentCalendarDate(dateFormatted);
                       field.onChange(dateFormatted);
                     }}
-                    value={isNil(currentCalendarDate) ? dayjs(currentCalendarDate) : null}
+                    value={isNil(currentCalendarDate) ? undefined : dayjs(currentCalendarDate)}
                     ref={field.ref}
                   />
                   {isEmpty(start_time) || (

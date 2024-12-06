@@ -51,6 +51,8 @@ const VALIDATION_FORMAT = 'DD-MM-YYYY';
 
 const ISO_DATE_FORMAT = 'YYYY-MM-DD';
 
+const EDIT_FORM_DATE_TYPE = 'DD/MM/YYYY HH:mm';
+
 const MAX_VISIT_PER_DAY = 8;
 
 export const ServerDay = (props: PickersDayProps<Dayjs> & { occupiedDays?: {
@@ -113,10 +115,20 @@ export const shouldBeDisabled = (takenDates: NonSensitiveVisitModel[], time: str
   return some(takenDates, { start_time: `${buildedDate}Z` });
 };
 
+const getDateValue = (date: string) => {
+  if (isEmpty(date)) {
+    return undefined;
+  }
+
+  console.log('Test', dayjs(date).format('HH:mm'));
+  return dayjs(date).format('HH:mm');
+};
+
 const CreateVisitModal = (props: PropsType) => {
   const [currentCalendarDate, setCurrentCalendarDate] = useState<string | undefined>(
-    props.updateVisit?.start_time ? dayjs(props.updateVisit?.start_time).tz('UTC').format(VALIDATION_FORMAT) : undefined,
+    props.updateVisit?.start_time ? dayjs(props.updateVisit?.start_time, EDIT_FORM_DATE_TYPE).tz('UTC').toISOString() : undefined,
   );
+
   const [isToastOpen, setIsToastOpen] = useState(false);
   const form = useForm<VisitFormType>({
     resolver: yupResolver(visitSchema),
@@ -317,12 +329,12 @@ const CreateVisitModal = (props: PropsType) => {
                         return;
                       }
 
-                      const dateFormatted = value.format(ISO_DATE_FORMAT);
+                      const dateFormatted = value.toISOString();
 
                       setCurrentCalendarDate(dateFormatted);
                       field.onChange(dateFormatted);
                     }}
-                    value={isNil(currentCalendarDate) ? dayjs(currentCalendarDate) : null}
+                    value={isNil(currentCalendarDate) ? null : dayjs(currentCalendarDate)}
                     ref={field.ref}
                   />
                   {isEmpty(start_time) || (
@@ -339,6 +351,7 @@ const CreateVisitModal = (props: PropsType) => {
                     label="Godzina wizyty"
                     placeholder="Wybierz godzine wizyty"
                     variant="outlined"
+                    value={getDateValue(currentCalendarDate)}
                     onChange={(event) => {
                       const time = event.target.value as string;
 
@@ -353,6 +366,7 @@ const CreateVisitModal = (props: PropsType) => {
                         .second(0)
                         .format('YYYY-MM-DDTHH:mm:ss');
 
+                      setCurrentCalendarDate(dateTimeOfVisit);
                       field.onChange(dateTimeOfVisit);
                     }}
                   >
