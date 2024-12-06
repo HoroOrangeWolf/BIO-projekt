@@ -93,11 +93,15 @@ export const finishVisit = async (id: number, data: any) => api.patch(`client/do
 
 export const getUserMedicalDocumentation = async () => api.get<DocumentationType[]>('client/user/visits/documentation');
 
+export const getDoctorAllVisits = async () => api.get<UserVisitFullModelType[]>('client/doctor/visits');
+
 export const getAllUserVisits = async (isVisitFinished: boolean) => api.get<UserVisitFullModelType[]>('client/user/visits', {
   params: {
     isVisitFinished,
   },
 });
+
+export const getAllDoctorDocumentation = async () => api.get<DocumentationType[]>('client/doctor/visits/documentation');
 
 export const addDocumentation = async (model: AddDocumentationFormType) => {
   const form = new FormData();

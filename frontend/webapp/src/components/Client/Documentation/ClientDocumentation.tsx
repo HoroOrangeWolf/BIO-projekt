@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { BASE_URL, getUserMedicalDocumentation } from '@main/components/services/api.ts';
+import { BASE_URL, getAllDoctorDocumentation, getUserMedicalDocumentation } from '@main/components/services/api.ts';
 import { isNil, toNumber } from 'lodash';
 import { Box, Button } from '@mui/material';
 import MaterialTable from '@main/components/utils/MaterialTable.tsx';
@@ -10,7 +10,11 @@ import EditIcon from '@mui/icons-material/Edit';
 import { useAsync } from 'react-async-hook';
 import { DocumentationType } from '@main/components/services/types.ts';
 
-const ClientDocumentation = () => {
+type PropsType = {
+    isDoctor?: boolean;
+}
+
+const ClientDocumentation = ({ isDoctor = false }: PropsType) => {
   const [isAddDocumentationOpen, setIsAddDocumentationOpen] = useState(false);
   const [editDocumentation, setEditDocumentation] = useState<DocumentationType>();
   const [pagination, setPagination] = useState({
@@ -21,10 +25,10 @@ const ClientDocumentation = () => {
   const [searchParams] = useSearchParams();
 
   const { result: documentations = [], execute: reloadDocumentation } = useAsync(async () => {
-    const result = await getUserMedicalDocumentation();
+    const result = isDoctor ? await getAllDoctorDocumentation() : await getUserMedicalDocumentation();
 
     return result.data;
-  }, []);
+  }, [isDoctor]);
 
   const filteredDocs = useMemo(() => {
     const visitIdRaw = searchParams.get('visit');
@@ -95,6 +99,7 @@ const ClientDocumentation = () => {
       />
       {isAddDocumentationOpen && (
       <DocumentationModal
+        isDoctor={isDoctor}
         toEdit={editDocumentation}
         onCancel={(reload) => {
           setIsAddDocumentationOpen(false);

@@ -7,7 +7,12 @@ import {
   map,
 } from 'lodash';
 import { useAsync } from 'react-async-hook';
-import { addDocumentation, getAllUserVisits, updateDocumentation } from '@main/components/services/api.ts';
+import {
+  addDocumentation,
+  getAllUserVisits,
+  getDoctorAllVisits,
+  updateDocumentation,
+} from '@main/components/services/api.ts';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useMemo } from 'react';
@@ -16,6 +21,7 @@ import { DocumentationType } from '@main/components/services/types.ts';
 type PropsType = {
     onCancel?: (reload: boolean) => any;
     toEdit?: DocumentationType
+    isDoctor?: boolean;
 };
 
 export type AddDocumentationFormType = {
@@ -32,7 +38,15 @@ const documentationSchema = yup.object().shape({
 });
 
 const DocumentationModal = (props: PropsType) => {
+  const {
+    isDoctor = false,
+  } = props;
+
   const { result } = useAsync(async () => {
+    if (props.isDoctor) {
+      return (await getDoctorAllVisits()).data;
+    }
+
     const finishedVisits = await getAllUserVisits(true);
     const unfinishedVisits = await getAllUserVisits(false);
 
@@ -40,7 +54,7 @@ const DocumentationModal = (props: PropsType) => {
       ...finishedVisits.data,
       ...unfinishedVisits.data,
     ];
-  }, []);
+  }, [isDoctor]);
 
   const form = useForm<AddDocumentationFormType>({
     defaultValues: {

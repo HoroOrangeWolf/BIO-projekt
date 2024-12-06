@@ -27,6 +27,13 @@ class VisitsView(APIView):
         return Response(serialized.data)
 
 
+class DoctorCurrentVisit(APIView):
+    def get(self, request):
+        doctor_visits = Visit.objects.filter(doctor__user__id=request.user.id)
+        serialized_visits = VisitsSerializer(doctor_visits, many=True)
+        return Response(serialized_visits.data, status=200)
+
+
 class DoctorVisits(APIView):
     def post(self, request, pk):
         # TODO: Dodać walidacje czy czasy się pokrywają
@@ -47,6 +54,14 @@ class DoctorVisits(APIView):
         doctor_visits = Visit.objects.filter(doctor__user__id=pk)
         serialized_visits = VisitsNonSensitiveData(doctor_visits, many=True)
         return Response(serialized_visits.data, status=200)
+
+
+class MedicalDocumentationByDoctorView(APIView):
+    def get(self, request):
+        doctor_id = request.user.id
+        docs = MedicalDocumentation.objects.filter(visit__doctor__user_id=doctor_id)
+        serializer = VisitReadDocumentationSerializer(docs, many=True)
+        return Response(serializer.data)
 
 
 class DoctorView(APIView):
@@ -144,7 +159,6 @@ class VisitDocumentation(APIView):
 
         return Response(serialized.data, status=200)
 
-
     def patch(self, request, pk, doc_id):
         user_id = request.user.id
         documentation = get_object_or_404(
@@ -224,7 +238,7 @@ class VisitsForDoctor(viewsets.ModelViewSet):
         doctor_id = request.query_params.get('doctor')
 
         if doctor_id:
-            visits = Visit.objects.filter(doctor_id=doctor_id)
+            visits = Visit.objects.filter(doctor__user_id=doctor_id)
         else:
             visits = []
 
