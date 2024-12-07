@@ -1,12 +1,18 @@
 import axios from 'axios';
 import {
+  AddPatientVisitModel,
   AddSpecializationModel,
-  AddUserRequest, AddVisitModel, NonSensitiveVisitModel, PaginationType,
-  SpecializationModel, UpdateUserModel, UserModelType, UserVisitFullModelType, VisitModelType,
+  AddUserRequest, AddVisitModel, DocumentationType, NonSensitiveVisitModel, PaginationType,
+  SpecializationModel, UpdateUserModel, UserModelType, UserSimpleModelType, UserVisitFullModelType,
 } from '@main/components/services/types.ts';
+import {
+  AddDocumentationFormType,
+} from '@main/components/Client/Documentation/DocumentationModal.tsx';
+
+export const BASE_URL = 'http://localhost:8000/';
 
 const api = axios.create({
-  baseURL: 'http://localhost:8000/',
+  baseURL: BASE_URL,
   withCredentials: true,
 });
 
@@ -81,15 +87,50 @@ export const getDoctorNonSensitiveVisits = async (doctorId: number) => api.get<N
 
 export const createDoctorVisit = async (data: AddVisitModel) => api.post(`client/doctor/${data.doctor}/visits`, data);
 
+export const createPatientVisit = async (data: AddPatientVisitModel) => api.post('client/doctor/visits', data);
+
 export const deleteUserVisit = async (id: number) => api.delete(`client/user/visits/${id}`);
 
 export const getDoctorVisits = async (id: number) => api.get(`client/doctor_visits/?doctor=${id}`);
 export const finishVisit = async (id: number, data: any) => api.patch(`client/doctor_visits/${id}/`, data);
+
+export const getUserMedicalDocumentation = async () => api.get<DocumentationType[]>('client/user/visits/documentation');
+
+export const getDoctorAllVisits = async () => api.get<UserVisitFullModelType[]>('client/doctor/visits');
+
+export const getAllPatients = async () => api.get<UserSimpleModelType[]>('client/doctor/patients');
 
 export const getAllUserVisits = async (isVisitFinished: boolean) => api.get<UserVisitFullModelType[]>('client/user/visits', {
   params: {
     isVisitFinished,
   },
 });
+
+export const getAllDoctorDocumentation = async () => api.get<DocumentationType[]>('client/doctor/visits/documentation');
+
+export const addDocumentation = async (model: AddDocumentationFormType) => {
+  const form = new FormData();
+  form.append('file_name', model.file_name);
+  form.append('file_description', model.file_description);
+  form.append('file', model.file as File);
+
+  return api.post(`client/user/visits/${model.visit_id}/documentation`, form, {
+    headers: {
+      'Content-Type': 'multipart/form-data',
+    },
+  });
+};
+
+export const updateDocumentation = async (documentationId: number, model: AddDocumentationFormType) => {
+  const form = new FormData();
+  form.append('file_name', model.file_name);
+  form.append('file_description', model.file_description);
+
+  return api.patch(`client/user/visits/${model.visit_id}/documentation/${documentationId}`, form, {
+    headers: {
+      'Content-Type': 'multipart/form-data',
+    },
+  });
+};
 
 export default api;

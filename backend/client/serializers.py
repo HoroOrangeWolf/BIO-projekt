@@ -4,7 +4,7 @@ from django.db.models import Q
 from rest_framework import serializers
 
 from administration.serializers import SimpleUserSerializer
-from .models import Visit, DoctorSpecialization, DoctorDetails
+from .models import Visit, DoctorSpecialization, DoctorDetails, MedicalDocumentation
 
 
 class AddVisitsSerializer(serializers.ModelSerializer):
@@ -49,6 +49,7 @@ class DoctorDetailsSerializerGet(serializers.ModelSerializer):
 
 class VisitsSerializer(serializers.ModelSerializer):
     doctor = DoctorDetailsSerializerGet(read_only=True)
+    user = SimpleUserSerializer(read_only=True)
 
     class Meta:
         model = Visit
@@ -59,6 +60,7 @@ class VisitsSerializer(serializers.ModelSerializer):
             'description',
             'created_at',
             'doctor',
+            'user',
             'start_time'
         )
 
@@ -81,15 +83,18 @@ class DoctorFullModelGet(serializers.ModelSerializer):
     doctor_specializations = SpecializationSerializer(read_only=True, many=True)
 
     class Meta:
-            model = DoctorDetails
-            fields = ('id', 'user', 'doctor_number', 'doctor_specializations')
+        model = DoctorDetails
+        fields = ('id', 'user', 'doctor_number', 'doctor_specializations')
+
 
 class VisitsForUserSerializer(serializers.ModelSerializer):
     doctor = DoctorFullModelGet(read_only=True)
+    user = SimpleUserSerializer(read_only=True)
 
     class Meta:
         model = Visit
-        fields = ("id", "visit_name", "is_visit_finished", "description", "start_time", "created_at", "doctor")
+        fields = ("id", "visit_name", "is_visit_finished", "description", "start_time", "created_at", "doctor", "user")
+
 
 class VisitsForDoctorSerializer(serializers.ModelSerializer):
     user = SimpleUserSerializer(read_only=True)
@@ -99,3 +104,40 @@ class VisitsForDoctorSerializer(serializers.ModelSerializer):
         fields = [
             "id", "visit_name", "is_visit_finished", "description", "start_time", "created_at", "user",
         ]
+
+
+class VisitWriteDocumentationSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = MedicalDocumentation
+        fields = ['file', 'file_name', 'file_description']
+        extra_kwargs = {
+            'file': {'required': True}
+        }
+
+    def create(self, validated_data):
+        visit = self.context['visit']
+        return MedicalDocumentation.objects.create(visit=visit, **validated_data)
+
+
+class VisitReadDocumentationSerializer(serializers.ModelSerializer):
+    visit = VisitsSerializer(read_only=True)
+
+    class Meta:
+        model = MedicalDocumentation
+        fields = (
+            "id",
+            "file_name",
+            "file_description",
+            "visit"
+        )
+
+
+class MedicalDocumentationUpdateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = MedicalDocumentation
+        fields = ['file_name', 'file_description', 'visit']
+        extra_kwargs = {
+            'file_name': {'required': False},
+            'file_description': {'required': False},
+            'visit': {'required': False},
+        }

@@ -20,7 +20,9 @@ import GradeIcon from '@mui/icons-material/Grade';
 import SpecializationList from '@main/components/system/specialization/SpecializationList.tsx';
 import FileCopyIcon from '@mui/icons-material/FileCopy';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
-import DoctorCalendar from "@main/components/Doctor/VisitsCalendar/Calendar.tsx";
+import DoctorCalendar from '@main/components/Doctor/VisitsCalendar/Calendar.tsx';
+import DoctorDocumentation from '@main/components/Doctor/Documentation/DoctorDocumentation.tsx';
+import DoctorVisits from '@main/components/Doctor/Visits/DoctorVisits.tsx';
 
 export const menuConfig = [
   {
@@ -48,7 +50,7 @@ export const menuConfig = [
       {
         text: 'medical_docs',
         icon: SettingsIcon,
-        path: '/client/history',
+        path: '/client/documentation',
         component: ClientDocumentation,
       },
       {
@@ -70,10 +72,16 @@ export const menuConfig = [
         component: DoctorCalendar,
       },
       {
+        text: 'visits',
+        icon: LocalHospitalIcon,
+        path: '/doctor/visits',
+        component: DoctorVisits,
+      },
+      {
         text: 'documentation',
         icon: FileCopyIcon,
         path: '/doctor/documentation',
-        component: Dashboard,
+        component: DoctorDocumentation,
       },
     ],
   },

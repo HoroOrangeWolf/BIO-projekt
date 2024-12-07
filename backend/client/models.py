@@ -35,7 +35,7 @@ class Visit(models.Model):
 
 
 class MedicalDocumentation(models.Model):
-    file_path = models.FilePathField()
+    file = models.FileField(upload_to='medical_docs/', null=True, blank=True)
     file_name = models.CharField(max_length=255)
     file_description = models.TextField()
     visit = models.ForeignKey(Visit, on_delete=models.CASCADE)

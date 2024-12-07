@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import { finishVisit, getDoctorVisits } from '@main/components/services/api.ts';
 import FullCalendar from '@fullcalendar/react';
@@ -8,6 +8,7 @@ import {
 } from '@mui/material';
 import DialogTitle from '@mui/material/DialogTitle';
 import { useAsync } from 'react-async-hook';
+import { createSearchParams, useNavigate } from 'react-router-dom';
 
 type VisitEvent = {
   id: number;
@@ -25,6 +26,8 @@ type VisitEvent = {
 };
 
 const DoctorCalendar = () => {
+  const navigation = useNavigate();
+
   const doctor_id = useSelector((state: any) => state.auth.user.doctor);
   const [open, setOpen] = useState(false);
   const [selected, setSelected] = useState<VisitEvent | any>({});
@@ -118,7 +121,20 @@ const DoctorCalendar = () => {
           </DialogContent>
           <DialogActions sx={{ m: 1 }}>
             <Button variant="contained" color="error" onClick={finish}>Zakończ wizytę</Button>
-            <Button variant="contained" color="primary">Sprawdź dokumentację</Button>
+            <Button
+              onClick={() => {
+                navigation({
+                  pathname: '/doctor/documentation',
+                  search: createSearchParams({
+                    visit: selected.id,
+                  }).toString(),
+                });
+              }}
+              variant="contained"
+              color="primary"
+            >
+              Sprawdź dokumentację
+            </Button>
             <Button variant="contained" color="success">Umów kolejną wizytę</Button>
             <Button variant="contained" color="info" onClick={handleCloseDialog}>Zamknij</Button>
           </DialogActions>
