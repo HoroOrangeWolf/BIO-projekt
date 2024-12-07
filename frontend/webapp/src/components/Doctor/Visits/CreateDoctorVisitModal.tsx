@@ -6,6 +6,7 @@ import {
   createPatientVisit,
   getAllPatients,
   getDoctorNonSensitiveVisits,
+  updateDoctorVisit,
 } from '@main/components/services/api.ts';
 import { useAsync } from 'react-async-hook';
 import {
@@ -74,8 +75,13 @@ const CreateDoctorVisitModal = (props: PropsType) => {
   const { handleSubmit, control, formState: { errors } } = form;
 
   const onSubmitForm = async (data: VisitFormType) => {
-    await createPatientVisit(data);
+    if (isNil(props.updateVisit)) {
+      await createPatientVisit(data);
+      props.onSubmit?.();
+      return;
+    }
 
+    await updateDoctorVisit(props.updateVisit.id, props.updateVisit.user.id, data);
     props.onSubmit?.();
   };
 

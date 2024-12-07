@@ -36,6 +36,7 @@ class PatientView(APIView):
 
         return Response(serialized.data, status=200)
 
+
 class DoctorCurrentVisit(APIView):
     def post(self, request):
         # TODO: Dodać walidacje czy czasy się pokrywają
@@ -49,6 +50,24 @@ class DoctorCurrentVisit(APIView):
         if visit_serialized.is_valid():
             visit_serialized.save()
             return Response('Ok', status=201)
+        else:
+            return Response(visit_serialized.errors, status=400)
+
+    def put(self, request, pk, patient_id):
+        visit = get_object_or_404(Visit, pk=pk)
+
+        copied = request.data.copy()
+        doctor_details = DoctorDetails.objects.filter(user__id=request.user.id).first()
+        copied['doctor'] = doctor_details.id
+
+        patient_details = AuthUser.objects.filter(user__id=patient_id).first()
+        copied['user'] = patient_details.id
+
+        visit_serialized = AddVisitsSerializer(instance=visit, data=copied, partial=True)
+
+        if visit_serialized.is_valid():
+            visit_serialized.save()
+            return Response(visit_serialized.data, status=200)
         else:
             return Response(visit_serialized.errors, status=400)
 
@@ -71,6 +90,24 @@ class DoctorVisits(APIView):
         if visit_serialized.is_valid():
             visit_serialized.save()
             return Response('Ok', status=201)
+        else:
+            return Response(visit_serialized.errors, status=400)
+
+    def put(self, request, doctor_id, pk):
+        visit = get_object_or_404(Visit, pk=pk)
+
+        copied = request.data.copy()
+
+        doctor_details = DoctorDetails.objects.filter(user__id=doctor_id).first()
+
+        copied['doctor'] = doctor_details.id
+        copied['user'] = request.user.id
+
+        visit_serialized = AddVisitsSerializer(instance=visit, data=copied, partial=True)
+
+        if visit_serialized.is_valid():
+            visit_serialized.save()
+            return Response(visit_serialized.data, status=200)
         else:
             return Response(visit_serialized.errors, status=400)
 

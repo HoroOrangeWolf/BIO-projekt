@@ -19,7 +19,7 @@ import {
   createDoctorVisit,
   getAllSpecializations,
   getDoctorsBySpecializations,
-  getDoctorNonSensitiveVisits,
+  getDoctorNonSensitiveVisits, updateClientVisit,
 } from '@main/components/services/api.ts';
 import { NonSensitiveVisitModel, UserVisitFullModelType } from '@main/components/services/types.ts';
 import Snackbar from '@mui/material/Snackbar';
@@ -147,8 +147,13 @@ const CreateVisitModal = (props: PropsType) => {
   const { handleSubmit, control, formState: { errors } } = form;
 
   const onSubmitForm = async (data: VisitFormType) => {
-    await createDoctorVisit(data);
+    if (isNil(props.updateVisit)) {
+      await createDoctorVisit(data);
+      props.onSubmit?.();
+      return;
+    }
 
+    await updateClientVisit(props.updateVisit.id, props.updateVisit.doctor.id, data);
     props.onSubmit?.();
   };
 

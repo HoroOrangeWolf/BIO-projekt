@@ -3,7 +3,7 @@ import {
   AddPatientVisitModel,
   AddSpecializationModel,
   AddUserRequest, AddVisitModel, DocumentationType, NonSensitiveVisitModel, PaginationType,
-  SpecializationModel, UpdateUserModel, UserModelType, UserSimpleModelType, UserVisitFullModelType,
+  SpecializationModel, UpdateUserModel, UpdateVisitModel, UserModelType, UserSimpleModelType, UserVisitFullModelType,
 } from '@main/components/services/types.ts';
 import {
   AddDocumentationFormType,
@@ -120,6 +120,14 @@ export const addDocumentation = async (model: AddDocumentationFormType) => {
     },
   });
 };
+
+export const updateClientVisit = async (visitId: number, doctorId: number, model: UpdateVisitModel) => (
+  api.put(`client/doctor/${doctorId}/visits/${visitId}`, model)
+);
+
+export const updateDoctorVisit = async (visitId: number, patientId: number, model: UpdateVisitModel) => (
+  api.put(`doctor/patient/${patientId}/visits/${visitId}>`, model)
+);
 
 export const updateDocumentation = async (documentationId: number, model: AddDocumentationFormType) => {
   const form = new FormData();
