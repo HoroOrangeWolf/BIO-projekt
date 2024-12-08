@@ -299,7 +299,7 @@ class VisitsForDoctor(viewsets.ModelViewSet):
         doctor_id = request.query_params.get('doctor')
 
         if doctor_id:
-            visits = Visit.objects.filter(doctor__user_id=doctor_id)
+            visits = Visit.objects.filter(doctor__id=doctor_id)
         else:
             visits = []
 
