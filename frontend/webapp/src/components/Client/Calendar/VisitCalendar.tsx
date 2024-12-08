@@ -10,7 +10,7 @@ import {
 } from '@mui/material';
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
-import { UserVisitFullModelType, VisitModelType } from '@main/components/services/types.ts';
+import { UserVisitFullModelType } from '@main/components/services/types.ts';
 
 type VisitEvent = {
     id: number;
@@ -65,16 +65,6 @@ const VisitCalendar = () => {
     setSelected({});
   };
 
-  const finish = async () => {
-    const data = {
-      is_visit_finished: true,
-    };
-    if (selected?.id) {
-      await finishVisit(selected.id, data).then(() => setReloadKey((prev) => prev + 1));
-      handleCloseDialog();
-    }
-  };
-
   return (
     <div>
       <Typography variant="h4">Twoja lista wizyt</Typography>
@@ -123,9 +113,7 @@ const VisitCalendar = () => {
             {
                   // TODO: Podłączyć event bazujące na userze + zobaczyć z tworzeniem wizyt w innych miesiącach, zablokować tworzenie wizyt w przeszłości
               }
-            <Button variant="contained" color="error" onClick={finish}>Zakończ wizytę</Button>
             <Button variant="contained" color="primary">Sprawdź dokumentację</Button>
-            <Button variant="contained" color="success">Umów kolejną wizytę</Button>
             <Button variant="contained" color="info" onClick={handleCloseDialog}>Zamknij</Button>
           </DialogActions>
         </Dialog>
