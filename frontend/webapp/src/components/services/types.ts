@@ -57,6 +57,12 @@ export type AddVisitModel = {
     doctor: number;
 }
 
+export type UpdateVisitModel = {
+    visit_name: string;
+    start_time: string;
+    description: string;
+}
+
 export type AddPatientVisitModel = {
     visit_name: string;
     start_time: string;
