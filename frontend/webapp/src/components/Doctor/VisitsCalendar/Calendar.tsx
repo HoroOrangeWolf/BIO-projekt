@@ -135,7 +135,6 @@ const DoctorCalendar = () => {
             >
               Sprawdź dokumentację
             </Button>
-            <Button variant="contained" color="success">Umów kolejną wizytę</Button>
             <Button variant="contained" color="info" onClick={handleCloseDialog}>Zamknij</Button>
           </DialogActions>
         </Dialog>

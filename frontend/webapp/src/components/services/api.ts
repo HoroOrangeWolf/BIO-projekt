@@ -126,7 +126,7 @@ export const updateClientVisit = async (visitId: number, doctorId: number, model
 );
 
 export const updateDoctorVisit = async (visitId: number, patientId: number, model: UpdateVisitModel) => (
-  api.put(`doctor/patient/${patientId}/visits/${visitId}>`, model)
+  api.put(`client/doctor/patient/${patientId}/visits/${visitId}`, model)
 );
 
 export const updateDocumentation = async (documentationId: number, model: AddDocumentationFormType) => {

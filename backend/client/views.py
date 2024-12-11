@@ -60,7 +60,7 @@ class DoctorCurrentVisit(APIView):
         doctor_details = DoctorDetails.objects.filter(user__id=request.user.id).first()
         copied['doctor'] = doctor_details.id
 
-        patient_details = AuthUser.objects.filter(user__id=patient_id).first()
+        patient_details = AuthUser.objects.filter(id=patient_id).first()
         copied['user'] = patient_details.id
 
         visit_serialized = AddVisitsSerializer(instance=visit, data=copied, partial=True)
@@ -72,9 +72,10 @@ class DoctorCurrentVisit(APIView):
             return Response(visit_serialized.errors, status=400)
 
     def get(self, request):
-        doctor_visits = Visit.objects.filter(doctor__user__id=request.user.id)
+        doctor_visits = Visit.objects.filter(doctor__user__id=request.user.id).order_by('start_time')
         serialized_visits = VisitsSerializer(doctor_visits, many=True)
         return Response(serialized_visits.data, status=200)
+
 
 
 class DoctorVisits(APIView):
@@ -203,7 +204,7 @@ class VisitsForUser(APIView):
         is_visit_finished = param_lowercase == 'true'
 
         visits = Visit.objects.filter(user__id=request.user.id, is_visit_finished=is_visit_finished).order_by(
-            '-start_time')
+            'start_time')
         serialized = VisitsForUserSerializer(visits, many=True)
         return Response(serialized.data, status=200)
 

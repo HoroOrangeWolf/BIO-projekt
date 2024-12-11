@@ -113,7 +113,7 @@ export const shouldBeDisabled = (takenDates: NonSensitiveVisitModel[], time: str
   return some(takenDates, { start_time: `${buildedDate}Z` });
 };
 
-const getDateValue = (date: string) => {
+export const getDateValue = (date: string) => {
   if (isEmpty(date)) {
     return undefined;
   }
@@ -354,7 +354,7 @@ const CreateVisitModal = (props: PropsType) => {
                     label="Godzina wizyty"
                     placeholder="Wybierz godzine wizyty"
                     variant="outlined"
-                    value={getDateValue(currentCalendarDate)}
+                    value={getDateValue(currentCalendarDate ?? '')}
                     onChange={(event) => {
                       const time = event.target.value as string;
 

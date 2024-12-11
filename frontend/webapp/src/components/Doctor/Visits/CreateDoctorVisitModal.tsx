@@ -20,6 +20,7 @@ import Snackbar from '@mui/material/Snackbar';
 import Alert from '@mui/material/Alert';
 import {
   generateTimes,
+  getDateValue,
   ServerDay,
   shouldBeDisabled,
 } from '@main/components/Client/Visits/components/CreateVisitModal.tsx';
@@ -44,7 +45,7 @@ const visitSchema = yup.object().shape({
 
 const VALIDATION_FORMAT = 'DD-MM-YYYY';
 
-const ISO_DATE_FORMAT = 'YYYY-MM-DD';
+const EDIT_FORM_DATE_TYPE = 'DD/MM/YYYY HH:mm';
 
 const MAX_VISIT_PER_DAY = 8;
 
@@ -56,8 +57,9 @@ type PropsType = {
 
 const CreateDoctorVisitModal = (props: PropsType) => {
   const [currentCalendarDate, setCurrentCalendarDate] = useState<string | undefined>(
-    props.updateVisit?.start_time ? dayjs(props.updateVisit?.start_time).tz('UTC').format(VALIDATION_FORMAT) : undefined,
+    props.updateVisit?.start_time ? dayjs(props.updateVisit?.start_time, EDIT_FORM_DATE_TYPE).tz('UTC').toISOString() : undefined,
   );
+
   const [isToastOpen, setIsToastOpen] = useState(false);
   const user_id = useSelector((state: any) => state.auth.user.id) as number;
   const form = useForm<VisitFormType>({
@@ -219,12 +221,12 @@ const CreateDoctorVisitModal = (props: PropsType) => {
                         return;
                       }
 
-                      const dateFormatted = value.format(ISO_DATE_FORMAT);
+                      const dateFormatted = value.toISOString();
 
                       setCurrentCalendarDate(dateFormatted);
                       field.onChange(dateFormatted);
                     }}
-                    value={isNil(currentCalendarDate) ? undefined : dayjs(currentCalendarDate)}
+                    value={isNil(currentCalendarDate) ? null : dayjs(currentCalendarDate)}
                     ref={field.ref}
                   />
                   {isEmpty(start_time) || (
@@ -241,6 +243,7 @@ const CreateDoctorVisitModal = (props: PropsType) => {
                     label="Godzina wizyty"
                     placeholder="Wybierz godzine wizyty"
                     variant="outlined"
+                    value={getDateValue(currentCalendarDate ?? '')}
                     onChange={(event) => {
                       const time = event.target.value as string;
 
@@ -255,6 +258,7 @@ const CreateDoctorVisitModal = (props: PropsType) => {
                         .second(0)
                         .format('YYYY-MM-DDTHH:mm:ss');
 
+                      setCurrentCalendarDate(dateTimeOfVisit);
                       field.onChange(dateTimeOfVisit);
                     }}
                   >
