@@ -118,7 +118,6 @@ const getDateValue = (date: string) => {
     return undefined;
   }
 
-  console.log('Test', dayjs(date).format('HH:mm'));
   return dayjs(date).format('HH:mm');
 };
 
@@ -134,6 +133,7 @@ const CreateVisitModal = (props: PropsType) => {
       visit_name: props.updateVisit?.visit_name ?? '',
       start_time: props.updateVisit?.start_time ?? '',
       description: props.updateVisit?.description ?? '',
+      specializationId: props.updateVisit?.doctor?.doctor_specializations?.[0]?.id,
       doctor: props.updateVisit?.doctor?.id,
     },
   });

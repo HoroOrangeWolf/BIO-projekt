@@ -98,7 +98,7 @@ class DoctorVisits(APIView):
 
         copied = request.data.copy()
 
-        doctor_details = DoctorDetails.objects.filter(user__id=doctor_id).first()
+        doctor_details = DoctorDetails.objects.filter(id=doctor_id).first()
 
         copied['doctor'] = doctor_details.id
         copied['user'] = request.user.id
