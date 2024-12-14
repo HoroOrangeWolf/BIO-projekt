@@ -13,7 +13,7 @@ import ConfirmRemoveVisit from '@main/components/Client/Visits/components/Confir
 import CreateDoctorVisitModal from '@main/components/Doctor/Visits/CreateDoctorVisitModal.tsx';
 
 type PropsType = {
-    isDoctor?: boolean;
+  isDoctor?: boolean;
 }
 
 const ClientVisits = ({ isDoctor = false }: PropsType) => {
@@ -111,16 +111,16 @@ const ClientVisits = ({ isDoctor = false }: PropsType) => {
           </Box>
         )}
         renderTopToolbarCustomActions={
-                    () => (
-                      <Button
-                        variant="contained"
-                        color="secondary"
-                        onClick={() => setIsAddModalOpen(true)}
-                      >
-                        Dodaj
-                      </Button>
-                    )
-                }
+          () => (
+            <Button
+              variant="contained"
+              color="secondary"
+              onClick={() => setIsAddModalOpen(true)}
+            >
+              Dodaj
+            </Button>
+          )
+        }
       />
       {(isAddModalOpen && !isDoctor) && (
         <CreateVisitModal
@@ -128,8 +128,7 @@ const ClientVisits = ({ isDoctor = false }: PropsType) => {
           updateVisit={visitToEdit}
           onSubmit={() => {
             setIsAddModalOpen(false);
-            fetch()
-              .catch(console.error);
+            fetch().catch(console.error);
           }}
         />
       )}

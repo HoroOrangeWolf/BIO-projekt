@@ -13,11 +13,21 @@ class PermissionSerializer(serializers.ModelSerializer):
 
 
 class GroupSerializer(serializers.ModelSerializer):
-    permissions = PermissionSerializer(many=True, read_only=True)
+    permissions_set = serializers.PrimaryKeyRelatedField(many=True, queryset=Permission.objects.all(), write_only=True,
+                                                         required=False)
 
     class Meta:
         model = Group
-        fields = ("id", "name", "permissions")
+        fields = ("id", "name", "permissions", "permissions_set")
+
+    def update(self, instance, validated_data):
+        # Obsługa `permissions_set`
+        permissions_set = validated_data.pop('permissions_set', None)
+        if permissions_set is not None:
+            # Ustawienie nowych uprawnień dla grupy
+            instance.permissions.set(permissions_set)
+        # Aktualizacja pozostałych pól grupy
+        return super().update(instance, validated_data)
 
 
 class UpdateUserSerializer(serializers.ModelSerializer):

@@ -1,36 +1,36 @@
 import {
   useEffect, useMemo, useState,
 } from 'react';
-import { useTranslation } from 'react-i18next';
+import {useTranslation} from 'react-i18next';
 import {
   Box, Button, IconButton, Tooltip,
 } from '@mui/material';
-import { Delete, Edit } from '@mui/icons-material';
+import {Delete, Edit} from '@mui/icons-material';
 import AddCardIcon from '@mui/icons-material/AddCard';
-import { AddGroupModal } from '@main/components/system/groups/components/AddGroup.tsx';
-import { EditPermission } from '@main/components/system/groups/components/EditPermission.tsx';
+import {AddGroupModal} from '@main/components/system/groups/components/AddGroup.tsx';
+import {EditPermission} from '@main/components/system/groups/components/EditPermission.tsx';
 import {
   deleteGroups, getGroups, patchGroups, postGroups,
 } from '@main/components/services/api.ts';
 import MaterialTable from '../../utils/MaterialTable.js';
 
 const GroupList = () => {
-  const { t } = useTranslation('system');
+  const {t} = useTranslation('system');
   const [openGroupModal, setOpenGroupModal] = useState(false);
   const [editPermissionModal, setEditPermissionModal] = useState(false);
   const [selectedGroup, setSelectedGroup] = useState<{
     id: string;
     permissions: string[];
-  }>({ id: '', permissions: [] });
+  }>({id: '', permissions: []});
   const [groups, setGroups] = useState([]);
   const [pagination, setPagination] = useState({
     pageIndex: 0,
     pageSize: 10,
   });
   const [totalRows, setTotalRows] = useState(0);
-  const fetchGroups = async (page: number, pageSize: number) => {
+  const fetchGroups = async () => {
     try {
-      const response = await getGroups(page, pageSize);
+      const response = await getGroups(pagination.pageIndex, pagination.pageSize);
       setGroups(response.data.results);
       setTotalRows(response.data.count);
     } catch (error) {
@@ -39,7 +39,7 @@ const GroupList = () => {
   };
 
   useEffect(() => {
-    fetchGroups(pagination.pageIndex, pagination.pageSize);
+    fetchGroups();
   }, [pagination.pageIndex, pagination.pageSize]);
 
   const columns = useMemo(
@@ -57,10 +57,10 @@ const GroupList = () => {
   };
 
   const handleCreateNewGroup = async (data: any) => {
-    await postGroups(data);
+    await postGroups(data).then(() => fetchGroups());
   };
 
-  const handleSaveRowEdits = async ({ exitEditingMode, row, values }: any) => {
+  const handleSaveRowEdits = async ({exitEditingMode, row, values}: any) => {
     await patchGroups(row.original.id, values);
     exitEditingMode();
   };
@@ -72,7 +72,7 @@ const GroupList = () => {
   };
 
   const handleSavePermissions = async (formData: any) => {
-    await patchGroups(formData.id, { permissions: formData.permissions });
+    await patchGroups(formData.id, {permissions_set: formData.permissions});
     setEditPermissionModal(!editPermissionModal);
   };
 
@@ -86,36 +86,36 @@ const GroupList = () => {
         rowCount={totalRows}
         onPaginationChange={setPagination}
         pagination={pagination}
-        renderRowActions={({ row, table }: any) => (
-          <Box sx={{ display: 'flex', gap: '1rem' }}>
+        renderRowActions={({row, table}: any) => (
+          <Box sx={{display: 'flex', gap: '1rem'}}>
             <Tooltip arrow placement="left" title={t('group.actions.permission_edit')}>
               <IconButton onClick={() => handleEditPermissionModal(row)}>
-                <AddCardIcon />
+                <AddCardIcon/>
               </IconButton>
             </Tooltip>
             <Tooltip arrow placement="top" title={t('group.actions.edit')}>
               <IconButton onClick={() => table.setEditingRow(row)}>
-                <Edit />
+                <Edit/>
               </IconButton>
             </Tooltip>
             <Tooltip arrow placement="right" title={t('group.actions.delete')}>
               <IconButton color="error" onClick={() => handleDeleteGroup(row)}>
-                <Delete />
+                <Delete/>
               </IconButton>
             </Tooltip>
           </Box>
         )}
         renderTopToolbarCustomActions={
-                    () => (
-                      <Button
-                        variant="contained"
-                        color="secondary"
-                        onClick={handleNewGroupModal}
-                      >
-                        {t('group.actions.add')}
-                      </Button>
-                    )
-                }
+          () => (
+            <Button
+              variant="contained"
+              color="secondary"
+              onClick={handleNewGroupModal}
+            >
+              {t('group.actions.add')}
+            </Button>
+          )
+        }
       />
       {openGroupModal && (
         <AddGroupModal
