@@ -58,7 +58,6 @@ class UserSerializer(serializers.ModelSerializer):
     full_name = serializers.SerializerMethodField()
     password = serializers.CharField(write_only=True)
     user_permissions = PermissionSerializer(read_only=True, many=True)
-    groups = GroupSerializer(many=True, read_only=True)
 
     def get_full_name(self, obj):
         first_name = obj.first_name if obj.first_name else ""

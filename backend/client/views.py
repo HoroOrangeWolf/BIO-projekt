@@ -11,6 +11,7 @@ from rest_framework.views import APIView
 
 from administration.serializers import UserSerializer, SimpleUserSerializer
 from auth_api.models import AuthUser
+from mgr.utils import IsUserWithSpecialPermission
 from .models import Visit, DoctorSpecialization, DoctorDetails, MedicalDocumentation
 from .serializers import SpecializationSerializer, VisitsNonSensitiveData, AddVisitsSerializer, VisitsSerializer, \
     VisitsForDoctorSerializer, VisitsForUserSerializer, VisitReadDocumentationSerializer, \
@@ -20,6 +21,9 @@ from rest_framework.generics import get_object_or_404
 
 
 class VisitsView(APIView):
+    app_label = "client"
+    permission_classes = [IsUserWithSpecialPermission]
+
     def get(self, request):
         user_visits = Visit.objects.filter(user=request.user.id, is_visit_finished=False).order_by('-start_time')
 
@@ -29,6 +33,9 @@ class VisitsView(APIView):
 
 
 class PatientView(APIView):
+    app_label = "client"
+    permission_classes = [IsUserWithSpecialPermission]
+
     def get(self, request):
         users = AuthUser.objects.all()
 
@@ -38,6 +45,9 @@ class PatientView(APIView):
 
 
 class DoctorCurrentVisit(APIView):
+    app_label = "client"
+    permission_classes = [IsUserWithSpecialPermission]
+
     def post(self, request):
         # TODO: Dodać walidacje czy czasy się pokrywają
         copied = request.data.copy()
@@ -79,6 +89,9 @@ class DoctorCurrentVisit(APIView):
 
 
 class DoctorVisits(APIView):
+    app_label = "client"
+    permission_classes = [IsUserWithSpecialPermission]
+
     def post(self, request, pk):
         # TODO: Dodać walidacje czy czasy się pokrywają
         copied = request.data.copy()
@@ -119,6 +132,9 @@ class DoctorVisits(APIView):
 
 
 class MedicalDocumentationByDoctorView(APIView):
+    app_label = "client"
+    permission_classes = [IsUserWithSpecialPermission]
+
     def get(self, request):
         doctor_id = request.user.id
         docs = MedicalDocumentation.objects.filter(visit__doctor__user_id=doctor_id)
@@ -127,6 +143,9 @@ class MedicalDocumentationByDoctorView(APIView):
 
 
 class DoctorView(APIView):
+    app_label = "client"
+    permission_classes = [IsUserWithSpecialPermission]
+
     def get(self, request, pk):
         doctors = DoctorDetails.objects.filter(doctor_specializations__id=pk)
 
@@ -141,6 +160,9 @@ class DoctorView(APIView):
 
 
 class SpecializationView(APIView):
+    app_label = "client"
+    permission_classes = [IsUserWithSpecialPermission]
+
     def get(self, request):
         specializations = DoctorSpecialization.objects.all()
         serialized = SpecializationSerializer(specializations, many=True)
@@ -178,6 +200,9 @@ class SpecializationView(APIView):
 
 
 class VisitsForUser(APIView):
+    app_label = "client"
+    permission_classes = [IsUserWithSpecialPermission]
+
     def delete(self, request, pk):
         visit = Visit.objects.get(id=pk)
 
@@ -211,6 +236,8 @@ class VisitsForUser(APIView):
 
 class VisitDocumentation(APIView):
     parser_classes = (MultiPartParser, FormParser)
+    permission_classes = [IsUserWithSpecialPermission]
+    app_label = "client"
 
     def get(self, request):
         user_id = request.user.id
@@ -254,6 +281,9 @@ class VisitDocumentation(APIView):
 
 
 class DownloadDocumentation(APIView):
+    app_label = "client"
+    permission_classes = [IsUserWithSpecialPermission]
+
     def get(self, request, pk, doc_id):
         user_id = request.user.id
         try:
@@ -293,8 +323,10 @@ class DownloadDocumentation(APIView):
 
 
 class VisitsForDoctor(viewsets.ModelViewSet):
+    app_label = "client"
     queryset = Visit.objects.all()
     serializer_class = VisitsForDoctorSerializer
+    permission_classes = [IsUserWithSpecialPermission]
 
     def list(self, request, *args, **kwargs):
         doctor_id = request.query_params.get('doctor')

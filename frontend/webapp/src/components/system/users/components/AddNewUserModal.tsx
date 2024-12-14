@@ -1,5 +1,5 @@
-import { useForm, Controller } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
+import {useForm, Controller} from 'react-hook-form';
+import {yupResolver} from '@hookform/resolvers/yup';
 import {
   Autocomplete,
   Button,
@@ -10,35 +10,35 @@ import {
   Stack, Switch,
   TextField,
 } from '@mui/material';
-import { useTranslation } from 'react-i18next';
-import { newUserSchema } from '@main/components/validations/usersSchemas.ts';
-import { useEffect, useState } from 'react';
-import { SpecializationModel, UserModelType } from '@main/components/services/types.ts';
-import { getAllSpecializations } from '@main/components/services/api.ts';
-import { filter, map } from 'lodash';
+import {useTranslation} from 'react-i18next';
+import {newUserSchema} from '@main/components/validations/usersSchemas.ts';
+import {useEffect, useState} from 'react';
+import {SpecializationModel, UserModelType} from '@main/components/services/types.ts';
+import {getAllSpecializations} from '@main/components/services/api.ts';
+import {filter, map} from 'lodash';
 
 export type AddUserFormType = {
-    email: string;
-    username: string;
-    first_name: string;
-    last_name: string;
-    password: string;
-    confirmPassword: string;
-    doctorDetails?: {
-        doctor_number: string;
-        doctor_specializations: number[]
-    } | null
+  email: string;
+  username: string;
+  first_name: string;
+  last_name: string;
+  password: string;
+  confirmPassword: string;
+  doctorDetails?: {
+    doctor_number: string;
+    doctor_specializations: number[]
+  } | null
 }
 
 type PropsType = {
-    open: boolean;
-    onClose: () => void;
-    onSubmit: (data: AddUserFormType) => void;
-    toEdit?: UserModelType;
+  open: boolean;
+  onClose: () => void;
+  onSubmit: (data: AddUserFormType) => void;
+  toEdit?: UserModelType;
 }
 
-export const AddNewUserModal = ({ open, onClose, onSubmit }: PropsType) => {
-  const { t } = useTranslation('system');
+export const AddNewUserModal = ({open, onClose, onSubmit}: PropsType) => {
+  const {t} = useTranslation('system');
 
   const [isUserDoctor, setIsUserDoctor] = useState<boolean>(false);
   const [specializations, setSpecializations] = useState<SpecializationModel[]>([]);
@@ -49,7 +49,7 @@ export const AddNewUserModal = ({ open, onClose, onSubmit }: PropsType) => {
       try {
         setIsLoadingSpecialization(true);
 
-        const { data } = await getAllSpecializations();
+        const {data} = await getAllSpecializations();
 
         setSpecializations(data);
       } catch (e) {
@@ -64,7 +64,7 @@ export const AddNewUserModal = ({ open, onClose, onSubmit }: PropsType) => {
   }, []);
 
   const {
-    control, handleSubmit, setValue, formState: { errors },
+    control, handleSubmit, setValue, formState: {errors},
   } = useForm<AddUserFormType>({
     resolver: yupResolver(newUserSchema),
     defaultValues: {
@@ -90,14 +90,14 @@ export const AddNewUserModal = ({ open, onClose, onSubmit }: PropsType) => {
           <Stack
             sx={{
               width: '100%',
-              minWidth: { xs: '300px', sm: '360px', md: '400px' },
+              minWidth: {xs: '300px', sm: '360px', md: '400px'},
               gap: '1.5rem',
             }}
           >
             <Controller
               name="email"
               control={control}
-              render={({ field }) => (
+              render={({field}) => (
                 <TextField
                   {...field}
                   label={t('user.email')}
@@ -112,7 +112,7 @@ export const AddNewUserModal = ({ open, onClose, onSubmit }: PropsType) => {
             <Controller
               name="username"
               control={control}
-              render={({ field }) => (
+              render={({field}) => (
                 <TextField
                   {...field}
                   label={t('user.username')}
@@ -126,7 +126,7 @@ export const AddNewUserModal = ({ open, onClose, onSubmit }: PropsType) => {
             <Controller
               name="first_name"
               control={control}
-              render={({ field }) => (
+              render={({field}) => (
                 <TextField
                   {...field}
                   label={t('user.first_name')}
@@ -140,7 +140,7 @@ export const AddNewUserModal = ({ open, onClose, onSubmit }: PropsType) => {
             <Controller
               name="last_name"
               control={control}
-              render={({ field }) => (
+              render={({field}) => (
                 <TextField
                   {...field}
                   label={t('user.last_name')}
@@ -154,7 +154,7 @@ export const AddNewUserModal = ({ open, onClose, onSubmit }: PropsType) => {
             <Controller
               name="password"
               control={control}
-              render={({ field }) => (
+              render={({field}) => (
                 <TextField
                   {...field}
                   label={t('user.password')}
@@ -169,7 +169,7 @@ export const AddNewUserModal = ({ open, onClose, onSubmit }: PropsType) => {
             <Controller
               name="confirmPassword"
               control={control}
-              render={({ field }) => (
+              render={({field}) => (
                 <TextField
                   {...field}
                   label={t('user.confirm_password')}
@@ -189,11 +189,11 @@ export const AddNewUserModal = ({ open, onClose, onSubmit }: PropsType) => {
                     setIsUserDoctor(!isUserDoctor);
 
                     if (!isUserDoctor) {
-                      setValue('doctorDetails', null, { shouldDirty: true });
+                      setValue('doctorDetails', null, {shouldDirty: true});
                     }
                   }}
                 />
-)}
+              )}
               label="Czy użytkownik jest doktorem?"
             />
             {isUserDoctor && (
@@ -201,7 +201,7 @@ export const AddNewUserModal = ({ open, onClose, onSubmit }: PropsType) => {
                 <Controller
                   name="doctorDetails.doctor_number"
                   control={control}
-                  render={({ field }) => (
+                  render={({field}) => (
                     <TextField
                       ref={field.ref}
                       onBlur={field.onBlur}
@@ -216,7 +216,7 @@ export const AddNewUserModal = ({ open, onClose, onSubmit }: PropsType) => {
                 <Controller
                   name="doctorDetails.doctor_specializations"
                   control={control}
-                  render={({ field }) => (
+                  render={({field}) => (
                     <Autocomplete
                       ref={field.ref}
                       onBlur={field.onBlur}
@@ -244,7 +244,7 @@ export const AddNewUserModal = ({ open, onClose, onSubmit }: PropsType) => {
           </Stack>
         </form>
       </DialogContent>
-      <DialogActions sx={{ p: '1.25rem' }}>
+      <DialogActions sx={{p: '1.25rem'}}>
         <Button onClick={onClose}>{t('user.actions.cancel')}</Button>
         <Button
           color="secondary"
