@@ -99,9 +99,10 @@ const UpdateUserModal = (props: PropsType) => {
       open
       fullWidth
       maxWidth="md"
+      onClose={props.onClose?.()}
     >
       <DialogTitle textAlign="center">{t('user.actions.add_user')}</DialogTitle>
-      <DialogContent>
+      <DialogContent dividers>
         <form ref={formRef as any} onSubmit={handleSubmit(onSubmitForm)}>
           <Stack
             sx={{

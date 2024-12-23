@@ -55,9 +55,9 @@ export const EditUserGroups = ({
   };
 
   return (
-    <Dialog open={open} fullWidth maxWidth="md">
+    <Dialog open={open} onClose={onClose} fullWidth maxWidth="md">
       <DialogTitle textAlign="center">{t('user.actions.edit_groups')}</DialogTitle>
-      <DialogContent>
+      <DialogContent dividers>
         <form onSubmit={handleSubmit(onSubmitForm)}>
           <Stack
             sx={{

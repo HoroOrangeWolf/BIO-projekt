@@ -30,9 +30,11 @@ class UserSerializer(serializers.ModelSerializer):
     doctor = serializers.SerializerMethodField()
 
     def get_doctor(self, obj):
-        doctor_details = DoctorDetails.objects.get(user=obj.id)
-
-        return doctor_details.id
+        try:
+            doctor_details = DoctorDetails.objects.get(user=obj.id)
+            return doctor_details.id
+        except DoctorDetails.DoesNotExist:
+            return None
 
     class Meta:
         model = User

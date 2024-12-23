@@ -10,13 +10,20 @@ export const newUserSchema = yup.object().shape({
   confirmPassword: yup.string()
     .oneOf([yup.ref('password'), undefined], 'Hasła muszą się zgadzać')
     .required('Potwierdzenie hasła jest wymagane'),
-  doctorDetails: yup.object().shape({
-    doctor_number: yup.string().min(3, 'Minimum 3 znaki').required('Numer lekarza jest wymagany'),
-    doctor_specializations: yup.array()
-      .of(yup.number().required('Wymagane jest podanie ID'))
-      .min(1, 'Lekarz musi mieć co najmniej 1 specjalizację')
-      .required('Specjalizacje są wymagane'),
-  }).notRequired(),
+  doctorDetails: yup
+    .object({
+      doctor_number: yup
+        .string()
+        .min(3, 'Minimum 3 znaki')
+        .required('Numer lekarza jest wymagany'),
+      doctor_specializations: yup
+        .array()
+        .of(yup.number().required('Wymagane jest podanie ID'))
+        .min(1, 'Lekarz musi mieć co najmniej 1 specjalizację')
+        .required('Specjalizacje są wymagane'),
+    })
+    .nullable()
+    .notRequired(),
 });
 
 export const editUserSchema = yup.object().shape({
