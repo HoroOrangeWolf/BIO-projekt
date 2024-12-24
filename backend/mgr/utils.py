@@ -10,7 +10,9 @@ class CustomPagination(PageNumberPagination):
 
 class IsUserWithSpecialPermission(permissions.BasePermission):
     def has_permission(self, request, view):
-        model_name = request.resolver_match.route.split("/")[1]
+        if request.user.is_superuser:
+            return True
+
         permission_action = ''
 
         if request.method == 'GET':
@@ -25,7 +27,11 @@ class IsUserWithSpecialPermission(permissions.BasePermission):
         if not permission_action:
             return False
 
-        app_label = view.app_label
+        model_name = getattr(view, 'model_name', None)
+        if not model_name:
+            return False
+
+        app_label = getattr(view, 'app_label', '')
         permission = f"{app_label}.{permission_action}_{model_name}"
 
         return request.user.has_perm(permission)

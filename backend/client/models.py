@@ -8,6 +8,12 @@ class DoctorSpecialization(models.Model):
     class Meta:
         verbose_name = "DoctorSpecialization"
         verbose_name_plural = "DoctorSpecializations"
+        permissions = (
+            ('can_add_specialization', 'Can add specialization'),
+            ('can_edit_specialization', 'Can edit specialization'),
+            ('can_delete_specialization', 'Can delete specialization'),
+            ('can_get_specialization', 'Can get specialization'),
+        )
 
 
 class DoctorDetails(models.Model):
@@ -32,6 +38,12 @@ class Visit(models.Model):
     class Meta:
         verbose_name = "Visit"
         verbose_name_plural = "Visits"
+        permissions = (
+            ('can_add_visit', 'Can add visit'),
+            ('can_edit_visit', 'Can edit visit'),
+            ('can_delete_visit', 'Can delete visit'),
+            ('can_get_visit', 'Can get visit'),
+        )
 
 
 class MedicalDocumentation(models.Model):
@@ -43,3 +55,9 @@ class MedicalDocumentation(models.Model):
     class Meta:
         verbose_name = "Medical Documentation"
         verbose_name_plural = "Medical Documentations"
+        permissions = (
+            ('can_add_medical_documentation', 'Can add medical documentation'),
+            ('can_edit_medical_documentation', 'Can edit medical documentation'),
+            ('can_delete_medical_documentation', 'Can delete medical documentation'),
+            ('can_get_medical_documentation', 'Can get medical documentation'),
+        )

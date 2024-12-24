@@ -34,6 +34,7 @@ class VisitsView(APIView):
 
 class PatientView(APIView):
     app_label = "client"
+    model_name = "user"
     permission_classes = [IsUserWithSpecialPermission]
 
     def get(self, request):
@@ -46,6 +47,7 @@ class PatientView(APIView):
 
 class DoctorCurrentVisit(APIView):
     app_label = "client"
+    model_name = "visit"
     permission_classes = [IsUserWithSpecialPermission]
 
     def post(self, request):
@@ -90,6 +92,7 @@ class DoctorCurrentVisit(APIView):
 
 class DoctorVisits(APIView):
     app_label = "client"
+    model_name = "visit"
     permission_classes = [IsUserWithSpecialPermission]
 
     def post(self, request, pk):
@@ -324,6 +327,7 @@ class DownloadDocumentation(APIView):
 
 class VisitsForDoctor(viewsets.ModelViewSet):
     app_label = "client"
+    model_name = "visit"
     queryset = Visit.objects.all()
     serializer_class = VisitsForDoctorSerializer
     permission_classes = [IsUserWithSpecialPermission]
