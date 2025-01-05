@@ -11,6 +11,8 @@ import LanguageIcon from '@mui/icons-material/Language';
 import { useTranslation } from 'react-i18next';
 import { clearUser } from '@main/components/features/auth/authSlice.ts';
 import { logout } from '@main/components/services/api.ts';
+import SettingsIcon from '@mui/icons-material/Settings';
+import { Link } from 'react-router-dom';
 
 type PropsType = {
     drawerWidth: number;
@@ -34,6 +36,7 @@ const AppBar = ({
     });
   };
 
+
   return (
     <MuiAppBar
       position="fixed"
@@ -56,6 +59,9 @@ const AppBar = ({
         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
           {t('app.name')}
         </Typography>
+        <IconButton component={Link} color="inherit" to={'/system/settings'}>
+          <SettingsIcon />
+        </IconButton>
         <IconButton color="inherit" onClick={changeLanguage}>
           <LanguageIcon />
         </IconButton>

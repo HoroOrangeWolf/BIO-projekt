@@ -35,10 +35,9 @@ class VisitsView(APIView):
 class PatientView(APIView):
     app_label = "client"
     model_name = "user"
-    permission_classes = [IsUserWithSpecialPermission]
 
     def get(self, request):
-        users = AuthUser.objects.all()
+        users = AuthUser.objects.filter(doctor_details=None)
 
         serialized = SimpleUserSerializer(users, many=True)
 
@@ -46,9 +45,12 @@ class PatientView(APIView):
 
 
 class DoctorCurrentVisit(APIView):
-    app_label = "client"
-    model_name = "visit"
     permission_classes = [IsUserWithSpecialPermission]
+    required_permissions = {
+        'POST': 'client.can_add_visit',
+        'PUT': 'client.can_edit_visit',
+        'GET': 'client.can_get_visit',
+    }
 
     def post(self, request):
         # TODO: Dodać walidacje czy czasy się pokrywają
@@ -89,11 +91,17 @@ class DoctorCurrentVisit(APIView):
         return Response(serialized_visits.data, status=200)
 
 
-
 class DoctorVisits(APIView):
     app_label = "client"
     model_name = "visit"
     permission_classes = [IsUserWithSpecialPermission]
+    required_permissions = {
+        'GET': 'client.can_get_visit',
+        'POST': 'client.can_add_visit',
+        'PUT': 'client.can_edit_visit',
+        'PATCH': 'client.can_edit_visit',
+        'DELETE': 'client.can_delete_visit',
+    }
 
     def post(self, request, pk):
         # TODO: Dodać walidacje czy czasy się pokrywają
@@ -137,6 +145,9 @@ class DoctorVisits(APIView):
 class MedicalDocumentationByDoctorView(APIView):
     app_label = "client"
     permission_classes = [IsUserWithSpecialPermission]
+    required_permissions = {
+        'GET': 'client.can_get_medical_documentation',
+    }
 
     def get(self, request):
         doctor_id = request.user.id
@@ -147,7 +158,6 @@ class MedicalDocumentationByDoctorView(APIView):
 
 class DoctorView(APIView):
     app_label = "client"
-    permission_classes = [IsUserWithSpecialPermission]
 
     def get(self, request, pk):
         doctors = DoctorDetails.objects.filter(doctor_specializations__id=pk)
@@ -165,6 +175,9 @@ class DoctorView(APIView):
 class SpecializationView(APIView):
     app_label = "client"
     permission_classes = [IsUserWithSpecialPermission]
+    required_permissions = {
+        'GET': "client.can_get_specialization",
+    }
 
     def get(self, request):
         specializations = DoctorSpecialization.objects.all()
@@ -205,6 +218,10 @@ class SpecializationView(APIView):
 class VisitsForUser(APIView):
     app_label = "client"
     permission_classes = [IsUserWithSpecialPermission]
+    required_permissions = {
+        'DELETE': 'client.can_delete_visit',
+        'GET': 'client.can_get_visit',
+    }
 
     def delete(self, request, pk):
         visit = Visit.objects.get(id=pk)
@@ -241,6 +258,13 @@ class VisitDocumentation(APIView):
     parser_classes = (MultiPartParser, FormParser)
     permission_classes = [IsUserWithSpecialPermission]
     app_label = "client"
+    required_permissions = {
+        "GET": 'client.can_get_medical_documentation',
+        "PATCH": 'client.can_edit_medical_documentation',
+        "PUT": 'client.can_edit_medical_documentation',
+        "DELETE": 'client.can_delete_medical_documentation',
+        "POST": 'client.can_add_medical_documentation',
+    }
 
     def get(self, request):
         user_id = request.user.id
@@ -285,7 +309,6 @@ class VisitDocumentation(APIView):
 
 class DownloadDocumentation(APIView):
     app_label = "client"
-    permission_classes = [IsUserWithSpecialPermission]
 
     def get(self, request, pk, doc_id):
         user_id = request.user.id
@@ -296,7 +319,7 @@ class DownloadDocumentation(APIView):
                 visit__user__id=user_id
             )
             if not documentation.file:
-                raise Http404("File not found.")
+                return Response("File not found", status=404)
 
             file_path = documentation.file.path
 
@@ -322,7 +345,7 @@ class DownloadDocumentation(APIView):
                 response['Content-Disposition'] = f'attachment; filename="{smart_str(file_name)}"'
                 return response
         except MedicalDocumentation.DoesNotExist:
-            raise Http404("Dokumentacja nie została znaleziona.")
+            return Response("File not found", status=404)
 
 
 class VisitsForDoctor(viewsets.ModelViewSet):
@@ -331,6 +354,10 @@ class VisitsForDoctor(viewsets.ModelViewSet):
     queryset = Visit.objects.all()
     serializer_class = VisitsForDoctorSerializer
     permission_classes = [IsUserWithSpecialPermission]
+    required_permissions = {
+        'GET': 'client.can_get_visit',
+        'PATCH': 'client.can_edit_visit',
+    }
 
     def list(self, request, *args, **kwargs):
         doctor_id = request.query_params.get('doctor')

@@ -24,6 +24,9 @@ class DoctorDetails(models.Model):
     class Meta:
         verbose_name = "DoctorDetail"
         verbose_name_plural = "DoctorDetails"
+        permissions = (
+            ('can_see_doctor_page', 'Can see doctor page'),
+        )
 
 
 class Visit(models.Model):

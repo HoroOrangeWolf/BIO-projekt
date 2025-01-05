@@ -8,12 +8,14 @@ import ExpandMore from '@mui/icons-material/ExpandMore';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import { useTranslation } from 'react-i18next';
 import { OverridableComponent } from '@mui/material/OverridableComponent';
+import useHasPermission from '@main/components/utils/hasPermission.ts';
 import { menuConfig } from '../../menuConfig.ts';
 
 type PropsType = {
     drawerWidth: number;
     isSidebarOpen: boolean;
     toggleSidebar: () => any;
+    permission?: string;
 }
 
 type ItemType = {
@@ -33,6 +35,10 @@ const Sidebar = ({ drawerWidth, isSidebarOpen, toggleSidebar }: PropsType) => {
 
   const renderMenuItem = (item: ItemType, depth = 0) => {
     const Icon = item.icon;
+
+    if (!useHasPermission(item.permission)) {
+      return null;
+    }
 
     if (item.children) {
       return (

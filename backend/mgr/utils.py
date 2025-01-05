@@ -13,25 +13,10 @@ class IsUserWithSpecialPermission(permissions.BasePermission):
         if request.user.is_superuser:
             return True
 
-        permission_action = ''
+        required_map = getattr(view, 'required_permissions', {})
 
-        if request.method == 'GET':
-            permission_action = 'view'
-        elif request.method == 'POST':
-            permission_action = 'add'
-        elif request.method in ['PUT', 'PATCH']:
-            permission_action = 'change'
-        elif request.method == 'DELETE':
-            permission_action = 'delete'
-
-        if not permission_action:
+        required_perm = required_map.get(request.method, None)
+        if not required_perm:
             return False
 
-        model_name = getattr(view, 'model_name', None)
-        if not model_name:
-            return False
-
-        app_label = getattr(view, 'app_label', '')
-        permission = f"{app_label}.{permission_action}_{model_name}"
-
-        return request.user.has_perm(permission)
+        return request.user.has_perm(required_perm)
