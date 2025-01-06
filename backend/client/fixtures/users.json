@@ -1,0 +1,155 @@
+[
+  {
+    "model": "auth_api.authuser",
+    "pk": 1,
+    "fields": {
+      "username": "lekarz",
+      "password": "pbkdf2_sha256$720000$8N1stlaqTEia5uJL8Qn3TI$6U5OEr0JYWg58h55Q0LWkUJCos26fNG0OWNzh4bFZbI=",
+      "date_joined": "2025-01-06T13:24:01.016060Z",
+      "is_staff": false,
+      "first_name": "Dawid",
+      "last_name": "Jasper",
+      "email": "lekarz@lekarz.org",
+      "is_superuser": false,
+      "is_active": true,
+      "last_login": "2024-12-23T19:22:06.255961Z",
+      "pesel": "12345678901",
+      "groups": [2]
+    }
+  },
+  {
+    "model": "client.doctordetails",
+    "pk": 1,
+    "fields": {
+      "doctor_number": "DOC001",
+      "user": 1,
+      "doctor_specializations": [1, 7, 8]
+    }
+  },
+  {
+    "model": "auth_api.authuser",
+    "pk": 2,
+    "fields": {
+      "username": "lekarz2",
+      "password": "pbkdf2_sha256$720000$8N1stlaqTEia5uJL8Qn3TI$6U5OEr0JYWg58h55Q0LWkUJCos26fNG0OWNzh4bFZbI=",
+      "date_joined": "2025-01-06T13:30:01.016060Z",
+      "is_staff": false,
+      "first_name": "Anna",
+      "last_name": "Nowak",
+      "email": "lekarz2@lekarz.org",
+      "is_superuser": false,
+      "is_active": true,
+      "last_login": "2024-12-23T19:25:06.255961Z",
+      "pesel": "23456789012",
+      "groups": [2]
+    }
+  },
+  {
+    "model": "client.doctordetails",
+    "pk": 2,
+    "fields": {
+      "doctor_number": "DOC002",
+      "user": 2,
+      "doctor_specializations": [4, 5, 10]
+    }
+  },
+  {
+    "model": "auth_api.authuser",
+    "pk": 3,
+    "fields": {
+      "username": "lekarz3",
+      "password": "pbkdf2_sha256$720000$8N1stlaqTEia5uJL8Qn3TI$6U5OEr0JYWg58h55Q0LWkUJCos26fNG0OWNzh4bFZbI=",
+      "date_joined": "2025-01-06T13:40:01.016060Z",
+      "is_staff": false,
+      "first_name": "Marek",
+      "last_name": "Wiśniewski",
+      "email": "lekarz3@lekarz.org",
+      "is_superuser": false,
+      "is_active": true,
+      "last_login": "2024-12-23T19:35:06.255961Z",
+      "pesel": "34567890123",
+      "groups": [2]
+    }
+  },
+  {
+    "model": "client.doctordetails",
+    "pk": 3,
+    "fields": {
+      "doctor_number": "DOC003",
+      "user": 3,
+      "doctor_specializations": [2, 3, 6]
+    }
+  },
+  {
+    "model": "auth_api.authuser",
+    "pk": 4,
+    "fields": {
+      "username": "pacjent1",
+      "password": "pbkdf2_sha256$720000$8N1stlaqTEia5uJL8Qn3TI$6U5OEr0JYWg58h55Q0LWkUJCos26fNG0OWNzh4bFZbI=",
+      "date_joined": "2025-01-06T13:24:25.631481Z",
+      "is_staff": false,
+      "first_name": "Kamil",
+      "last_name": "Wójcik",
+      "email": "pacjent1@pacjent.pl",
+      "is_superuser": false,
+      "is_active": true,
+      "last_login": "2024-12-23T19:28:48.564175Z",
+      "pesel": "45678901234",
+      "groups": [1]
+    }
+  },
+  {
+    "model": "auth_api.authuser",
+    "pk": 5,
+    "fields": {
+      "username": "pacjent2",
+      "password": "pbkdf2_sha256$720000$8N1stlaqTEia5uJL8Qn3TI$6U5OEr0JYWg58h55Q0LWkUJCos26fNG0OWNzh4bFZbI=",
+      "date_joined": "2025-01-06T13:30:25.631481Z",
+      "is_staff": false,
+      "first_name": "Ewa",
+      "last_name": "Kowalska",
+      "email": "pacjent2@pacjent.pl",
+      "is_superuser": false,
+      "is_active": true,
+      "last_login": "2024-12-23T19:28:48.564175Z",
+      "pesel": "56789012345",
+      "groups": [1]
+    }
+  },
+  {
+    "model": "auth_api.authuser",
+    "pk": 6,
+    "fields": {
+      "username": "pacjent3",
+      "password": "pbkdf2_sha256$720000$8N1stlaqTEia5uJL8Qn3TI$6U5OEr0JYWg58h55Q0LWkUJCos26fNG0OWNzh4bFZbI=",
+      "date_joined": "2025-01-06T13:35:25.631481Z",
+      "is_staff": false,
+      "first_name": "Adam",
+      "last_name": "Kowal",
+      "email": "pacjent3@pacjent.pl",
+      "is_superuser": false,
+      "is_active": true,
+      "last_login": "2024-12-23T19:28:48.564175Z",
+      "pesel": "67890123456",
+      "groups": [1]
+    }
+  },
+  {
+    "model": "auth_api.authuser",
+    "pk": 7,
+    "fields": {
+      "username": "pacjent4",
+      "password": "pbkdf2_sha256$720000$8N1stlaqTEia5uJL8Qn3TI$6U5OEr0JYWg58h55Q0LWkUJCos26fNG0OWNzh4bFZbI=",
+      "date_joined": "2025-01-06T13:40:25.631481Z",
+      "is_staff": false,
+      "first_name": "Maria",
+      "last_name": "Wiśniewska",
+      "email": "pacjent4@pacjent.pl",
+      "is_superuser": false,
+      "is_active": true,
+      "last_login": "2024-12-23T19:28:48.564175Z",
+      "pesel": "78901234567",
+      "groups": [1]
+    }
+  }
+]

@@ -1,0 +1,2762 @@
+[
+  {
+    "model": "client.visit",
+    "pk": 1,
+    "fields": {
+      "visit_name": "Wizyta 2025-01-13 09:00",
+      "start_time": "2025-01-13T09:00:00",
+      "is_visit_finished": false,
+      "description": "Opis wizyty z 2025-01-13 09:00",
+      "created_at": "2025-01-06T15:00:35.274080",
+      "doctor": 1,
+      "user": 4
+    }
+  },
+  {
+    "model": "client.medicaldocumentation",
+    "pk": 1,
+    "fields": {
+      "file": "medical_docs/plik4.docx",
+      "file_name": "plik4.docx",
+      "file_description": "Dokumentacja do wizyty 1",
+      "visit": 1
+    }
+  },
+  {
+    "model": "client.visit",
+    "pk": 2,
+    "fields": {
+      "visit_name": "Wizyta 2025-01-13 09:30",
+      "start_time": "2025-01-13T09:30:00",
+      "is_visit_finished": false,
+      "description": "Opis wizyty z 2025-01-13 09:30",
+      "created_at": "2025-01-06T15:00:35.274080",
+      "doctor": 2,
+      "user": 5
+    }
+  },
+  {
+    "model": "client.medicaldocumentation",
+    "pk": 2,
+    "fields": {
+      "file": "medical_docs/plik3.docx",
+      "file_name": "plik3.docx",
+      "file_description": "Dokumentacja do wizyty 2",
+      "visit": 2
+    }
+  },
+  {
+    "model": "client.visit",
+    "pk": 3,
+    "fields": {
+      "visit_name": "Wizyta 2025-01-13 10:00",
+      "start_time": "2025-01-13T10:00:00",
+      "is_visit_finished": false,
+      "description": "Opis wizyty z 2025-01-13 10:00",
+      "created_at": "2025-01-06T15:00:35.274080",
+      "doctor": 3,
+      "user": 6
+    }
+  },
+  {
+    "model": "client.medicaldocumentation",
+    "pk": 3,
+    "fields": {
+      "file": "medical_docs/plik3.docx",
+      "file_name": "plik3.docx",
+      "file_description": "Dokumentacja do wizyty 3",
+      "visit": 3
+    }
+  },
+  {
+    "model": "client.visit",
+    "pk": 4,
+    "fields": {
+      "visit_name": "Wizyta 2025-01-13 10:30",
+      "start_time": "2025-01-13T10:30:00",
+      "is_visit_finished": false,
+      "description": "Opis wizyty z 2025-01-13 10:30",
+      "created_at": "2025-01-06T15:00:35.274080",
+      "doctor": 1,
+      "user": 7
+    }
+  },
+  {
+    "model": "client.medicaldocumentation",
+    "pk": 4,
+    "fields": {
+      "file": "medical_docs/plik1.pdf",
+      "file_name": "plik1.pdf",
+      "file_description": "Dokumentacja do wizyty 4",
+      "visit": 4
+    }
+  },
+  {
+    "model": "client.visit",
+    "pk": 5,
+    "fields": {
+      "visit_name": "Wizyta 2025-01-13 11:00",
+      "start_time": "2025-01-13T11:00:00",
+      "is_visit_finished": false,
+      "description": "Opis wizyty z 2025-01-13 11:00",
+      "created_at": "2025-01-06T15:00:35.274080",
+      "doctor": 2,
+      "user": 4
+    }
+  },
+  {
+    "model": "client.medicaldocumentation",
+    "pk": 5,
+    "fields": {
+      "file": "medical_docs/plik2.pdf",
+      "file_name": "plik2.pdf",
+      "file_description": "Dokumentacja do wizyty 5",
+      "visit": 5
+    }
+  },
+  {
+    "model": "client.visit",
+    "pk": 6,
+    "fields": {
+      "visit_name": "Wizyta 2025-01-13 11:30",
+      "start_time": "2025-01-13T11:30:00",
+      "is_visit_finished": false,
+      "description": "Opis wizyty z 2025-01-13 11:30",
+      "created_at": "2025-01-06T15:00:35.274080",
+      "doctor": 3,
+      "user": 5
+    }
+  },
+  {
+    "model": "client.medicaldocumentation",
+    "pk": 6,
+    "fields": {
+      "file": "medical_docs/plik3.docx",
+      "file_name": "plik3.docx",
+      "file_description": "Dokumentacja do wizyty 6",
+      "visit": 6
+    }
+  },
+  {
+    "model": "client.visit",
+    "pk": 7,
+    "fields": {
+      "visit_name": "Wizyta 2025-01-13 12:00",
+      "start_time": "2025-01-13T12:00:00",
+      "is_visit_finished": false,
+      "description": "Opis wizyty z 2025-01-13 12:00",
+      "created_at": "2025-01-06T15:00:35.274080",
+      "doctor": 1,
+      "user": 6
+    }
+  },
+  {
+    "model": "client.medicaldocumentation",
+    "pk": 7,
+    "fields": {
+      "file": "medical_docs/plik4.docx",
+      "file_name": "plik4.docx",
+      "file_description": "Dokumentacja do wizyty 7",
+      "visit": 7
+    }
+  },
+  {
+    "model": "client.visit",
+    "pk": 8,
+    "fields": {
+      "visit_name": "Wizyta 2025-01-13 12:30",
+      "start_time": "2025-01-13T12:30:00",
+      "is_visit_finished": false,
+      "description": "Opis wizyty z 2025-01-13 12:30",
+      "created_at": "2025-01-06T15:00:35.274080",
+      "doctor": 2,
+      "user": 7
+    }
+  },
+  {
+    "model": "client.medicaldocumentation",
+    "pk": 8,
+    "fields": {
+      "file": "medical_docs/plik3.docx",
+      "file_name": "plik3.docx",
+      "file_description": "Dokumentacja do wizyty 8",
+      "visit": 8
+    }
+  },
+  {
+    "model": "client.visit",
+    "pk": 9,
+    "fields": {
+      "visit_name": "Wizyta 2025-01-13 13:00",
+      "start_time": "2025-01-13T13:00:00",
+      "is_visit_finished": false,
+      "description": "Opis wizyty z 2025-01-13 13:00",
+      "created_at": "2025-01-06T15:00:35.274080",
+      "doctor": 3,
+      "user": 4
+    }
+  },
+  {
+    "model": "client.medicaldocumentation",
+    "pk": 9,
+    "fields": {
+      "file": "medical_docs/plik1.pdf",
+      "file_name": "plik1.pdf",
+      "file_description": "Dokumentacja do wizyty 9",
+      "visit": 9
+    }
+  },
+  {
+    "model": "client.visit",
+    "pk": 10,
+    "fields": {
+      "visit_name": "Wizyta 2025-01-13 13:30",
+      "start_time": "2025-01-13T13:30:00",
+      "is_visit_finished": false,
+      "description": "Opis wizyty z 2025-01-13 13:30",
+      "created_at": "2025-01-06T15:00:35.274080",
+      "doctor": 1,
+      "user": 5
+    }
+  },
+  {
+    "model": "client.medicaldocumentation",
+    "pk": 10,
+    "fields": {
+      "file": "medical_docs/plik1.pdf",
+      "file_name": "plik1.pdf",
+      "file_description": "Dokumentacja do wizyty 10",
+      "visit": 10
+    }
+  },
+  {
+    "model": "client.visit",
+    "pk": 11,
+    "fields": {
+      "visit_name": "Wizyta 2025-01-13 14:00",
+      "start_time": "2025-01-13T14:00:00",
+      "is_visit_finished": false,
+      "description": "Opis wizyty z 2025-01-13 14:00",
+      "created_at": "2025-01-06T15:00:35.274080",
+      "doctor": 2,
+      "user": 6
+    }
+  },
+  {
+    "model": "client.medicaldocumentation",
+    "pk": 11,
+    "fields": {
+      "file": "medical_docs/plik4.docx",
+      "file_name": "plik4.docx",
+      "file_description": "Dokumentacja do wizyty 11",
+      "visit": 11
+    }
+  },
+  {
+    "model": "client.visit",
+    "pk": 12,
+    "fields": {
+      "visit_name": "Wizyta 2025-01-13 14:30",
+      "start_time": "2025-01-13T14:30:00",
+      "is_visit_finished": false,
+      "description": "Opis wizyty z 2025-01-13 14:30",
+      "created_at": "2025-01-06T15:00:35.274080",
+      "doctor": 3,
+      "user": 7
+    }
+  },
+  {
+    "model": "client.medicaldocumentation",
+    "pk": 12,
+    "fields": {
+      "file": "medical_docs/plik2.pdf",
+      "file_name": "plik2.pdf",
+      "file_description": "Dokumentacja do wizyty 12",
+      "visit": 12
+    }
+  },
+  {
+    "model": "client.visit",
+    "pk": 13,
+    "fields": {
+      "visit_name": "Wizyta 2025-01-14 09:00",
+      "start_time": "2025-01-14T09:00:00",
+      "is_visit_finished": false,
+      "description": "Opis wizyty z 2025-01-14 09:00",
+      "created_at": "2025-01-06T15:00:35.274080",
+      "doctor": 1,
+      "user": 4
+    }
+  },
+  {
+    "model": "client.medicaldocumentation",
+    "pk": 13,
+    "fields": {
+      "file": "medical_docs/plik1.pdf",
+      "file_name": "plik1.pdf",
+      "file_description": "Dokumentacja do wizyty 13",
+      "visit": 13
+    }
+  },
+  {
+    "model": "client.visit",
+    "pk": 14,
+    "fields": {
+      "visit_name": "Wizyta 2025-01-14 09:30",
+      "start_time": "2025-01-14T09:30:00",
+      "is_visit_finished": false,
+      "description": "Opis wizyty z 2025-01-14 09:30",
+      "created_at": "2025-01-06T15:00:35.274080",
+      "doctor": 2,
+      "user": 5
+    }
+  },
+  {
+    "model": "client.medicaldocumentation",
+    "pk": 14,
+    "fields": {
+      "file": "medical_docs/plik4.docx",
+      "file_name": "plik4.docx",
+      "file_description": "Dokumentacja do wizyty 14",
+      "visit": 14
+    }
+  },
+  {
+    "model": "client.visit",
+    "pk": 15,
+    "fields": {
+      "visit_name": "Wizyta 2025-01-14 10:00",
+      "start_time": "2025-01-14T10:00:00",
+      "is_visit_finished": false,
+      "description": "Opis wizyty z 2025-01-14 10:00",
+      "created_at": "2025-01-06T15:00:35.274080",
+      "doctor": 3,
+      "user": 6
+    }
+  },
+  {
+    "model": "client.medicaldocumentation",
+    "pk": 15,
+    "fields": {
+      "file": "medical_docs/plik3.docx",
+      "file_name": "plik3.docx",
+      "file_description": "Dokumentacja do wizyty 15",
+      "visit": 15
+    }
+  },
+  {
+    "model": "client.visit",
+    "pk": 16,
+    "fields": {
+      "visit_name": "Wizyta 2025-01-14 10:30",
+      "start_time": "2025-01-14T10:30:00",
+      "is_visit_finished": false,
+      "description": "Opis wizyty z 2025-01-14 10:30",
+      "created_at": "2025-01-06T15:00:35.274080",
+      "doctor": 1,
+      "user": 7
+    }
+  },
+  {
+    "model": "client.medicaldocumentation",
+    "pk": 16,
+    "fields": {
+      "file": "medical_docs/plik3.docx",
+      "file_name": "plik3.docx",
+      "file_description": "Dokumentacja do wizyty 16",
+      "visit": 16
+    }
+  },
+  {
+    "model": "client.visit",
+    "pk": 17,
+    "fields": {
+      "visit_name": "Wizyta 2025-01-14 11:00",
+      "start_time": "2025-01-14T11:00:00",
+      "is_visit_finished": false,
+      "description": "Opis wizyty z 2025-01-14 11:00",
+      "created_at": "2025-01-06T15:00:35.274080",
+      "doctor": 2,
+      "user": 4
+    }
+  },
+  {
+    "model": "client.medicaldocumentation",
+    "pk": 17,
+    "fields": {
+      "file": "medical_docs/plik4.docx",
+      "file_name": "plik4.docx",
+      "file_description": "Dokumentacja do wizyty 17",
+      "visit": 17
+    }
+  },
+  {
+    "model": "client.visit",
+    "pk": 18,
+    "fields": {
+      "visit_name": "Wizyta 2025-01-14 11:30",
+      "start_time": "2025-01-14T11:30:00",
+      "is_visit_finished": false,
+      "description": "Opis wizyty z 2025-01-14 11:30",
+      "created_at": "2025-01-06T15:00:35.274080",
+      "doctor": 3,
+      "user": 5
+    }
+  },
+  {
+    "model": "client.medicaldocumentation",
+    "pk": 18,
+    "fields": {
+      "file": "medical_docs/plik2.pdf",
+      "file_name": "plik2.pdf",
+      "file_description": "Dokumentacja do wizyty 18",
+      "visit": 18
+    }
+  },
+  {
+    "model": "client.visit",
+    "pk": 19,
+    "fields": {
+      "visit_name": "Wizyta 2025-01-14 12:00",
+      "start_time": "2025-01-14T12:00:00",
+      "is_visit_finished": false,
+      "description": "Opis wizyty z 2025-01-14 12:00",
+      "created_at": "2025-01-06T15:00:35.274080",
+      "doctor": 1,
+      "user": 6
+    }
+  },
+  {
+    "model": "client.medicaldocumentation",
+    "pk": 19,
+    "fields": {
+      "file": "medical_docs/plik2.pdf",
+      "file_name": "plik2.pdf",
+      "file_description": "Dokumentacja do wizyty 19",
+      "visit": 19
+    }
+  },
+  {
+    "model": "client.visit",
+    "pk": 20,
+    "fields": {
+      "visit_name": "Wizyta 2025-01-14 12:30",
+      "start_time": "2025-01-14T12:30:00",
+      "is_visit_finished": false,
+      "description": "Opis wizyty z 2025-01-14 12:30",
+      "created_at": "2025-01-06T15:00:35.274080",
+      "doctor": 2,
+      "user": 7
+    }
+  },
+  {
+    "model": "client.medicaldocumentation",
+    "pk": 20,
+    "fields": {
+      "file": "medical_docs/plik4.docx",
+      "file_name": "plik4.docx",
+      "file_description": "Dokumentacja do wizyty 20",
+      "visit": 20
+    }
+  },
+  {
+    "model": "client.visit",
+    "pk": 21,
+    "fields": {
+      "visit_name": "Wizyta 2025-01-14 13:00",
+      "start_time": "2025-01-14T13:00:00",
+      "is_visit_finished": false,
+      "description": "Opis wizyty z 2025-01-14 13:00",
+      "created_at": "2025-01-06T15:00:35.274080",
+      "doctor": 3,
+      "user": 4
+    }
+  },
+  {
+    "model": "client.medicaldocumentation",
+    "pk": 21,
+    "fields": {
+      "file": "medical_docs/plik4.docx",
+      "file_name": "plik4.docx",
+      "file_description": "Dokumentacja do wizyty 21",
+      "visit": 21
+    }
+  },
+  {
+    "model": "client.visit",
+    "pk": 22,
+    "fields": {
+      "visit_name": "Wizyta 2025-01-14 13:30",
+      "start_time": "2025-01-14T13:30:00",
+      "is_visit_finished": false,
+      "description": "Opis wizyty z 2025-01-14 13:30",
+      "created_at": "2025-01-06T15:00:35.274080",
+      "doctor": 1,
+      "user": 5
+    }
+  },
+  {
+    "model": "client.medicaldocumentation",
+    "pk": 22,
+    "fields": {
+      "file": "medical_docs/plik1.pdf",
+      "file_name": "plik1.pdf",
+      "file_description": "Dokumentacja do wizyty 22",
+      "visit": 22
+    }
+  },
+  {
+    "model": "client.visit",
+    "pk": 23,
+    "fields": {
+      "visit_name": "Wizyta 2025-01-14 14:00",
+      "start_time": "2025-01-14T14:00:00",
+      "is_visit_finished": false,
+      "description": "Opis wizyty z 2025-01-14 14:00",
+      "created_at": "2025-01-06T15:00:35.274080",
+      "doctor": 2,
+      "user": 6
+    }
+  },
+  {
+    "model": "client.medicaldocumentation",
+    "pk": 23,
+    "fields": {
+      "file": "medical_docs/plik4.docx",
+      "file_name": "plik4.docx",
+      "file_description": "Dokumentacja do wizyty 23",
+      "visit": 23
+    }
+  },
+  {
+    "model": "client.visit",
+    "pk": 24,
+    "fields": {
+      "visit_name": "Wizyta 2025-01-14 14:30",
+      "start_time": "2025-01-14T14:30:00",
+      "is_visit_finished": false,
+      "description": "Opis wizyty z 2025-01-14 14:30",
+      "created_at": "2025-01-06T15:00:35.274080",
+      "doctor": 3,
+      "user": 7
+    }
+  },
+  {
+    "model": "client.medicaldocumentation",
+    "pk": 24,
+    "fields": {
+      "file": "medical_docs/plik1.pdf",
+      "file_name": "plik1.pdf",
+      "file_description": "Dokumentacja do wizyty 24",
+      "visit": 24
+    }
+  },
+  {
+    "model": "client.visit",
+    "pk": 25,
+    "fields": {
+      "visit_name": "Wizyta 2025-01-15 09:00",
+      "start_time": "2025-01-15T09:00:00",
+      "is_visit_finished": false,
+      "description": "Opis wizyty z 2025-01-15 09:00",
+      "created_at": "2025-01-06T15:00:35.274080",
+      "doctor": 1,
+      "user": 4
+    }
+  },
+  {
+    "model": "client.medicaldocumentation",
+    "pk": 25,
+    "fields": {
+      "file": "medical_docs/plik1.pdf",
+      "file_name": "plik1.pdf",
+      "file_description": "Dokumentacja do wizyty 25",
+      "visit": 25
+    }
+  },
+  {
+    "model": "client.visit",
+    "pk": 26,
+    "fields": {
+      "visit_name": "Wizyta 2025-01-15 09:30",
+      "start_time": "2025-01-15T09:30:00",
+      "is_visit_finished": false,
+      "description": "Opis wizyty z 2025-01-15 09:30",
+      "created_at": "2025-01-06T15:00:35.274080",
+      "doctor": 2,
+      "user": 5
+    }
+  },
+  {
+    "model": "client.medicaldocumentation",
+    "pk": 26,
+    "fields": {
+      "file": "medical_docs/plik3.docx",
+      "file_name": "plik3.docx",
+      "file_description": "Dokumentacja do wizyty 26",
+      "visit": 26
+    }
+  },
+  {
+    "model": "client.visit",
+    "pk": 27,
+    "fields": {
+      "visit_name": "Wizyta 2025-01-15 10:00",
+      "start_time": "2025-01-15T10:00:00",
+      "is_visit_finished": false,
+      "description": "Opis wizyty z 2025-01-15 10:00",
+      "created_at": "2025-01-06T15:00:35.274080",
+      "doctor": 3,
+      "user": 6
+    }
+  },
+  {
+    "model": "client.medicaldocumentation",
+    "pk": 27,
+    "fields": {
+      "file": "medical_docs/plik3.docx",
+      "file_name": "plik3.docx",
+      "file_description": "Dokumentacja do wizyty 27",
+      "visit": 27
+    }
+  },
+  {
+    "model": "client.visit",
+    "pk": 28,
+    "fields": {
+      "visit_name": "Wizyta 2025-01-15 10:30",
+      "start_time": "2025-01-15T10:30:00",
+      "is_visit_finished": false,
+      "description": "Opis wizyty z 2025-01-15 10:30",
+      "created_at": "2025-01-06T15:00:35.274080",
+      "doctor": 1,
+      "user": 7
+    }
+  },
+  {
+    "model": "client.medicaldocumentation",
+    "pk": 28,
+    "fields": {
+      "file": "medical_docs/plik1.pdf",
+      "file_name": "plik1.pdf",
+      "file_description": "Dokumentacja do wizyty 28",
+      "visit": 28
+    }
+  },
+  {
+    "model": "client.visit",
+    "pk": 29,
+    "fields": {
+      "visit_name": "Wizyta 2025-01-15 11:00",
+      "start_time": "2025-01-15T11:00:00",
+      "is_visit_finished": false,
+      "description": "Opis wizyty z 2025-01-15 11:00",
+      "created_at": "2025-01-06T15:00:35.274080",
+      "doctor": 2,
+      "user": 4
+    }
+  },
+  {
+    "model": "client.medicaldocumentation",
+    "pk": 29,
+    "fields": {
+      "file": "medical_docs/plik4.docx",
+      "file_name": "plik4.docx",
+      "file_description": "Dokumentacja do wizyty 29",
+      "visit": 29
+    }
+  },
+  {
+    "model": "client.visit",
+    "pk": 30,
+    "fields": {
+      "visit_name": "Wizyta 2025-01-15 11:30",
+      "start_time": "2025-01-15T11:30:00",
+      "is_visit_finished": false,
+      "description": "Opis wizyty z 2025-01-15 11:30",
+      "created_at": "2025-01-06T15:00:35.274080",
+      "doctor": 3,
+      "user": 5
+    }
+  },
+  {
+    "model": "client.medicaldocumentation",
+    "pk": 30,
+    "fields": {
+      "file": "medical_docs/plik3.docx",
+      "file_name": "plik3.docx",
+      "file_description": "Dokumentacja do wizyty 30",
+      "visit": 30
+    }
+  },
+  {
+    "model": "client.visit",
+    "pk": 31,
+    "fields": {
+      "visit_name": "Wizyta 2025-01-15 12:00",
+      "start_time": "2025-01-15T12:00:00",
+      "is_visit_finished": false,
+      "description": "Opis wizyty z 2025-01-15 12:00",
+      "created_at": "2025-01-06T15:00:35.274585",
+      "doctor": 1,
+      "user": 6
+    }
+  },
+  {
+    "model": "client.medicaldocumentation",
+    "pk": 31,
+    "fields": {
+      "file": "medical_docs/plik4.docx",
+      "file_name": "plik4.docx",
+      "file_description": "Dokumentacja do wizyty 31",
+      "visit": 31
+    }
+  },
+  {
+    "model": "client.visit",
+    "pk": 32,
+    "fields": {
+      "visit_name": "Wizyta 2025-01-15 12:30",
+      "start_time": "2025-01-15T12:30:00",
+      "is_visit_finished": false,
+      "description": "Opis wizyty z 2025-01-15 12:30",
+      "created_at": "2025-01-06T15:00:35.274585",
+      "doctor": 2,
+      "user": 7
+    }
+  },
+  {
+    "model": "client.medicaldocumentation",
+    "pk": 32,
+    "fields": {
+      "file": "medical_docs/plik1.pdf",
+      "file_name": "plik1.pdf",
+      "file_description": "Dokumentacja do wizyty 32",
+      "visit": 32
+    }
+  },
+  {
+    "model": "client.visit",
+    "pk": 33,
+    "fields": {
+      "visit_name": "Wizyta 2025-01-15 13:00",
+      "start_time": "2025-01-15T13:00:00",
+      "is_visit_finished": false,
+      "description": "Opis wizyty z 2025-01-15 13:00",
+      "created_at": "2025-01-06T15:00:35.274585",
+      "doctor": 3,
+      "user": 4
+    }
+  },
+  {
+    "model": "client.medicaldocumentation",
+    "pk": 33,
+    "fields": {
+      "file": "medical_docs/plik4.docx",
+      "file_name": "plik4.docx",
+      "file_description": "Dokumentacja do wizyty 33",
+      "visit": 33
+    }
+  },
+  {
+    "model": "client.visit",
+    "pk": 34,
+    "fields": {
+      "visit_name": "Wizyta 2025-01-15 13:30",
+      "start_time": "2025-01-15T13:30:00",
+      "is_visit_finished": false,
+      "description": "Opis wizyty z 2025-01-15 13:30",
+      "created_at": "2025-01-06T15:00:35.274585",
+      "doctor": 1,
+      "user": 5
+    }
+  },
+  {
+    "model": "client.medicaldocumentation",
+    "pk": 34,
+    "fields": {
+      "file": "medical_docs/plik4.docx",
+      "file_name": "plik4.docx",
+      "file_description": "Dokumentacja do wizyty 34",
+      "visit": 34
+    }
+  },
+  {
+    "model": "client.visit",
+    "pk": 35,
+    "fields": {
+      "visit_name": "Wizyta 2025-01-15 14:00",
+      "start_time": "2025-01-15T14:00:00",
+      "is_visit_finished": false,
+      "description": "Opis wizyty z 2025-01-15 14:00",
+      "created_at": "2025-01-06T15:00:35.274585",
+      "doctor": 2,
+      "user": 6
+    }
+  },
+  {
+    "model": "client.medicaldocumentation",
+    "pk": 35,
+    "fields": {
+      "file": "medical_docs/plik3.docx",
+      "file_name": "plik3.docx",
+      "file_description": "Dokumentacja do wizyty 35",
+      "visit": 35
+    }
+  },
+  {
+    "model": "client.visit",
+    "pk": 36,
+    "fields": {
+      "visit_name": "Wizyta 2025-01-15 14:30",
+      "start_time": "2025-01-15T14:30:00",
+      "is_visit_finished": false,
+      "description": "Opis wizyty z 2025-01-15 14:30",
+      "created_at": "2025-01-06T15:00:35.274585",
+      "doctor": 3,
+      "user": 7
+    }
+  },
+  {
+    "model": "client.medicaldocumentation",
+    "pk": 36,
+    "fields": {
+      "file": "medical_docs/plik1.pdf",
+      "file_name": "plik1.pdf",
+      "file_description": "Dokumentacja do wizyty 36",
+      "visit": 36
+    }
+  },
+  {
+    "model": "client.visit",
+    "pk": 37,
+    "fields": {
+      "visit_name": "Wizyta 2025-01-16 09:00",
+      "start_time": "2025-01-16T09:00:00",
+      "is_visit_finished": false,
+      "description": "Opis wizyty z 2025-01-16 09:00",
+      "created_at": "2025-01-06T15:00:35.274585",
+      "doctor": 1,
+      "user": 4
+    }
+  },
+  {
+    "model": "client.medicaldocumentation",
+    "pk": 37,
+    "fields": {
+      "file": "medical_docs/plik1.pdf",
+      "file_name": "plik1.pdf",
+      "file_description": "Dokumentacja do wizyty 37",
+      "visit": 37
+    }
+  },
+  {
+    "model": "client.visit",
+    "pk": 38,
+    "fields": {
+      "visit_name": "Wizyta 2025-01-16 09:30",
+      "start_time": "2025-01-16T09:30:00",
+      "is_visit_finished": false,
+      "description": "Opis wizyty z 2025-01-16 09:30",
+      "created_at": "2025-01-06T15:00:35.274585",
+      "doctor": 2,
+      "user": 5
+    }
+  },
+  {
+    "model": "client.medicaldocumentation",
+    "pk": 38,
+    "fields": {
+      "file": "medical_docs/plik1.pdf",
+      "file_name": "plik1.pdf",
+      "file_description": "Dokumentacja do wizyty 38",
+      "visit": 38
+    }
+  },
+  {
+    "model": "client.visit",
+    "pk": 39,
+    "fields": {
+      "visit_name": "Wizyta 2025-01-16 10:00",
+      "start_time": "2025-01-16T10:00:00",
+      "is_visit_finished": false,
+      "description": "Opis wizyty z 2025-01-16 10:00",
+      "created_at": "2025-01-06T15:00:35.274585",
+      "doctor": 3,
+      "user": 6
+    }
+  },
+  {
+    "model": "client.medicaldocumentation",
+    "pk": 39,
+    "fields": {
+      "file": "medical_docs/plik3.docx",
+      "file_name": "plik3.docx",
+      "file_description": "Dokumentacja do wizyty 39",
+      "visit": 39
+    }
+  },
+  {
+    "model": "client.visit",
+    "pk": 40,
+    "fields": {
+      "visit_name": "Wizyta 2025-01-16 10:30",
+      "start_time": "2025-01-16T10:30:00",
+      "is_visit_finished": false,
+      "description": "Opis wizyty z 2025-01-16 10:30",
+      "created_at": "2025-01-06T15:00:35.274585",
+      "doctor": 1,
+      "user": 7
+    }
+  },
+  {
+    "model": "client.medicaldocumentation",
+    "pk": 40,
+    "fields": {
+      "file": "medical_docs/plik1.pdf",
+      "file_name": "plik1.pdf",
+      "file_description": "Dokumentacja do wizyty 40",
+      "visit": 40
+    }
+  },
+  {
+    "model": "client.visit",
+    "pk": 41,
+    "fields": {
+      "visit_name": "Wizyta 2025-01-16 11:00",
+      "start_time": "2025-01-16T11:00:00",
+      "is_visit_finished": false,
+      "description": "Opis wizyty z 2025-01-16 11:00",
+      "created_at": "2025-01-06T15:00:35.274585",
+      "doctor": 2,
+      "user": 4
+    }
+  },
+  {
+    "model": "client.medicaldocumentation",
+    "pk": 41,
+    "fields": {
+      "file": "medical_docs/plik2.pdf",
+      "file_name": "plik2.pdf",
+      "file_description": "Dokumentacja do wizyty 41",
+      "visit": 41
+    }
+  },
+  {
+    "model": "client.visit",
+    "pk": 42,
+    "fields": {
+      "visit_name": "Wizyta 2025-01-16 11:30",
+      "start_time": "2025-01-16T11:30:00",
+      "is_visit_finished": false,
+      "description": "Opis wizyty z 2025-01-16 11:30",
+      "created_at": "2025-01-06T15:00:35.274585",
+      "doctor": 3,
+      "user": 5
+    }
+  },
+  {
+    "model": "client.medicaldocumentation",
+    "pk": 42,
+    "fields": {
+      "file": "medical_docs/plik4.docx",
+      "file_name": "plik4.docx",
+      "file_description": "Dokumentacja do wizyty 42",
+      "visit": 42
+    }
+  },
+  {
+    "model": "client.visit",
+    "pk": 43,
+    "fields": {
+      "visit_name": "Wizyta 2025-01-16 12:00",
+      "start_time": "2025-01-16T12:00:00",
+      "is_visit_finished": false,
+      "description": "Opis wizyty z 2025-01-16 12:00",
+      "created_at": "2025-01-06T15:00:35.274585",
+      "doctor": 1,
+      "user": 6
+    }
+  },
+  {
+    "model": "client.medicaldocumentation",
+    "pk": 43,
+    "fields": {
+      "file": "medical_docs/plik2.pdf",
+      "file_name": "plik2.pdf",
+      "file_description": "Dokumentacja do wizyty 43",
+      "visit": 43
+    }
+  },
+  {
+    "model": "client.visit",
+    "pk": 44,
+    "fields": {
+      "visit_name": "Wizyta 2025-01-16 12:30",
+      "start_time": "2025-01-16T12:30:00",
+      "is_visit_finished": false,
+      "description": "Opis wizyty z 2025-01-16 12:30",
+      "created_at": "2025-01-06T15:00:35.274585",
+      "doctor": 2,
+      "user": 7
+    }
+  },
+  {
+    "model": "client.medicaldocumentation",
+    "pk": 44,
+    "fields": {
+      "file": "medical_docs/plik3.docx",
+      "file_name": "plik3.docx",
+      "file_description": "Dokumentacja do wizyty 44",
+      "visit": 44
+    }
+  },
+  {
+    "model": "client.visit",
+    "pk": 45,
+    "fields": {
+      "visit_name": "Wizyta 2025-01-16 13:00",
+      "start_time": "2025-01-16T13:00:00",
+      "is_visit_finished": false,
+      "description": "Opis wizyty z 2025-01-16 13:00",
+      "created_at": "2025-01-06T15:00:35.274585",
+      "doctor": 3,
+      "user": 4
+    }
+  },
+  {
+    "model": "client.medicaldocumentation",
+    "pk": 45,
+    "fields": {
+      "file": "medical_docs/plik2.pdf",
+      "file_name": "plik2.pdf",
+      "file_description": "Dokumentacja do wizyty 45",
+      "visit": 45
+    }
+  },
+  {
+    "model": "client.visit",
+    "pk": 46,
+    "fields": {
+      "visit_name": "Wizyta 2025-01-16 13:30",
+      "start_time": "2025-01-16T13:30:00",
+      "is_visit_finished": false,
+      "description": "Opis wizyty z 2025-01-16 13:30",
+      "created_at": "2025-01-06T15:00:35.274585",
+      "doctor": 1,
+      "user": 5
+    }
+  },
+  {
+    "model": "client.medicaldocumentation",
+    "pk": 46,
+    "fields": {
+      "file": "medical_docs/plik4.docx",
+      "file_name": "plik4.docx",
+      "file_description": "Dokumentacja do wizyty 46",
+      "visit": 46
+    }
+  },
+  {
+    "model": "client.visit",
+    "pk": 47,
+    "fields": {
+      "visit_name": "Wizyta 2025-01-16 14:00",
+      "start_time": "2025-01-16T14:00:00",
+      "is_visit_finished": false,
+      "description": "Opis wizyty z 2025-01-16 14:00",
+      "created_at": "2025-01-06T15:00:35.274585",
+      "doctor": 2,
+      "user": 6
+    }
+  },
+  {
+    "model": "client.medicaldocumentation",
+    "pk": 47,
+    "fields": {
+      "file": "medical_docs/plik3.docx",
+      "file_name": "plik3.docx",
+      "file_description": "Dokumentacja do wizyty 47",
+      "visit": 47
+    }
+  },
+  {
+    "model": "client.visit",
+    "pk": 48,
+    "fields": {
+      "visit_name": "Wizyta 2025-01-16 14:30",
+      "start_time": "2025-01-16T14:30:00",
+      "is_visit_finished": false,
+      "description": "Opis wizyty z 2025-01-16 14:30",
+      "created_at": "2025-01-06T15:00:35.274585",
+      "doctor": 3,
+      "user": 7
+    }
+  },
+  {
+    "model": "client.medicaldocumentation",
+    "pk": 48,
+    "fields": {
+      "file": "medical_docs/plik4.docx",
+      "file_name": "plik4.docx",
+      "file_description": "Dokumentacja do wizyty 48",
+      "visit": 48
+    }
+  },
+  {
+    "model": "client.visit",
+    "pk": 49,
+    "fields": {
+      "visit_name": "Wizyta 2025-01-17 09:00",
+      "start_time": "2025-01-17T09:00:00",
+      "is_visit_finished": false,
+      "description": "Opis wizyty z 2025-01-17 09:00",
+      "created_at": "2025-01-06T15:00:35.274585",
+      "doctor": 1,
+      "user": 4
+    }
+  },
+  {
+    "model": "client.medicaldocumentation",
+    "pk": 49,
+    "fields": {
+      "file": "medical_docs/plik1.pdf",
+      "file_name": "plik1.pdf",
+      "file_description": "Dokumentacja do wizyty 49",
+      "visit": 49
+    }
+  },
+  {
+    "model": "client.visit",
+    "pk": 50,
+    "fields": {
+      "visit_name": "Wizyta 2025-01-17 09:30",
+      "start_time": "2025-01-17T09:30:00",
+      "is_visit_finished": false,
+      "description": "Opis wizyty z 2025-01-17 09:30",
+      "created_at": "2025-01-06T15:00:35.274585",
+      "doctor": 2,
+      "user": 5
+    }
+  },
+  {
+    "model": "client.medicaldocumentation",
+    "pk": 50,
+    "fields": {
+      "file": "medical_docs/plik1.pdf",
+      "file_name": "plik1.pdf",
+      "file_description": "Dokumentacja do wizyty 50",
+      "visit": 50
+    }
+  },
+  {
+    "model": "client.visit",
+    "pk": 51,
+    "fields": {
+      "visit_name": "Wizyta 2025-01-17 10:00",
+      "start_time": "2025-01-17T10:00:00",
+      "is_visit_finished": false,
+      "description": "Opis wizyty z 2025-01-17 10:00",
+      "created_at": "2025-01-06T15:00:35.274585",
+      "doctor": 3,
+      "user": 6
+    }
+  },
+  {
+    "model": "client.medicaldocumentation",
+    "pk": 51,
+    "fields": {
+      "file": "medical_docs/plik4.docx",
+      "file_name": "plik4.docx",
+      "file_description": "Dokumentacja do wizyty 51",
+      "visit": 51
+    }
+  },
+  {
+    "model": "client.visit",
+    "pk": 52,
+    "fields": {
+      "visit_name": "Wizyta 2025-01-17 10:30",
+      "start_time": "2025-01-17T10:30:00",
+      "is_visit_finished": false,
+      "description": "Opis wizyty z 2025-01-17 10:30",
+      "created_at": "2025-01-06T15:00:35.274585",
+      "doctor": 1,
+      "user": 7
+    }
+  },
+  {
+    "model": "client.medicaldocumentation",
+    "pk": 52,
+    "fields": {
+      "file": "medical_docs/plik1.pdf",
+      "file_name": "plik1.pdf",
+      "file_description": "Dokumentacja do wizyty 52",
+      "visit": 52
+    }
+  },
+  {
+    "model": "client.visit",
+    "pk": 53,
+    "fields": {
+      "visit_name": "Wizyta 2025-01-17 11:00",
+      "start_time": "2025-01-17T11:00:00",
+      "is_visit_finished": false,
+      "description": "Opis wizyty z 2025-01-17 11:00",
+      "created_at": "2025-01-06T15:00:35.274585",
+      "doctor": 2,
+      "user": 4
+    }
+  },
+  {
+    "model": "client.medicaldocumentation",
+    "pk": 53,
+    "fields": {
+      "file": "medical_docs/plik2.pdf",
+      "file_name": "plik2.pdf",
+      "file_description": "Dokumentacja do wizyty 53",
+      "visit": 53
+    }
+  },
+  {
+    "model": "client.visit",
+    "pk": 54,
+    "fields": {
+      "visit_name": "Wizyta 2025-01-17 11:30",
+      "start_time": "2025-01-17T11:30:00",
+      "is_visit_finished": false,
+      "description": "Opis wizyty z 2025-01-17 11:30",
+      "created_at": "2025-01-06T15:00:35.274585",
+      "doctor": 3,
+      "user": 5
+    }
+  },
+  {
+    "model": "client.medicaldocumentation",
+    "pk": 54,
+    "fields": {
+      "file": "medical_docs/plik1.pdf",
+      "file_name": "plik1.pdf",
+      "file_description": "Dokumentacja do wizyty 54",
+      "visit": 54
+    }
+  },
+  {
+    "model": "client.visit",
+    "pk": 55,
+    "fields": {
+      "visit_name": "Wizyta 2025-01-17 12:00",
+      "start_time": "2025-01-17T12:00:00",
+      "is_visit_finished": false,
+      "description": "Opis wizyty z 2025-01-17 12:00",
+      "created_at": "2025-01-06T15:00:35.274585",
+      "doctor": 1,
+      "user": 6
+    }
+  },
+  {
+    "model": "client.medicaldocumentation",
+    "pk": 55,
+    "fields": {
+      "file": "medical_docs/plik4.docx",
+      "file_name": "plik4.docx",
+      "file_description": "Dokumentacja do wizyty 55",
+      "visit": 55
+    }
+  },
+  {
+    "model": "client.visit",
+    "pk": 56,
+    "fields": {
+      "visit_name": "Wizyta 2025-01-17 12:30",
+      "start_time": "2025-01-17T12:30:00",
+      "is_visit_finished": false,
+      "description": "Opis wizyty z 2025-01-17 12:30",
+      "created_at": "2025-01-06T15:00:35.274585",
+      "doctor": 2,
+      "user": 7
+    }
+  },
+  {
+    "model": "client.medicaldocumentation",
+    "pk": 56,
+    "fields": {
+      "file": "medical_docs/plik2.pdf",
+      "file_name": "plik2.pdf",
+      "file_description": "Dokumentacja do wizyty 56",
+      "visit": 56
+    }
+  },
+  {
+    "model": "client.visit",
+    "pk": 57,
+    "fields": {
+      "visit_name": "Wizyta 2025-01-17 13:00",
+      "start_time": "2025-01-17T13:00:00",
+      "is_visit_finished": false,
+      "description": "Opis wizyty z 2025-01-17 13:00",
+      "created_at": "2025-01-06T15:00:35.274585",
+      "doctor": 3,
+      "user": 4
+    }
+  },
+  {
+    "model": "client.medicaldocumentation",
+    "pk": 57,
+    "fields": {
+      "file": "medical_docs/plik2.pdf",
+      "file_name": "plik2.pdf",
+      "file_description": "Dokumentacja do wizyty 57",
+      "visit": 57
+    }
+  },
+  {
+    "model": "client.visit",
+    "pk": 58,
+    "fields": {
+      "visit_name": "Wizyta 2025-01-17 13:30",
+      "start_time": "2025-01-17T13:30:00",
+      "is_visit_finished": false,
+      "description": "Opis wizyty z 2025-01-17 13:30",
+      "created_at": "2025-01-06T15:00:35.274585",
+      "doctor": 1,
+      "user": 5
+    }
+  },
+  {
+    "model": "client.medicaldocumentation",
+    "pk": 58,
+    "fields": {
+      "file": "medical_docs/plik1.pdf",
+      "file_name": "plik1.pdf",
+      "file_description": "Dokumentacja do wizyty 58",
+      "visit": 58
+    }
+  },
+  {
+    "model": "client.visit",
+    "pk": 59,
+    "fields": {
+      "visit_name": "Wizyta 2025-01-17 14:00",
+      "start_time": "2025-01-17T14:00:00",
+      "is_visit_finished": false,
+      "description": "Opis wizyty z 2025-01-17 14:00",
+      "created_at": "2025-01-06T15:00:35.274585",
+      "doctor": 2,
+      "user": 6
+    }
+  },
+  {
+    "model": "client.medicaldocumentation",
+    "pk": 59,
+    "fields": {
+      "file": "medical_docs/plik2.pdf",
+      "file_name": "plik2.pdf",
+      "file_description": "Dokumentacja do wizyty 59",
+      "visit": 59
+    }
+  },
+  {
+    "model": "client.visit",
+    "pk": 60,
+    "fields": {
+      "visit_name": "Wizyta 2025-01-17 14:30",
+      "start_time": "2025-01-17T14:30:00",
+      "is_visit_finished": false,
+      "description": "Opis wizyty z 2025-01-17 14:30",
+      "created_at": "2025-01-06T15:00:35.274585",
+      "doctor": 3,
+      "user": 7
+    }
+  },
+  {
+    "model": "client.medicaldocumentation",
+    "pk": 60,
+    "fields": {
+      "file": "medical_docs/plik4.docx",
+      "file_name": "plik4.docx",
+      "file_description": "Dokumentacja do wizyty 60",
+      "visit": 60
+    }
+  },
+  {
+    "model": "client.visit",
+    "pk": 61,
+    "fields": {
+      "visit_name": "Wizyta 2025-01-20 09:00",
+      "start_time": "2025-01-20T09:00:00",
+      "is_visit_finished": false,
+      "description": "Opis wizyty z 2025-01-20 09:00",
+      "created_at": "2025-01-06T15:00:35.274585",
+      "doctor": 1,
+      "user": 4
+    }
+  },
+  {
+    "model": "client.medicaldocumentation",
+    "pk": 61,
+    "fields": {
+      "file": "medical_docs/plik4.docx",
+      "file_name": "plik4.docx",
+      "file_description": "Dokumentacja do wizyty 61",
+      "visit": 61
+    }
+  },
+  {
+    "model": "client.visit",
+    "pk": 62,
+    "fields": {
+      "visit_name": "Wizyta 2025-01-20 09:30",
+      "start_time": "2025-01-20T09:30:00",
+      "is_visit_finished": false,
+      "description": "Opis wizyty z 2025-01-20 09:30",
+      "created_at": "2025-01-06T15:00:35.274585",
+      "doctor": 2,
+      "user": 5
+    }
+  },
+  {
+    "model": "client.medicaldocumentation",
+    "pk": 62,
+    "fields": {
+      "file": "medical_docs/plik4.docx",
+      "file_name": "plik4.docx",
+      "file_description": "Dokumentacja do wizyty 62",
+      "visit": 62
+    }
+  },
+  {
+    "model": "client.visit",
+    "pk": 63,
+    "fields": {
+      "visit_name": "Wizyta 2025-01-20 10:00",
+      "start_time": "2025-01-20T10:00:00",
+      "is_visit_finished": false,
+      "description": "Opis wizyty z 2025-01-20 10:00",
+      "created_at": "2025-01-06T15:00:35.274585",
+      "doctor": 3,
+      "user": 6
+    }
+  },
+  {
+    "model": "client.medicaldocumentation",
+    "pk": 63,
+    "fields": {
+      "file": "medical_docs/plik2.pdf",
+      "file_name": "plik2.pdf",
+      "file_description": "Dokumentacja do wizyty 63",
+      "visit": 63
+    }
+  },
+  {
+    "model": "client.visit",
+    "pk": 64,
+    "fields": {
+      "visit_name": "Wizyta 2025-01-20 10:30",
+      "start_time": "2025-01-20T10:30:00",
+      "is_visit_finished": false,
+      "description": "Opis wizyty z 2025-01-20 10:30",
+      "created_at": "2025-01-06T15:00:35.274585",
+      "doctor": 1,
+      "user": 7
+    }
+  },
+  {
+    "model": "client.medicaldocumentation",
+    "pk": 64,
+    "fields": {
+      "file": "medical_docs/plik2.pdf",
+      "file_name": "plik2.pdf",
+      "file_description": "Dokumentacja do wizyty 64",
+      "visit": 64
+    }
+  },
+  {
+    "model": "client.visit",
+    "pk": 65,
+    "fields": {
+      "visit_name": "Wizyta 2025-01-20 11:00",
+      "start_time": "2025-01-20T11:00:00",
+      "is_visit_finished": false,
+      "description": "Opis wizyty z 2025-01-20 11:00",
+      "created_at": "2025-01-06T15:00:35.274585",
+      "doctor": 2,
+      "user": 4
+    }
+  },
+  {
+    "model": "client.medicaldocumentation",
+    "pk": 65,
+    "fields": {
+      "file": "medical_docs/plik4.docx",
+      "file_name": "plik4.docx",
+      "file_description": "Dokumentacja do wizyty 65",
+      "visit": 65
+    }
+  },
+  {
+    "model": "client.visit",
+    "pk": 66,
+    "fields": {
+      "visit_name": "Wizyta 2025-01-20 11:30",
+      "start_time": "2025-01-20T11:30:00",
+      "is_visit_finished": false,
+      "description": "Opis wizyty z 2025-01-20 11:30",
+      "created_at": "2025-01-06T15:00:35.274585",
+      "doctor": 3,
+      "user": 5
+    }
+  },
+  {
+    "model": "client.medicaldocumentation",
+    "pk": 66,
+    "fields": {
+      "file": "medical_docs/plik3.docx",
+      "file_name": "plik3.docx",
+      "file_description": "Dokumentacja do wizyty 66",
+      "visit": 66
+    }
+  },
+  {
+    "model": "client.visit",
+    "pk": 67,
+    "fields": {
+      "visit_name": "Wizyta 2025-01-20 12:00",
+      "start_time": "2025-01-20T12:00:00",
+      "is_visit_finished": false,
+      "description": "Opis wizyty z 2025-01-20 12:00",
+      "created_at": "2025-01-06T15:00:35.274585",
+      "doctor": 1,
+      "user": 6
+    }
+  },
+  {
+    "model": "client.medicaldocumentation",
+    "pk": 67,
+    "fields": {
+      "file": "medical_docs/plik3.docx",
+      "file_name": "plik3.docx",
+      "file_description": "Dokumentacja do wizyty 67",
+      "visit": 67
+    }
+  },
+  {
+    "model": "client.visit",
+    "pk": 68,
+    "fields": {
+      "visit_name": "Wizyta 2025-01-20 12:30",
+      "start_time": "2025-01-20T12:30:00",
+      "is_visit_finished": false,
+      "description": "Opis wizyty z 2025-01-20 12:30",
+      "created_at": "2025-01-06T15:00:35.274585",
+      "doctor": 2,
+      "user": 7
+    }
+  },
+  {
+    "model": "client.medicaldocumentation",
+    "pk": 68,
+    "fields": {
+      "file": "medical_docs/plik1.pdf",
+      "file_name": "plik1.pdf",
+      "file_description": "Dokumentacja do wizyty 68",
+      "visit": 68
+    }
+  },
+  {
+    "model": "client.visit",
+    "pk": 69,
+    "fields": {
+      "visit_name": "Wizyta 2025-01-20 13:00",
+      "start_time": "2025-01-20T13:00:00",
+      "is_visit_finished": false,
+      "description": "Opis wizyty z 2025-01-20 13:00",
+      "created_at": "2025-01-06T15:00:35.274585",
+      "doctor": 3,
+      "user": 4
+    }
+  },
+  {
+    "model": "client.medicaldocumentation",
+    "pk": 69,
+    "fields": {
+      "file": "medical_docs/plik2.pdf",
+      "file_name": "plik2.pdf",
+      "file_description": "Dokumentacja do wizyty 69",
+      "visit": 69
+    }
+  },
+  {
+    "model": "client.visit",
+    "pk": 70,
+    "fields": {
+      "visit_name": "Wizyta 2025-01-20 13:30",
+      "start_time": "2025-01-20T13:30:00",
+      "is_visit_finished": false,
+      "description": "Opis wizyty z 2025-01-20 13:30",
+      "created_at": "2025-01-06T15:00:35.274585",
+      "doctor": 1,
+      "user": 5
+    }
+  },
+  {
+    "model": "client.medicaldocumentation",
+    "pk": 70,
+    "fields": {
+      "file": "medical_docs/plik1.pdf",
+      "file_name": "plik1.pdf",
+      "file_description": "Dokumentacja do wizyty 70",
+      "visit": 70
+    }
+  },
+  {
+    "model": "client.visit",
+    "pk": 71,
+    "fields": {
+      "visit_name": "Wizyta 2025-01-20 14:00",
+      "start_time": "2025-01-20T14:00:00",
+      "is_visit_finished": false,
+      "description": "Opis wizyty z 2025-01-20 14:00",
+      "created_at": "2025-01-06T15:00:35.274585",
+      "doctor": 2,
+      "user": 6
+    }
+  },
+  {
+    "model": "client.medicaldocumentation",
+    "pk": 71,
+    "fields": {
+      "file": "medical_docs/plik4.docx",
+      "file_name": "plik4.docx",
+      "file_description": "Dokumentacja do wizyty 71",
+      "visit": 71
+    }
+  },
+  {
+    "model": "client.visit",
+    "pk": 72,
+    "fields": {
+      "visit_name": "Wizyta 2025-01-20 14:30",
+      "start_time": "2025-01-20T14:30:00",
+      "is_visit_finished": false,
+      "description": "Opis wizyty z 2025-01-20 14:30",
+      "created_at": "2025-01-06T15:00:35.274585",
+      "doctor": 3,
+      "user": 7
+    }
+  },
+  {
+    "model": "client.medicaldocumentation",
+    "pk": 72,
+    "fields": {
+      "file": "medical_docs/plik4.docx",
+      "file_name": "plik4.docx",
+      "file_description": "Dokumentacja do wizyty 72",
+      "visit": 72
+    }
+  },
+  {
+    "model": "client.visit",
+    "pk": 73,
+    "fields": {
+      "visit_name": "Wizyta 2025-01-21 09:00",
+      "start_time": "2025-01-21T09:00:00",
+      "is_visit_finished": false,
+      "description": "Opis wizyty z 2025-01-21 09:00",
+      "created_at": "2025-01-06T15:00:35.274585",
+      "doctor": 1,
+      "user": 4
+    }
+  },
+  {
+    "model": "client.medicaldocumentation",
+    "pk": 73,
+    "fields": {
+      "file": "medical_docs/plik1.pdf",
+      "file_name": "plik1.pdf",
+      "file_description": "Dokumentacja do wizyty 73",
+      "visit": 73
+    }
+  },
+  {
+    "model": "client.visit",
+    "pk": 74,
+    "fields": {
+      "visit_name": "Wizyta 2025-01-21 09:30",
+      "start_time": "2025-01-21T09:30:00",
+      "is_visit_finished": false,
+      "description": "Opis wizyty z 2025-01-21 09:30",
+      "created_at": "2025-01-06T15:00:35.275102",
+      "doctor": 2,
+      "user": 5
+    }
+  },
+  {
+    "model": "client.medicaldocumentation",
+    "pk": 74,
+    "fields": {
+      "file": "medical_docs/plik4.docx",
+      "file_name": "plik4.docx",
+      "file_description": "Dokumentacja do wizyty 74",
+      "visit": 74
+    }
+  },
+  {
+    "model": "client.visit",
+    "pk": 75,
+    "fields": {
+      "visit_name": "Wizyta 2025-01-21 10:00",
+      "start_time": "2025-01-21T10:00:00",
+      "is_visit_finished": false,
+      "description": "Opis wizyty z 2025-01-21 10:00",
+      "created_at": "2025-01-06T15:00:35.275102",
+      "doctor": 3,
+      "user": 6
+    }
+  },
+  {
+    "model": "client.medicaldocumentation",
+    "pk": 75,
+    "fields": {
+      "file": "medical_docs/plik3.docx",
+      "file_name": "plik3.docx",
+      "file_description": "Dokumentacja do wizyty 75",
+      "visit": 75
+    }
+  },
+  {
+    "model": "client.visit",
+    "pk": 76,
+    "fields": {
+      "visit_name": "Wizyta 2025-01-21 10:30",
+      "start_time": "2025-01-21T10:30:00",
+      "is_visit_finished": false,
+      "description": "Opis wizyty z 2025-01-21 10:30",
+      "created_at": "2025-01-06T15:00:35.275102",
+      "doctor": 1,
+      "user": 7
+    }
+  },
+  {
+    "model": "client.medicaldocumentation",
+    "pk": 76,
+    "fields": {
+      "file": "medical_docs/plik3.docx",
+      "file_name": "plik3.docx",
+      "file_description": "Dokumentacja do wizyty 76",
+      "visit": 76
+    }
+  },
+  {
+    "model": "client.visit",
+    "pk": 77,
+    "fields": {
+      "visit_name": "Wizyta 2025-01-21 11:00",
+      "start_time": "2025-01-21T11:00:00",
+      "is_visit_finished": false,
+      "description": "Opis wizyty z 2025-01-21 11:00",
+      "created_at": "2025-01-06T15:00:35.275102",
+      "doctor": 2,
+      "user": 4
+    }
+  },
+  {
+    "model": "client.medicaldocumentation",
+    "pk": 77,
+    "fields": {
+      "file": "medical_docs/plik3.docx",
+      "file_name": "plik3.docx",
+      "file_description": "Dokumentacja do wizyty 77",
+      "visit": 77
+    }
+  },
+  {
+    "model": "client.visit",
+    "pk": 78,
+    "fields": {
+      "visit_name": "Wizyta 2025-01-21 11:30",
+      "start_time": "2025-01-21T11:30:00",
+      "is_visit_finished": false,
+      "description": "Opis wizyty z 2025-01-21 11:30",
+      "created_at": "2025-01-06T15:00:35.275102",
+      "doctor": 3,
+      "user": 5
+    }
+  },
+  {
+    "model": "client.medicaldocumentation",
+    "pk": 78,
+    "fields": {
+      "file": "medical_docs/plik3.docx",
+      "file_name": "plik3.docx",
+      "file_description": "Dokumentacja do wizyty 78",
+      "visit": 78
+    }
+  },
+  {
+    "model": "client.visit",
+    "pk": 79,
+    "fields": {
+      "visit_name": "Wizyta 2025-01-21 12:00",
+      "start_time": "2025-01-21T12:00:00",
+      "is_visit_finished": false,
+      "description": "Opis wizyty z 2025-01-21 12:00",
+      "created_at": "2025-01-06T15:00:35.275102",
+      "doctor": 1,
+      "user": 6
+    }
+  },
+  {
+    "model": "client.medicaldocumentation",
+    "pk": 79,
+    "fields": {
+      "file": "medical_docs/plik1.pdf",
+      "file_name": "plik1.pdf",
+      "file_description": "Dokumentacja do wizyty 79",
+      "visit": 79
+    }
+  },
+  {
+    "model": "client.visit",
+    "pk": 80,
+    "fields": {
+      "visit_name": "Wizyta 2025-01-21 12:30",
+      "start_time": "2025-01-21T12:30:00",
+      "is_visit_finished": false,
+      "description": "Opis wizyty z 2025-01-21 12:30",
+      "created_at": "2025-01-06T15:00:35.275102",
+      "doctor": 2,
+      "user": 7
+    }
+  },
+  {
+    "model": "client.medicaldocumentation",
+    "pk": 80,
+    "fields": {
+      "file": "medical_docs/plik1.pdf",
+      "file_name": "plik1.pdf",
+      "file_description": "Dokumentacja do wizyty 80",
+      "visit": 80
+    }
+  },
+  {
+    "model": "client.visit",
+    "pk": 81,
+    "fields": {
+      "visit_name": "Wizyta 2025-01-21 13:00",
+      "start_time": "2025-01-21T13:00:00",
+      "is_visit_finished": false,
+      "description": "Opis wizyty z 2025-01-21 13:00",
+      "created_at": "2025-01-06T15:00:35.275102",
+      "doctor": 3,
+      "user": 4
+    }
+  },
+  {
+    "model": "client.medicaldocumentation",
+    "pk": 81,
+    "fields": {
+      "file": "medical_docs/plik2.pdf",
+      "file_name": "plik2.pdf",
+      "file_description": "Dokumentacja do wizyty 81",
+      "visit": 81
+    }
+  },
+  {
+    "model": "client.visit",
+    "pk": 82,
+    "fields": {
+      "visit_name": "Wizyta 2025-01-21 13:30",
+      "start_time": "2025-01-21T13:30:00",
+      "is_visit_finished": false,
+      "description": "Opis wizyty z 2025-01-21 13:30",
+      "created_at": "2025-01-06T15:00:35.275102",
+      "doctor": 1,
+      "user": 5
+    }
+  },
+  {
+    "model": "client.medicaldocumentation",
+    "pk": 82,
+    "fields": {
+      "file": "medical_docs/plik2.pdf",
+      "file_name": "plik2.pdf",
+      "file_description": "Dokumentacja do wizyty 82",
+      "visit": 82
+    }
+  },
+  {
+    "model": "client.visit",
+    "pk": 83,
+    "fields": {
+      "visit_name": "Wizyta 2025-01-21 14:00",
+      "start_time": "2025-01-21T14:00:00",
+      "is_visit_finished": false,
+      "description": "Opis wizyty z 2025-01-21 14:00",
+      "created_at": "2025-01-06T15:00:35.275102",
+      "doctor": 2,
+      "user": 6
+    }
+  },
+  {
+    "model": "client.medicaldocumentation",
+    "pk": 83,
+    "fields": {
+      "file": "medical_docs/plik4.docx",
+      "file_name": "plik4.docx",
+      "file_description": "Dokumentacja do wizyty 83",
+      "visit": 83
+    }
+  },
+  {
+    "model": "client.visit",
+    "pk": 84,
+    "fields": {
+      "visit_name": "Wizyta 2025-01-21 14:30",
+      "start_time": "2025-01-21T14:30:00",
+      "is_visit_finished": false,
+      "description": "Opis wizyty z 2025-01-21 14:30",
+      "created_at": "2025-01-06T15:00:35.275102",
+      "doctor": 3,
+      "user": 7
+    }
+  },
+  {
+    "model": "client.medicaldocumentation",
+    "pk": 84,
+    "fields": {
+      "file": "medical_docs/plik1.pdf",
+      "file_name": "plik1.pdf",
+      "file_description": "Dokumentacja do wizyty 84",
+      "visit": 84
+    }
+  },
+  {
+    "model": "client.visit",
+    "pk": 85,
+    "fields": {
+      "visit_name": "Wizyta 2025-01-22 09:00",
+      "start_time": "2025-01-22T09:00:00",
+      "is_visit_finished": false,
+      "description": "Opis wizyty z 2025-01-22 09:00",
+      "created_at": "2025-01-06T15:00:35.275102",
+      "doctor": 1,
+      "user": 4
+    }
+  },
+  {
+    "model": "client.medicaldocumentation",
+    "pk": 85,
+    "fields": {
+      "file": "medical_docs/plik1.pdf",
+      "file_name": "plik1.pdf",
+      "file_description": "Dokumentacja do wizyty 85",
+      "visit": 85
+    }
+  },
+  {
+    "model": "client.visit",
+    "pk": 86,
+    "fields": {
+      "visit_name": "Wizyta 2025-01-22 09:30",
+      "start_time": "2025-01-22T09:30:00",
+      "is_visit_finished": false,
+      "description": "Opis wizyty z 2025-01-22 09:30",
+      "created_at": "2025-01-06T15:00:35.275102",
+      "doctor": 2,
+      "user": 5
+    }
+  },
+  {
+    "model": "client.medicaldocumentation",
+    "pk": 86,
+    "fields": {
+      "file": "medical_docs/plik2.pdf",
+      "file_name": "plik2.pdf",
+      "file_description": "Dokumentacja do wizyty 86",
+      "visit": 86
+    }
+  },
+  {
+    "model": "client.visit",
+    "pk": 87,
+    "fields": {
+      "visit_name": "Wizyta 2025-01-22 10:00",
+      "start_time": "2025-01-22T10:00:00",
+      "is_visit_finished": false,
+      "description": "Opis wizyty z 2025-01-22 10:00",
+      "created_at": "2025-01-06T15:00:35.275102",
+      "doctor": 3,
+      "user": 6
+    }
+  },
+  {
+    "model": "client.medicaldocumentation",
+    "pk": 87,
+    "fields": {
+      "file": "medical_docs/plik1.pdf",
+      "file_name": "plik1.pdf",
+      "file_description": "Dokumentacja do wizyty 87",
+      "visit": 87
+    }
+  },
+  {
+    "model": "client.visit",
+    "pk": 88,
+    "fields": {
+      "visit_name": "Wizyta 2025-01-22 10:30",
+      "start_time": "2025-01-22T10:30:00",
+      "is_visit_finished": false,
+      "description": "Opis wizyty z 2025-01-22 10:30",
+      "created_at": "2025-01-06T15:00:35.275102",
+      "doctor": 1,
+      "user": 7
+    }
+  },
+  {
+    "model": "client.medicaldocumentation",
+    "pk": 88,
+    "fields": {
+      "file": "medical_docs/plik2.pdf",
+      "file_name": "plik2.pdf",
+      "file_description": "Dokumentacja do wizyty 88",
+      "visit": 88
+    }
+  },
+  {
+    "model": "client.visit",
+    "pk": 89,
+    "fields": {
+      "visit_name": "Wizyta 2025-01-22 11:00",
+      "start_time": "2025-01-22T11:00:00",
+      "is_visit_finished": false,
+      "description": "Opis wizyty z 2025-01-22 11:00",
+      "created_at": "2025-01-06T15:00:35.275102",
+      "doctor": 2,
+      "user": 4
+    }
+  },
+  {
+    "model": "client.medicaldocumentation",
+    "pk": 89,
+    "fields": {
+      "file": "medical_docs/plik4.docx",
+      "file_name": "plik4.docx",
+      "file_description": "Dokumentacja do wizyty 89",
+      "visit": 89
+    }
+  },
+  {
+    "model": "client.visit",
+    "pk": 90,
+    "fields": {
+      "visit_name": "Wizyta 2025-01-22 11:30",
+      "start_time": "2025-01-22T11:30:00",
+      "is_visit_finished": false,
+      "description": "Opis wizyty z 2025-01-22 11:30",
+      "created_at": "2025-01-06T15:00:35.275102",
+      "doctor": 3,
+      "user": 5
+    }
+  },
+  {
+    "model": "client.medicaldocumentation",
+    "pk": 90,
+    "fields": {
+      "file": "medical_docs/plik1.pdf",
+      "file_name": "plik1.pdf",
+      "file_description": "Dokumentacja do wizyty 90",
+      "visit": 90
+    }
+  },
+  {
+    "model": "client.visit",
+    "pk": 91,
+    "fields": {
+      "visit_name": "Wizyta 2025-01-22 12:00",
+      "start_time": "2025-01-22T12:00:00",
+      "is_visit_finished": false,
+      "description": "Opis wizyty z 2025-01-22 12:00",
+      "created_at": "2025-01-06T15:00:35.275102",
+      "doctor": 1,
+      "user": 6
+    }
+  },
+  {
+    "model": "client.medicaldocumentation",
+    "pk": 91,
+    "fields": {
+      "file": "medical_docs/plik2.pdf",
+      "file_name": "plik2.pdf",
+      "file_description": "Dokumentacja do wizyty 91",
+      "visit": 91
+    }
+  },
+  {
+    "model": "client.visit",
+    "pk": 92,
+    "fields": {
+      "visit_name": "Wizyta 2025-01-22 12:30",
+      "start_time": "2025-01-22T12:30:00",
+      "is_visit_finished": false,
+      "description": "Opis wizyty z 2025-01-22 12:30",
+      "created_at": "2025-01-06T15:00:35.275102",
+      "doctor": 2,
+      "user": 7
+    }
+  },
+  {
+    "model": "client.medicaldocumentation",
+    "pk": 92,
+    "fields": {
+      "file": "medical_docs/plik1.pdf",
+      "file_name": "plik1.pdf",
+      "file_description": "Dokumentacja do wizyty 92",
+      "visit": 92
+    }
+  },
+  {
+    "model": "client.visit",
+    "pk": 93,
+    "fields": {
+      "visit_name": "Wizyta 2025-01-22 13:00",
+      "start_time": "2025-01-22T13:00:00",
+      "is_visit_finished": false,
+      "description": "Opis wizyty z 2025-01-22 13:00",
+      "created_at": "2025-01-06T15:00:35.275102",
+      "doctor": 3,
+      "user": 4
+    }
+  },
+  {
+    "model": "client.medicaldocumentation",
+    "pk": 93,
+    "fields": {
+      "file": "medical_docs/plik3.docx",
+      "file_name": "plik3.docx",
+      "file_description": "Dokumentacja do wizyty 93",
+      "visit": 93
+    }
+  },
+  {
+    "model": "client.visit",
+    "pk": 94,
+    "fields": {
+      "visit_name": "Wizyta 2025-01-22 13:30",
+      "start_time": "2025-01-22T13:30:00",
+      "is_visit_finished": false,
+      "description": "Opis wizyty z 2025-01-22 13:30",
+      "created_at": "2025-01-06T15:00:35.275102",
+      "doctor": 1,
+      "user": 5
+    }
+  },
+  {
+    "model": "client.medicaldocumentation",
+    "pk": 94,
+    "fields": {
+      "file": "medical_docs/plik1.pdf",
+      "file_name": "plik1.pdf",
+      "file_description": "Dokumentacja do wizyty 94",
+      "visit": 94
+    }
+  },
+  {
+    "model": "client.visit",
+    "pk": 95,
+    "fields": {
+      "visit_name": "Wizyta 2025-01-22 14:00",
+      "start_time": "2025-01-22T14:00:00",
+      "is_visit_finished": false,
+      "description": "Opis wizyty z 2025-01-22 14:00",
+      "created_at": "2025-01-06T15:00:35.275102",
+      "doctor": 2,
+      "user": 6
+    }
+  },
+  {
+    "model": "client.medicaldocumentation",
+    "pk": 95,
+    "fields": {
+      "file": "medical_docs/plik1.pdf",
+      "file_name": "plik1.pdf",
+      "file_description": "Dokumentacja do wizyty 95",
+      "visit": 95
+    }
+  },
+  {
+    "model": "client.visit",
+    "pk": 96,
+    "fields": {
+      "visit_name": "Wizyta 2025-01-22 14:30",
+      "start_time": "2025-01-22T14:30:00",
+      "is_visit_finished": false,
+      "description": "Opis wizyty z 2025-01-22 14:30",
+      "created_at": "2025-01-06T15:00:35.275102",
+      "doctor": 3,
+      "user": 7
+    }
+  },
+  {
+    "model": "client.medicaldocumentation",
+    "pk": 96,
+    "fields": {
+      "file": "medical_docs/plik2.pdf",
+      "file_name": "plik2.pdf",
+      "file_description": "Dokumentacja do wizyty 96",
+      "visit": 96
+    }
+  },
+  {
+    "model": "client.visit",
+    "pk": 97,
+    "fields": {
+      "visit_name": "Wizyta 2025-01-23 09:00",
+      "start_time": "2025-01-23T09:00:00",
+      "is_visit_finished": false,
+      "description": "Opis wizyty z 2025-01-23 09:00",
+      "created_at": "2025-01-06T15:00:35.275102",
+      "doctor": 1,
+      "user": 4
+    }
+  },
+  {
+    "model": "client.medicaldocumentation",
+    "pk": 97,
+    "fields": {
+      "file": "medical_docs/plik4.docx",
+      "file_name": "plik4.docx",
+      "file_description": "Dokumentacja do wizyty 97",
+      "visit": 97
+    }
+  },
+  {
+    "model": "client.visit",
+    "pk": 98,
+    "fields": {
+      "visit_name": "Wizyta 2025-01-23 09:30",
+      "start_time": "2025-01-23T09:30:00",
+      "is_visit_finished": false,
+      "description": "Opis wizyty z 2025-01-23 09:30",
+      "created_at": "2025-01-06T15:00:35.275102",
+      "doctor": 2,
+      "user": 5
+    }
+  },
+  {
+    "model": "client.medicaldocumentation",
+    "pk": 98,
+    "fields": {
+      "file": "medical_docs/plik4.docx",
+      "file_name": "plik4.docx",
+      "file_description": "Dokumentacja do wizyty 98",
+      "visit": 98
+    }
+  },
+  {
+    "model": "client.visit",
+    "pk": 99,
+    "fields": {
+      "visit_name": "Wizyta 2025-01-23 10:00",
+      "start_time": "2025-01-23T10:00:00",
+      "is_visit_finished": false,
+      "description": "Opis wizyty z 2025-01-23 10:00",
+      "created_at": "2025-01-06T15:00:35.275102",
+      "doctor": 3,
+      "user": 6
+    }
+  },
+  {
+    "model": "client.medicaldocumentation",
+    "pk": 99,
+    "fields": {
+      "file": "medical_docs/plik3.docx",
+      "file_name": "plik3.docx",
+      "file_description": "Dokumentacja do wizyty 99",
+      "visit": 99
+    }
+  },
+  {
+    "model": "client.visit",
+    "pk": 100,
+    "fields": {
+      "visit_name": "Wizyta 2025-01-23 10:30",
+      "start_time": "2025-01-23T10:30:00",
+      "is_visit_finished": false,
+      "description": "Opis wizyty z 2025-01-23 10:30",
+      "created_at": "2025-01-06T15:00:35.275102",
+      "doctor": 1,
+      "user": 7
+    }
+  },
+  {
+    "model": "client.medicaldocumentation",
+    "pk": 100,
+    "fields": {
+      "file": "medical_docs/plik1.pdf",
+      "file_name": "plik1.pdf",
+      "file_description": "Dokumentacja do wizyty 100",
+      "visit": 100
+    }
+  },
+  {
+    "model": "client.visit",
+    "pk": 101,
+    "fields": {
+      "visit_name": "Wizyta 2025-01-23 11:00",
+      "start_time": "2025-01-23T11:00:00",
+      "is_visit_finished": false,
+      "description": "Opis wizyty z 2025-01-23 11:00",
+      "created_at": "2025-01-06T15:00:35.275102",
+      "doctor": 2,
+      "user": 4
+    }
+  },
+  {
+    "model": "client.medicaldocumentation",
+    "pk": 101,
+    "fields": {
+      "file": "medical_docs/plik3.docx",
+      "file_name": "plik3.docx",
+      "file_description": "Dokumentacja do wizyty 101",
+      "visit": 101
+    }
+  },
+  {
+    "model": "client.visit",
+    "pk": 102,
+    "fields": {
+      "visit_name": "Wizyta 2025-01-23 11:30",
+      "start_time": "2025-01-23T11:30:00",
+      "is_visit_finished": false,
+      "description": "Opis wizyty z 2025-01-23 11:30",
+      "created_at": "2025-01-06T15:00:35.275102",
+      "doctor": 3,
+      "user": 5
+    }
+  },
+  {
+    "model": "client.medicaldocumentation",
+    "pk": 102,
+    "fields": {
+      "file": "medical_docs/plik2.pdf",
+      "file_name": "plik2.pdf",
+      "file_description": "Dokumentacja do wizyty 102",
+      "visit": 102
+    }
+  },
+  {
+    "model": "client.visit",
+    "pk": 103,
+    "fields": {
+      "visit_name": "Wizyta 2025-01-23 12:00",
+      "start_time": "2025-01-23T12:00:00",
+      "is_visit_finished": false,
+      "description": "Opis wizyty z 2025-01-23 12:00",
+      "created_at": "2025-01-06T15:00:35.275102",
+      "doctor": 1,
+      "user": 6
+    }
+  },
+  {
+    "model": "client.medicaldocumentation",
+    "pk": 103,
+    "fields": {
+      "file": "medical_docs/plik3.docx",
+      "file_name": "plik3.docx",
+      "file_description": "Dokumentacja do wizyty 103",
+      "visit": 103
+    }
+  },
+  {
+    "model": "client.visit",
+    "pk": 104,
+    "fields": {
+      "visit_name": "Wizyta 2025-01-23 12:30",
+      "start_time": "2025-01-23T12:30:00",
+      "is_visit_finished": false,
+      "description": "Opis wizyty z 2025-01-23 12:30",
+      "created_at": "2025-01-06T15:00:35.275102",
+      "doctor": 2,
+      "user": 7
+    }
+  },
+  {
+    "model": "client.medicaldocumentation",
+    "pk": 104,
+    "fields": {
+      "file": "medical_docs/plik1.pdf",
+      "file_name": "plik1.pdf",
+      "file_description": "Dokumentacja do wizyty 104",
+      "visit": 104
+    }
+  },
+  {
+    "model": "client.visit",
+    "pk": 105,
+    "fields": {
+      "visit_name": "Wizyta 2025-01-23 13:00",
+      "start_time": "2025-01-23T13:00:00",
+      "is_visit_finished": false,
+      "description": "Opis wizyty z 2025-01-23 13:00",
+      "created_at": "2025-01-06T15:00:35.275102",
+      "doctor": 3,
+      "user": 4
+    }
+  },
+  {
+    "model": "client.medicaldocumentation",
+    "pk": 105,
+    "fields": {
+      "file": "medical_docs/plik2.pdf",
+      "file_name": "plik2.pdf",
+      "file_description": "Dokumentacja do wizyty 105",
+      "visit": 105
+    }
+  },
+  {
+    "model": "client.visit",
+    "pk": 106,
+    "fields": {
+      "visit_name": "Wizyta 2025-01-23 13:30",
+      "start_time": "2025-01-23T13:30:00",
+      "is_visit_finished": false,
+      "description": "Opis wizyty z 2025-01-23 13:30",
+      "created_at": "2025-01-06T15:00:35.275102",
+      "doctor": 1,
+      "user": 5
+    }
+  },
+  {
+    "model": "client.medicaldocumentation",
+    "pk": 106,
+    "fields": {
+      "file": "medical_docs/plik1.pdf",
+      "file_name": "plik1.pdf",
+      "file_description": "Dokumentacja do wizyty 106",
+      "visit": 106
+    }
+  },
+  {
+    "model": "client.visit",
+    "pk": 107,
+    "fields": {
+      "visit_name": "Wizyta 2025-01-23 14:00",
+      "start_time": "2025-01-23T14:00:00",
+      "is_visit_finished": false,
+      "description": "Opis wizyty z 2025-01-23 14:00",
+      "created_at": "2025-01-06T15:00:35.275102",
+      "doctor": 2,
+      "user": 6
+    }
+  },
+  {
+    "model": "client.medicaldocumentation",
+    "pk": 107,
+    "fields": {
+      "file": "medical_docs/plik4.docx",
+      "file_name": "plik4.docx",
+      "file_description": "Dokumentacja do wizyty 107",
+      "visit": 107
+    }
+  },
+  {
+    "model": "client.visit",
+    "pk": 108,
+    "fields": {
+      "visit_name": "Wizyta 2025-01-23 14:30",
+      "start_time": "2025-01-23T14:30:00",
+      "is_visit_finished": false,
+      "description": "Opis wizyty z 2025-01-23 14:30",
+      "created_at": "2025-01-06T15:00:35.275102",
+      "doctor": 3,
+      "user": 7
+    }
+  },
+  {
+    "model": "client.medicaldocumentation",
+    "pk": 108,
+    "fields": {
+      "file": "medical_docs/plik3.docx",
+      "file_name": "plik3.docx",
+      "file_description": "Dokumentacja do wizyty 108",
+      "visit": 108
+    }
+  },
+  {
+    "model": "client.visit",
+    "pk": 109,
+    "fields": {
+      "visit_name": "Wizyta 2025-01-24 09:00",
+      "start_time": "2025-01-24T09:00:00",
+      "is_visit_finished": false,
+      "description": "Opis wizyty z 2025-01-24 09:00",
+      "created_at": "2025-01-06T15:00:35.275102",
+      "doctor": 1,
+      "user": 4
+    }
+  },
+  {
+    "model": "client.medicaldocumentation",
+    "pk": 109,
+    "fields": {
+      "file": "medical_docs/plik2.pdf",
+      "file_name": "plik2.pdf",
+      "file_description": "Dokumentacja do wizyty 109",
+      "visit": 109
+    }
+  },
+  {
+    "model": "client.visit",
+    "pk": 110,
+    "fields": {
+      "visit_name": "Wizyta 2025-01-24 09:30",
+      "start_time": "2025-01-24T09:30:00",
+      "is_visit_finished": false,
+      "description": "Opis wizyty z 2025-01-24 09:30",
+      "created_at": "2025-01-06T15:00:35.275102",
+      "doctor": 2,
+      "user": 5
+    }
+  },
+  {
+    "model": "client.medicaldocumentation",
+    "pk": 110,
+    "fields": {
+      "file": "medical_docs/plik3.docx",
+      "file_name": "plik3.docx",
+      "file_description": "Dokumentacja do wizyty 110",
+      "visit": 110
+    }
+  },
+  {
+    "model": "client.visit",
+    "pk": 111,
+    "fields": {
+      "visit_name": "Wizyta 2025-01-24 10:00",
+      "start_time": "2025-01-24T10:00:00",
+      "is_visit_finished": false,
+      "description": "Opis wizyty z 2025-01-24 10:00",
+      "created_at": "2025-01-06T15:00:35.275102",
+      "doctor": 3,
+      "user": 6
+    }
+  },
+  {
+    "model": "client.medicaldocumentation",
+    "pk": 111,
+    "fields": {
+      "file": "medical_docs/plik1.pdf",
+      "file_name": "plik1.pdf",
+      "file_description": "Dokumentacja do wizyty 111",
+      "visit": 111
+    }
+  },
+  {
+    "model": "client.visit",
+    "pk": 112,
+    "fields": {
+      "visit_name": "Wizyta 2025-01-24 10:30",
+      "start_time": "2025-01-24T10:30:00",
+      "is_visit_finished": false,
+      "description": "Opis wizyty z 2025-01-24 10:30",
+      "created_at": "2025-01-06T15:00:35.275102",
+      "doctor": 1,
+      "user": 7
+    }
+  },
+  {
+    "model": "client.medicaldocumentation",
+    "pk": 112,
+    "fields": {
+      "file": "medical_docs/plik2.pdf",
+      "file_name": "plik2.pdf",
+      "file_description": "Dokumentacja do wizyty 112",
+      "visit": 112
+    }
+  },
+  {
+    "model": "client.visit",
+    "pk": 113,
+    "fields": {
+      "visit_name": "Wizyta 2025-01-24 11:00",
+      "start_time": "2025-01-24T11:00:00",
+      "is_visit_finished": false,
+      "description": "Opis wizyty z 2025-01-24 11:00",
+      "created_at": "2025-01-06T15:00:35.275102",
+      "doctor": 2,
+      "user": 4
+    }
+  },
+  {
+    "model": "client.medicaldocumentation",
+    "pk": 113,
+    "fields": {
+      "file": "medical_docs/plik1.pdf",
+      "file_name": "plik1.pdf",
+      "file_description": "Dokumentacja do wizyty 113",
+      "visit": 113
+    }
+  },
+  {
+    "model": "client.visit",
+    "pk": 114,
+    "fields": {
+      "visit_name": "Wizyta 2025-01-24 11:30",
+      "start_time": "2025-01-24T11:30:00",
+      "is_visit_finished": false,
+      "description": "Opis wizyty z 2025-01-24 11:30",
+      "created_at": "2025-01-06T15:00:35.275102",
+      "doctor": 3,
+      "user": 5
+    }
+  },
+  {
+    "model": "client.medicaldocumentation",
+    "pk": 114,
+    "fields": {
+      "file": "medical_docs/plik1.pdf",
+      "file_name": "plik1.pdf",
+      "file_description": "Dokumentacja do wizyty 114",
+      "visit": 114
+    }
+  },
+  {
+    "model": "client.visit",
+    "pk": 115,
+    "fields": {
+      "visit_name": "Wizyta 2025-01-24 12:00",
+      "start_time": "2025-01-24T12:00:00",
+      "is_visit_finished": false,
+      "description": "Opis wizyty z 2025-01-24 12:00",
+      "created_at": "2025-01-06T15:00:35.275102",
+      "doctor": 1,
+      "user": 6
+    }
+  },
+  {
+    "model": "client.medicaldocumentation",
+    "pk": 115,
+    "fields": {
+      "file": "medical_docs/plik3.docx",
+      "file_name": "plik3.docx",
+      "file_description": "Dokumentacja do wizyty 115",
+      "visit": 115
+    }
+  },
+  {
+    "model": "client.visit",
+    "pk": 116,
+    "fields": {
+      "visit_name": "Wizyta 2025-01-24 12:30",
+      "start_time": "2025-01-24T12:30:00",
+      "is_visit_finished": false,
+      "description": "Opis wizyty z 2025-01-24 12:30",
+      "created_at": "2025-01-06T15:00:35.275102",
+      "doctor": 2,
+      "user": 7
+    }
+  },
+  {
+    "model": "client.medicaldocumentation",
+    "pk": 116,
+    "fields": {
+      "file": "medical_docs/plik4.docx",
+      "file_name": "plik4.docx",
+      "file_description": "Dokumentacja do wizyty 116",
+      "visit": 116
+    }
+  },
+  {
+    "model": "client.visit",
+    "pk": 117,
+    "fields": {
+      "visit_name": "Wizyta 2025-01-24 13:00",
+      "start_time": "2025-01-24T13:00:00",
+      "is_visit_finished": false,
+      "description": "Opis wizyty z 2025-01-24 13:00",
+      "created_at": "2025-01-06T15:00:35.275102",
+      "doctor": 3,
+      "user": 4
+    }
+  },
+  {
+    "model": "client.medicaldocumentation",
+    "pk": 117,
+    "fields": {
+      "file": "medical_docs/plik2.pdf",
+      "file_name": "plik2.pdf",
+      "file_description": "Dokumentacja do wizyty 117",
+      "visit": 117
+    }
+  },
+  {
+    "model": "client.visit",
+    "pk": 118,
+    "fields": {
+      "visit_name": "Wizyta 2025-01-24 13:30",
+      "start_time": "2025-01-24T13:30:00",
+      "is_visit_finished": false,
+      "description": "Opis wizyty z 2025-01-24 13:30",
+      "created_at": "2025-01-06T15:00:35.275102",
+      "doctor": 1,
+      "user": 5
+    }
+  },
+  {
+    "model": "client.medicaldocumentation",
+    "pk": 118,
+    "fields": {
+      "file": "medical_docs/plik3.docx",
+      "file_name": "plik3.docx",
+      "file_description": "Dokumentacja do wizyty 118",
+      "visit": 118
+    }
+  },
+  {
+    "model": "client.visit",
+    "pk": 119,
+    "fields": {
+      "visit_name": "Wizyta 2025-01-24 14:00",
+      "start_time": "2025-01-24T14:00:00",
+      "is_visit_finished": false,
+      "description": "Opis wizyty z 2025-01-24 14:00",
+      "created_at": "2025-01-06T15:00:35.275102",
+      "doctor": 2,
+      "user": 6
+    }
+  },
+  {
+    "model": "client.medicaldocumentation",
+    "pk": 119,
+    "fields": {
+      "file": "medical_docs/plik3.docx",
+      "file_name": "plik3.docx",
+      "file_description": "Dokumentacja do wizyty 119",
+      "visit": 119
+    }
+  },
+  {
+    "model": "client.visit",
+    "pk": 120,
+    "fields": {
+      "visit_name": "Wizyta 2025-01-24 14:30",
+      "start_time": "2025-01-24T14:30:00",
+      "is_visit_finished": false,
+      "description": "Opis wizyty z 2025-01-24 14:30",
+      "created_at": "2025-01-06T15:00:35.275102",
+      "doctor": 3,
+      "user": 7
+    }
+  },
+  {
+    "model": "client.medicaldocumentation",
+    "pk": 120,
+    "fields": {
+      "file": "medical_docs/plik3.docx",
+      "file_name": "plik3.docx",
+      "file_description": "Dokumentacja do wizyty 120",
+      "visit": 120
+    }
+  }
+]
