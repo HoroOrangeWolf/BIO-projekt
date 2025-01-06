@@ -99,7 +99,7 @@ const UpdateUserModal = (props: PropsType) => {
       open
       fullWidth
       maxWidth="md"
-      onClose={props.onClose?.()}
+      onClose={() => props.onClose?.()}
     >
       <DialogTitle textAlign="center">{t('user.actions.add_user')}</DialogTitle>
       <DialogContent dividers>

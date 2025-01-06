@@ -297,8 +297,7 @@ class VisitDocumentation(APIView):
             return Response(serializer.errors, status=400)
 
     def post(self, request, pk):
-        user_id = request.user.id
-        visit = get_object_or_404(Visit, pk=pk, user__id=user_id)
+        visit = get_object_or_404(Visit, pk=pk)
 
         serializer = VisitWriteDocumentationSerializer(data=request.data, context={'visit': visit})
         if serializer.is_valid():
@@ -316,8 +315,7 @@ class DownloadDocumentation(APIView):
         try:
             documentation = MedicalDocumentation.objects.get(
                 id=doc_id,
-                visit__id=pk,
-                visit__user__id=user_id
+                visit__id=pk
             )
             if not documentation.file:
                 return Response("File not found", status=404)
