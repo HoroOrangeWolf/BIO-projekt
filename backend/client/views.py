@@ -11,6 +11,7 @@ from rest_framework.views import APIView
 
 from administration.serializers import UserSerializer, SimpleUserSerializer
 from auth_api.models import AuthUser
+from mgr.encryption import EncryptionService
 from mgr.utils import IsUserWithSpecialPermission
 from .models import Visit, DoctorSpecialization, DoctorDetails, MedicalDocumentation
 from .serializers import SpecializationSerializer, VisitsNonSensitiveData, AddVisitsSerializer, VisitsSerializer, \
@@ -323,10 +324,14 @@ class DownloadDocumentation(APIView):
 
             file_path = documentation.file.path
 
+            with open(file_path, 'rb') as f:
+                encrypted_content = f.read()
+                encryption_service = EncryptionService()
+                decrypted_content = encryption_service.decrypt(encrypted_content)
+
             original_file_name = os.path.basename(documentation.file.name)
 
             if documentation.file_name:
-
                 name, ext = os.path.splitext(documentation.file_name)
                 if not ext:
                     _, original_ext = os.path.splitext(original_file_name)
@@ -340,10 +345,10 @@ class DownloadDocumentation(APIView):
             if mime_type is None:
                 mime_type = 'application/octet-stream'
 
-            with open(file_path, 'rb') as f:
-                response = HttpResponse(f.read(), content_type=mime_type)
-                response['Content-Disposition'] = f'attachment; filename="{smart_str(file_name)}"'
-                return response
+            response = HttpResponse(decrypted_content, content_type=mime_type)
+            response['Content-Disposition'] = f'attachment; filename="{smart_str(file_name)}"'
+            return response
+
         except MedicalDocumentation.DoesNotExist:
             return Response("File not found", status=404)
 

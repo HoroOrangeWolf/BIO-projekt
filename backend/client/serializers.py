@@ -1,9 +1,11 @@
 from datetime import timedelta
 
+from django.core.files.base import ContentFile
 from django.db.models import Q
 from rest_framework import serializers
 
 from administration.serializers import SimpleUserSerializer
+from mgr.encryption import EncryptionService
 from .models import Visit, DoctorSpecialization, DoctorDetails, MedicalDocumentation
 
 
@@ -116,6 +118,12 @@ class VisitWriteDocumentationSerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
         visit = self.context['visit']
+        file = validated_data.pop('file')
+        encryption_service = EncryptionService()
+        encrypted_file_content = encryption_service.encrypt(file.read())
+        encrypted_file = ContentFile(encrypted_file_content, name=file.name)
+        validated_data['file'] = encrypted_file
+
         return MedicalDocumentation.objects.create(visit=visit, **validated_data)
 
 
